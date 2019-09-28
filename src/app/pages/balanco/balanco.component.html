@@ -1,0 +1,282 @@
+<div class="row">
+    <form class="form-horizontal" autocomplete="off" #ativoForm="ngForm" id="contaForm"
+        [ngFormOptions]="{updateOn:'blur'}">
+        <!-- Ativo  -->
+
+        <div class="col-md-6">
+            <div class="form-group">
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-4">
+                    Ano 1
+                    <input type="number" name="ano1" [(ngModel)]="b1.ano" class="form-control input-sm" disabled>
+                </div>
+                <div class="col-sm-4">
+                    Ano 2
+                    <input type="number" name="ano2" [(ngModel)]="b2.ano" class="form-control input-sm" disabled>
+                </div>
+            </div>
+            <h3>Ativo</h3>
+            <hr>
+            <h4>Ativo Circulante</h4>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Caixa e Bancos</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AcCaixaBancos" [(ngModel)]="b1.acCaixaBancos"
+                        (blur)="totalAtivoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AcCaixaBancos" [(ngModel)]="b2.acCaixaBancos"
+                        (blur)="totalAtivoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Contas a Receber</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AcContasReceber" [(ngModel)]="b1.acContasReceber"
+                        (blur)="totalAtivoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AcContasReceber" [(ngModel)]="b2.acContasReceber"
+                        (blur)="totalAtivoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Estoques</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AcEstoque" [(ngModel)]="b1.acEstoque" (blur)="totalAtivoCirculanteB1()"
+                        class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AcEstoque" [(ngModel)]="b2.acEstoque" (blur)="totalAtivoCirculanteB2()"
+                        class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Total do Ativo Circulante</label>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AcTotal" [(ngModel)]="b1.acTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AcTotal" [(ngModel)]="b2.acTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+            </div>
+            <hr>
+            <h4>Ativo não Circulante</h4>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Realizável a Longo Prazo</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AncRealizavelLongoPrazo" [(ngModel)]="b1.ancRealizavelLongoPrazo"
+                        (blur)="totalAtivoNaoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AncRealizavelLongoPrazo" [(ngModel)]="b2.ancRealizavelLongoPrazo"
+                        (blur)="totalAtivoNaoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Investimento</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AncInvestimento" [(ngModel)]="b1.ancInvestimento"
+                        (blur)="totalAtivoNaoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AncInvestimento" [(ngModel)]="b2.ancInvestimento"
+                        (blur)="totalAtivoNaoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Imobilizado</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AncImobilizado" [(ngModel)]="b1.ancImobilizado"
+                        (blur)="totalAtivoNaoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AncImobilizado" [(ngModel)]="b2.ancImobilizado"
+                        (blur)="totalAtivoNaoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Intangível</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AncIntangivel" [(ngModel)]="b1.ancIntangivel"
+                        (blur)="totalAtivoNaoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AncIntangivel" [(ngModel)]="b2.ancIntangivel"
+                        (blur)="totalAtivoNaoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Total do Ativo não Circulante</label>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1AncTotal" [(ngModel)]="b1.ancTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2AncTotal" [(ngModel)]="b2.ancTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Total Ativo</label>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1aTotal" [(ngModel)]="b1.aTotal" class="form-control input-sm" disabled>
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2aTotal" [(ngModel)]="b2.aTotal" class="form-control input-sm" disabled>
+                </div>
+            </div>
+
+        </div>
+
+
+        <!-- Passivo -->
+
+
+
+        <div class="col-md-6">
+
+            <div class="form-group">
+                <label class="col-sm-4 control-label"></label>
+                <div class="col-sm-4">
+                    Ano 1
+                    <input type="number" name="ano1" [(ngModel)]="b1.ano" class="form-control input-sm" disabled>
+                </div>
+                <div class="col-sm-4">
+                    Ano 2
+                    <input type="number" name="ano2" [(ngModel)]="b2.ano" class="form-control input-sm" disabled>
+                </div>
+            </div>
+            <h3>Passivo</h3>
+            <hr>
+            <h4>Passivo Circulante</h4>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Contas a Pagar</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PcContasPagar" [(ngModel)]="b1.pcContasPagar"
+                        (blur)="totalPassivoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PcContasPagar" [(ngModel)]="b2.pcContasPagar"
+                        (blur)="totalPassivoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Fornecedores</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PcFornecedores" [(ngModel)]="b1.pcFornecedores"
+                        (blur)="totalPassivoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PcFornecedores" [(ngModel)]="b2.pcFornecedores"
+                        (blur)="totalPassivoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Empréstimos</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PcEmprestimo" [(ngModel)]="b1.pcEmprestimos"
+                        (blur)="totalPassivoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PcEmprestimo" [(ngModel)]="b2.pcEmprestimos"
+                        (blur)="totalPassivoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Total do Passivo Circulante</label>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PcTotal" [(ngModel)]="b1.pcTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PcTotal" [(ngModel)]="b2.pcTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+            </div>
+            <hr>
+            <h4>Passivo não Circulante</h4>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Exigível a Longo Prazo</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PncExigivelLongoPrazo" [(ngModel)]="b1.pncExigivelLongoPrazo"
+                        (blur)="totalPassivoNaoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PncExigivelLongoPrazo" [(ngModel)]="b2.pncExigivelLongoPrazo"
+                        (blur)="totalPassivoNaoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Empréstimos de Longo Prazo</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PncEmprestimosLp" [(ngModel)]="b1.pncEmprestimosLp"
+                        (blur)="totalPassivoNaoCirculanteB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PncEmprestimosLp" [(ngModel)]="b2.pncEmprestimosLp"
+                        (blur)="totalPassivoNaoCirculanteB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Total do Passivo não Circulante</label>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PncTotal" [(ngModel)]="b1.pncTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PncTotal" [(ngModel)]="b2.pncTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+            </div>
+            <hr>
+            <h4>Patrimônio Líquido</h4>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Capital Social</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PlCapitalSocial" [(ngModel)]="b1.plCapitalSocial"
+                        (blur)="totalPatrimonioLiquidoB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PlCapitalSocial" [(ngModel)]="b2.plCapitalSocial"
+                        (blur)="totalPatrimonioLiquidoB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <p class="col-sm-4 control-label">Reservas</p>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PlReservas" [(ngModel)]="b1.plReservas"
+                        (blur)="totalPatrimonioLiquidoB1()" class="form-control input-sm">
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PlReservas" [(ngModel)]="b2.plReservas"
+                        (blur)="totalPatrimonioLiquidoB2()" class="form-control input-sm">
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Total do Patrimônio Líquido</label>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1PlTotal" [(ngModel)]="b1.plTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2PlTotal" [(ngModel)]="b2.plTotal" class="form-control input-sm"
+                        disabled>
+                </div>
+            </div>
+            <hr>
+            <div class="form-group">
+                <label class="col-sm-4 control-label">Total Passivo + PL</label>
+                <div class="col-sm-4">
+                    <input currencyMask name="b1pTotal" [(ngModel)]="b1.pTotal" class="form-control input-sm" disabled>
+                </div>
+                <div class="col-sm-4">
+                    <input currencyMask name="b2pTotal" [(ngModel)]="b2.pTotal" class="form-control input-sm" disabled>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

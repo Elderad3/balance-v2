@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr class="table-border">
+                <th>Ativo</th>
+                <th>2018</th>
+                <th>AV</th>
+                <th>2019</th>
+                <th>AV</th>
+                <th>Passivo</th>
+                <th>2018</th>
+                <th>AV</th>
+                <th>2019</th>
+                <th>AV</th>
+            </tr>
+            <tr class="table-border">
+                <td>Circulante</td>
+                <td>{{b1.acTotal | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b1.acTotal/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>{{b2.acTotal | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b2.acTotal/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>Circulante</td>
+                <td>{{b1.pcTotal | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b1.pcTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>{{b2.pcTotal | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b2.pcTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+            </tr>
+            <tr class="table-border">
+                <td>Caixa e Bancos</td>
+                <td>{{b1.acCaixaBancos | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b1.acCaixaBancos/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>{{b2.acCaixaBancos | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b2.acCaixaBancos/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>Contas a Pagar</td>
+                <td>{{b1.pcContasPagar | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b1.pcContasPagar/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>{{b2.pcContasPagar | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b2.pcContasPagar/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+            </tr>
+            <tr class="table-border">
+                <td>Contas a receber</td>
+                <td>{{b1.acContasReceber | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b1.acContasReceber/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>{{b2.acContasReceber | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b2.acContasReceber/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>Fornecedores</td>
+                <td>{{b1.pcFornecedores | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b1.pcFornecedores/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                <td>{{b2.pcFornecedores | number:'1.2-2'}}</td>
+                <td><span class="badge bg-green">{{(b2.pcFornecedores/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+            </tr>
+        </table>
+    </div>
+</div>

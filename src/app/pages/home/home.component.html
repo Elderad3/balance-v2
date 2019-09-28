@@ -1,0 +1,67 @@
+<div class="row">
+    <div class="col-md-12">
+        <!-- Custom Tabs -->
+        
+        <div class="nav-tabs-custom">
+            <ul class="nav nav-tabs">
+                <li class="active"><a href="#tab_0" data-toggle="tab"><b>Balanço</b></a></li>
+                <li><a href="#tab_1" data-toggle="tab"><b>Índices</b></a></li>
+                <li><a href="#tab_2" (click)="loadCapitalDeGiro()"  data-toggle="tab"><b>Capital de Giro</b></a></li>
+                <li><a href="#tab_3" (click)="loadAnaliseVertical()" data-toggle="tab"><b>Análise Vertical</b></a></li>
+                <li><a href="#tab_4" data-toggle="tab"><b>Análise Horizontal</b></a></li>
+                <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
+            </ul>
+            <div class="tab-content">
+                <div class="tab-pane active" id="tab_0">
+                   <app-balanco [b1]="b1" [b2]="b2"></app-balanco>
+                </div>
+                <div class="tab-pane" id="tab_1">
+                    <div class="nav-tabs-custom">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a href="#tab_5" data-toggle="tab">Situação Financeira</a></li>
+                            <li><a href="#tab_6" data-toggle="tab">Situação Econômica</a></li>
+                            <li><a href="#tab_7" data-toggle="tab">Ciclo Operacional e Financeiro</a></li>
+                            <li><a href="#tab_8" data-toggle="tab">Ebitda e Ebit</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab_5">
+
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_6">
+                                <p><b>Sigla: </b>Descrição do conteúdo exemplificando o significado de cada sigla</p>
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_7">
+                                <p>Descrição do conteúdo exemplificando o significado de cada sigla</p>
+                            </div>
+                            <!-- /.tab-pane -->
+                            <div class="tab-pane" id="tab_8">
+                                <p>Descrição do conteúdo exemplificando o significado de cada sigla</p>
+                            </div>
+                            <!-- /.tab-pane -->
+                        </div>
+                        <!-- /.tab-content -->
+                    </div>
+                    <!-- nav-tabs-custom -->
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_2">
+                    <app-capital-giro [b1]="b1" [b2]="b2" *ngIf="capitalDeGiroLoad"></app-capital-giro>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_3">
+                    <app-analise-vertical *ngIf="analiseVerticalLoad" [b1]="b1" [b2]="b2"></app-analise-vertical>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_4">
+                    <p>Descrição do conteúdo exemplificando o significado de cada sigla</p>
+                </div>
+                <!-- /.tab-pane -->
+            </div>
+            <!-- /.tab-content -->
+        </div>
+        <!-- nav-tabs-custom -->
+    </div>
+    <!-- /.col -->
+</div>

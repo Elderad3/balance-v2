@@ -1,0 +1,7 @@
+<div>
+    <label>{{label}}</label>
+    <ng-content></ng-content>
+    <div *ngIf="hasError()" class="ui-message ui-messages-error">
+        {{errorMessage}}
+    </div>
+</div>
