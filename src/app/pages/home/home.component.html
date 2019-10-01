@@ -8,7 +8,7 @@
                 <li><a href="#tab_1" data-toggle="tab"><b>Índices</b></a></li>
                 <li><a href="#tab_2" (click)="loadCapitalDeGiro()"  data-toggle="tab"><b>Capital de Giro</b></a></li>
                 <li><a href="#tab_3" (click)="loadAnaliseVertical()" data-toggle="tab"><b>Análise Vertical</b></a></li>
-                <li><a href="#tab_4" data-toggle="tab"><b>Análise Horizontal</b></a></li>
+                <li><a href="#tab_4" (click)="loadAnaliseHorizontal()" data-toggle="tab"><b>Análise Horizontal</b></a></li>
                 <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
             </ul>
             <div class="tab-content">
@@ -55,7 +55,7 @@
                 </div>
                 <!-- /.tab-pane -->
                 <div class="tab-pane" id="tab_4">
-                    <p>Descrição do conteúdo exemplificando o significado de cada sigla</p>
+                  <app-analise-horizontal *ngIf="analiseHorizontalLoad" [b1]="b1" [b2]="b2"></app-analise-horizontal>
                 </div>
                 <!-- /.tab-pane -->
             </div>

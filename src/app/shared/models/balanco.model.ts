@@ -2,7 +2,7 @@ import { BaseResourceModel } from './base-resource.model';
 
 export class Balanco extends BaseResourceModel{
   
-     public ano: number = 2018
+     public ano: number = 0
      public acCaixaBancos: number = 0
      public acContasReceber: number  = 0
      public acEstoque: number = 0

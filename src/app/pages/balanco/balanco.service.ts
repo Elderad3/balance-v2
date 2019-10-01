@@ -7,6 +7,10 @@ export class BalancoService {
 
   constructor() { }
 
+  atualizarAno2(ano1: number){
+    return ano1 + 1
+  }
+
   totalAtivoCirculante(caixa: number, contasReceber : number, estoques: number):number{
     return caixa + contasReceber + estoques
   }

@@ -13,7 +13,8 @@ export class HomeComponent implements OnInit {
   b2: Balanco  = new Balanco()
 
   capitalDeGiroLoad: boolean = false
-  analiseVerticalLoad: boolean =false
+  analiseVerticalLoad: boolean = false
+  analiseHorizontalLoad:  boolean = false
 
   constructor() { }
 
@@ -30,6 +31,9 @@ export class HomeComponent implements OnInit {
     this.analiseVerticalLoad = true
   }
 
+  loadAnaliseHorizontal(){
+    this.analiseHorizontalLoad = true
+  }
  
 
 }
