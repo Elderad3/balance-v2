@@ -5,7 +5,7 @@
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                 <li class="active"><a href="#tab_0" data-toggle="tab"><b>Balanço</b></a></li>
-                <li><a href="#tab_1" data-toggle="tab"><b>Índices</b></a></li>
+                <li><a href="#tab_1" (click)="loadSituacaoFinanceira()" data-toggle="tab"><b>Índices</b></a></li>
                 <li><a href="#tab_2" (click)="loadCapitalDeGiro()"  data-toggle="tab"><b>Capital de Giro</b></a></li>
                 <li><a href="#tab_3" (click)="loadAnaliseVertical()" data-toggle="tab"><b>Análise Vertical</b></a></li>
                 <li><a href="#tab_4" (click)="loadAnaliseHorizontal()" data-toggle="tab"><b>Análise Horizontal</b></a></li>
@@ -25,11 +25,11 @@
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane active" id="tab_5">
-
+                              <app-situacao-financeira *ngIf="situacaoFinanceiraLoad" [b1]="b1" [b2]="b2"></app-situacao-financeira>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_6">
-                                <p><b>Sigla: </b>Descrição do conteúdo exemplificando o significado de cada sigla</p>
+                            <app-situacao-economica></app-situacao-economica>
                             </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="tab_7">

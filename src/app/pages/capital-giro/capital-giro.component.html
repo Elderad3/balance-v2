@@ -16,9 +16,9 @@
               R$ {{b1.pcTotal| number:'1.2-2'}} estão comprometidos com as dívidas de curto prazo e R$ {{b1.acTotal - b1.pcTotal | number:'1.2-2'}} 
              estão livres, isso significa que a empresa consegue girar sua operação e atividade apenas com dinheiro próprio e está livre de dívidas de curto prazo.</p>
           <p *ngIf="b1.acTotal - b1.pcTotal < 0">
-              No exercício de {{b2.ano}} o resultado ficou negativo porque as dívidas de curto prazo, Passivo circulante, são
+              No exercício de {{b1.ano}} o resultado ficou negativo porque as dívidas de curto prazo, Passivo circulante, são
               maiores que os recursos do ativo circulante, portanto, se a empresa transformasse todas as contas do ativo circulante em dinheiro, faltariam 
-              R$ {{b2.acTotal - b2.pcTotal | number:'1.2-2'}} para cobrir as dívidas de curto Prazo.
+              R$ {{b1.acTotal - b1.pcTotal | number:'1.2-2'}} para cobrir as dívidas de curto Prazo.
               Demonstra que a empresa não consegue realizar suas atividades mensais
               apenas com o dinheiro advindo do próprio negócio.</p>
         </div>
@@ -52,6 +52,10 @@
             O CGP positivo demonstra que a parcela de R$ {{b1.plTotal - b1.ancTotal | number:'1.2-2'}} do Ativo Circulante não está comprometida 
             com nenhuma dívida nem de curto e nem de longo prazo, pois sua origem é o patrimônio líquido.
           </p>
+          <p *ngIf="b1.plTotal - b1.ancTotal > 0">
+            A empresa apresentou CGP positivo de R$ {{b1.plTotal - b1.ancTotal | number:'1.2-2'}}, isso demonstra que o capital próprio (PL) foi mais do que
+            suficiente para cobrir investimentos de longo prazo.
+          </p>
           <p *ngIf="b1.plTotal - b1.ancTotal < 0">
             O CGP negativo significa que os recursos do Patrimônio Líquido não foram suficientes para cobrir os investimentos fixos
             (investimento, imobilizado e intangivel) e os de Longo Prazo (Realizável a Longo prazo). É notável também que o patrimônio
@@ -64,6 +68,10 @@
           <p *ngIf="b2.plTotal - b2.ancTotal > 0">
               O CGP positivo demonstra que a parcela de R$ {{b1.plTotal - b1.ancTotal | number:'1.2-2'}} do Ativo Circulante não está comprometida 
               com nenhuma dívida nem de curto e nem de longo prazo, pois sua origem é o patrimônio líquido.
+          </p>
+          <p *ngIf="b2.plTotal - b2.ancTotal > 0">
+            A empresa apresentou CGP positivo de R$ {{b2.plTotal - b2.ancTotal | number:'1.2-2'}}, isso demonstra que o capital próprio (PL) foi mais do que
+            suficiente para cobrir investimentos de longo prazo.
           </p>
           <p *ngIf="b2.plTotal - b2.ancTotal < 0">
               O CGP negativo significa que os recursos do Patrimônio Líquido não foram suficientes para cobrir os investimentos fixos

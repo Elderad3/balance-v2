@@ -15,6 +15,7 @@ export class HomeComponent implements OnInit {
   capitalDeGiroLoad: boolean = false
   analiseVerticalLoad: boolean = false
   analiseHorizontalLoad:  boolean = false
+  situacaoFinanceiraLoad:  boolean = false
 
   constructor() { }
 
@@ -33,6 +34,10 @@ export class HomeComponent implements OnInit {
 
   loadAnaliseHorizontal(){
     this.analiseHorizontalLoad = true
+  }
+
+  loadSituacaoFinanceira(){
+    this.situacaoFinanceiraLoad = true
   }
  
 

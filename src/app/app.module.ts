@@ -18,6 +18,8 @@ import { BalancoComponent } from './pages/balanco/balanco.component';
 import { AnaliseVerticalComponent } from './pages/analise-vertical/analise-vertical.component';
 import { CapitalGiroComponent } from './pages/capital-giro/capital-giro.component';
 import { AnaliseHorizontalComponent } from './pages/analise-horizontal/analise-horizontal.component';
+import { SituacaoFinanceiraComponent } from './pages/situacao-financeira/situacao-financeira.component';
+import { SituacaoEconomicaComponent } from './pages/situacao-economica/situacao-economica.component';
 
 
 registerLocaleData(localePtBr);
@@ -38,7 +40,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     BalancoComponent,
     AnaliseVerticalComponent,
     CapitalGiroComponent,
-    AnaliseHorizontalComponent
+    AnaliseHorizontalComponent,
+    SituacaoFinanceiraComponent,
+    SituacaoEconomicaComponent
   ],
   imports: [
     BrowserModule,

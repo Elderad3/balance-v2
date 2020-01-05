@@ -2,7 +2,7 @@
     <div class="col-md-12">
         <p><b>A Análise vertical tem como propósito determinar a porcentagem de cada conta contábil em relação ao total
                 do ativo ou passivo</b></p>
-        <p><i>Fórmula: AV = (b1.acTotal/b1.aTotal)*100</i></p>
+        <p><i>Fórmula: AV = (Ativo circulante Total/Ativo Total)*100</i></p>
     </div>
     <div class="col-md-12">
         <table class="table table-striped">
@@ -22,93 +22,93 @@
                 <tr>
                     <td>Caixa e Bancos</td>
                     <td>{{b1.acCaixaBancos | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.acCaixaBancos/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.acCaixaBancos/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.acCaixaBancos | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.acCaixaBancos/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.acCaixaBancos/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>Contas a Pagar</td>
                     <td>{{b1.pcContasPagar | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.pcContasPagar/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.pcContasPagar/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.pcContasPagar | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.pcContasPagar/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.pcContasPagar/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td>Contas a receber</td>
                     <td>{{b1.acContasReceber | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.acContasReceber/b1.aTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b1.acContasReceber/b1.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>{{b2.acContasReceber | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.acContasReceber/b2.aTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b2.acContasReceber/b2.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>Fornecedores</td>
                     <td>{{b1.pcFornecedores | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.pcFornecedores/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.pcFornecedores/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.pcFornecedores | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.pcFornecedores/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.pcFornecedores/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td>Estoques</td>
                     <td>{{b1.acEstoque | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.acEstoque/b1.aTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b1.acEstoque/b1.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>{{b2.acEstoque | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.acEstoque/b2.aTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b2.acEstoque/b2.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>Empréstimos</td>
                     <td>{{b1.pcEmprestimos| number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.pcEmprestimos/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.pcEmprestimos/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.pcEmprestimos| number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.pcEmprestimos/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.pcEmprestimos/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td><b>Ativo Circulante</b></td>
                     <td><b>{{b1.acTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b1.acTotal/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.acTotal/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>{{b2.acTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b2.acTotal/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.acTotal/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>Passivo Circulante</b></td>
                     <td><b>{{b1.pcTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b1.pcTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.pcTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>{{b2.pcTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b2.pcTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.pcTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td>Realizável a Longo Prazo</td>
                     <td>{{b1.ancRealizavelLongoPrazo | number:'1.2-2'}}</td>
                     <td><span
-                            class="badge bg-green">{{(b1.ancRealizavelLongoPrazo/b1.aTotal)*100 | number:'1.2-2'}}%</span>
+                            class="badge bg-light-blue">{{(b1.ancRealizavelLongoPrazo/b1.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>{{b2.ancRealizavelLongoPrazo | number:'1.2-2'}}</td>
                     <td><span
-                            class="badge bg-green">{{(b2.ancRealizavelLongoPrazo/b2.aTotal)*100 | number:'1.2-2'}}%</span>
+                            class="badge bg-light-blue">{{(b2.ancRealizavelLongoPrazo/b2.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>Exigível a Longo Prazo</td>
                     <td>{{b1.pcTotal | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.pcTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.pcTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.pcTotal | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.pcTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.pcTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td>Investimento</td>
                     <td>{{b1.ancInvestimento | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.ancInvestimento/b1.aTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b1.ancInvestimento/b1.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>{{b2.ancInvestimento | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.ancInvestimento/b2.aTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b2.ancInvestimento/b2.aTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>Empréstimos de Longo Prazo</td>
                     <td>{{b1.pncEmprestimosLp | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.pncEmprestimosLp/b1.pTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b1.pncEmprestimosLp/b1.pTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>{{b2.pncEmprestimosLp | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.pncEmprestimosLp/b2.pTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b2.pncEmprestimosLp/b2.pTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                 </tr>
                 <tr>
                     <td>Imobilizado</td>
                     <td>{{b1.ancImobilizado | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.ancImobilizado/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.ancImobilizado/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.ancImobilizado | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.ancImobilizado/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.ancImobilizado/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -118,9 +118,9 @@
                 <tr>
                     <td>Intangível</td>
                     <td>{{b1.ancIntangivel | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.ancIntangivel/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.ancIntangivel/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.ancIntangivel | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.ancIntangivel/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.ancIntangivel/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td></td>
                     <td></td>
                     <td></td>
@@ -130,14 +130,14 @@
                 <tr>
                     <td><b>Ativo Não Circulante</b></td>
                     <td><b>{{b1.ancTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b1.ancTotal/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.ancTotal/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>{{b2.ancTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b2.ancTotal/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.ancTotal/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>Passivo Não Circulante</b></td>
                     <td><b>{{b1.pncTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b1.pncTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.pncTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>{{b2.pncTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b2.pncTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.pncTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -147,10 +147,10 @@
                     <td></td>
                     <td>Capital Social</td>
                     <td>{{b1.plCapitalSocial | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.plCapitalSocial/b1.pTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b1.plCapitalSocial/b1.pTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                     <td>{{b2.plCapitalSocial | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.plCapitalSocial/b2.pTotal)*100 | number:'1.2-2'}}%</span>
+                    <td><span class="badge bg-light-blue">{{(b2.plCapitalSocial/b2.pTotal)*100 | number:'1.2-2'}}%</span>
                     </td>
                 </tr>
                 <tr>
@@ -161,9 +161,9 @@
                     <td></td>
                     <td>Reservas</td>
                     <td>{{b1.plReservas | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b1.plReservas/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.plReservas/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td>{{b2.plReservas | number:'1.2-2'}}</td>
-                    <td><span class="badge bg-green">{{(b2.plReservas/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.plReservas/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td></td>
@@ -173,21 +173,21 @@
                     <td></td>
                     <td><b>Patrimônio Líquido</b></td>
                     <td><b>{{b1.plTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b1.plTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.plTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>{{b2.plTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b2.plTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.plTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
                 <tr>
                     <td><b>Total do Ativo</b></td>
                     <td><b>{{b1.aTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b1.aTotal/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.aTotal/b1.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>{{b2.aTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b2.aTotal/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.aTotal/b2.aTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>Total do Passivo + PL</b></td>
                     <td><b>{{b1.pTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b1.pTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b1.pTotal/b1.pTotal)*100 | number:'1.2-2'}}%</span></td>
                     <td><b>{{b2.pTotal | number:'1.2-2'}}</b></td>
-                    <td><span class="badge bg-green">{{(b2.pTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
+                    <td><span class="badge bg-light-blue">{{(b2.pTotal/b2.pTotal)*100 | number:'1.2-2'}}%</span></td>
                 </tr>
             </tbody>
         </table>

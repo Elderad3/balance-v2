@@ -1,0 +1,219 @@
+<div class="row">
+    <div class="col-md-12">
+
+     <!-- LIQUIDEZ CORRENTE -->
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <h5 class="box-title">Liquidez Corrente (LC)</h5>
+            </div>
+            <div class="box-body">
+                <div class="col-md-12">
+                    <p><b>O Índice de Liquidez corrente indica o quanto a empresa possui no Ativo Circulante para R$
+                            1,00 de Passivo Circulante</b></p>
+                    <p><i>Fórmula: LC = AC / PC | Quanto maior do que 1, melhor</i></p>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{b1.ano}}</h4>
+                <p><i>Ativo Circulante: {{b1.acTotal | number:'1.2-2'}}</i></p>
+                <p><i>Passivo Circulante: {{b1.pcTotal | number:'1.2-2'}}</i></p>
+                    <h3 [ngClass]="b1.acTotal / b1.pcTotal >= 1 ? 'text-green' : 'text-red'">
+                        {{b1.acTotal / b1.pcTotal  | number:'1.2-2'}}</h3>
+               
+                        <p *ngIf="b1.acTotal / b1.pcTotal > 1"  class="text-green">
+                            Para cada R$ 1,00 do Passivo Circulante, a empresa detinha R$
+                            {{b1.acTotal / b1.pcTotal  | number:'1.2-2'}} no Ativo Circulante, ou seja,
+                            uma folga de R$ {{(b1.acTotal / b1.pcTotal) -1  | number:'1.2-2'}} para cada R$ 1,00 de dívidas
+                            de curto prazo.<br>
+                            O Resultado demonstra folga no disponível para uma possível liquidação das obrigações.
+                        </p>
+
+                    <p *ngIf="b1.acTotal / b1.pcTotal < 1" class="text-red">
+                        A empresa não detinha capital disponível suficiente para quitar as obrigações a curto prazo, caso
+                        fosse preciso.
+                    </p>
+                </div>
+               
+                <div class="col-md-6">
+                    <h4>{{b2.ano}}</h4>
+                    <p><i>Ativo Circulante: {{b2.acTotal | number:'1.2-2'}}</i></p>
+                <p><i>Passivo Circulante: {{b2.pcTotal | number:'1.2-2'}}</i></p>
+                    <h3 [ngClass]="b2.acTotal / b2.pcTotal  >= 1 ? 'text-green' : 'text-red'">
+                        {{b2.acTotal / b2.pcTotal  | number:'1.2-2'}}</h3>
+                    
+                    <p *ngIf="b2.acTotal / b2.pcTotal > 1"  class="text-green">
+                        Para cada R$ 1,00 do Passivo Circulante, a empresa detinha R$
+                        {{b2.acTotal / b2.pcTotal  | number:'1.2-2'}} no Ativo Circulante, ou seja,
+                        uma folga de R$ {{(b2.acTotal / b2.pcTotal) -1  | number:'1.2-2'}} para cada R$ 1,00 de dívidas
+                        de curto prazo.
+                    </p>
+                    <p *ngIf="b2.acTotal / b2.pcTotal < 1"  class="text-red">
+                        A empresa não possuía capital disponível suficiente para quitar as obrigações a curto prazo, caso
+                        for preciso.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- LIQUIDEZ GERAL -->
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <h5 class="box-title">Liquidez Geral (LC)</h5>
+            </div>
+            <div class="box-body">
+                <div class="col-md-12">
+                    <p><b>O Índice de Liquidez Geral indica o quanto a empresa possui no Ativo Circulante e no
+                            realizável a longo prazo para R$
+                            1,00 de dívidas Totais (Passivo Circulante e Passivo não Circulante)</b></p>
+                    <p><i>Fórmula: LG = AC + RLP / PC + PNC | Quanto maior do que 1, melhor</i></p>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{b1.ano}}</h4>
+                    <p><i>Ativo Circulante: {{b1.acTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Realizável a Longo Prazo: {{b1.ancRealizavelLongoPrazo | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo Circulante: {{b1.pcTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo não Circulante: {{b1.pncTotal | number:'1.2-2'}}</i></p>
+                    <h3
+                        [ngClass]="((b1.acTotal + b1.ancRealizavelLongoPrazo) / (b1.pcTotal + b1.pncTotal)) >= 1 ? 'text-green' : 'text-red'">
+                        {{((b1.acTotal + b1.ancRealizavelLongoPrazo) / (b1.pcTotal + b1.pncTotal))  | number:'1.2-2'}}
+                    </h3>
+                    <p *ngIf="((b1.acTotal + b1.ancRealizavelLongoPrazo) / (b1.pcTotal + b1.pncTotal)) > 1"  class="text-green">
+                        Para cada R$ 1,00 de dívidas totais, a empresa possuía R$
+                        {{((b1.acTotal + b1.ancRealizavelLongoPrazo) / (b1.pcTotal + b1.pncTotal))  | number:'1.2-2'}}
+                        nos grupos Ativo Circulante e Realizável a longo prazo, ou seja,
+                        uma folga de R$
+                        {{((b1.acTotal + b1.ancRealizavelLongoPrazo) / (b1.pcTotal + b1.pncTotal)) -1  | number:'1.2-2'}}
+                        para cada R$ 1,00 de dívidas.
+                    </p>
+                    <p *ngIf="((b1.acTotal + b1.ancRealizavelLongoPrazo) / (b1.pcTotal + b1.pncTotal)) < 1" class="text-red">
+                        A empresa possuía capital disponível suficiente para quitar as obrigações totais.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{b2.ano}}</h4>
+                    <p><i>Ativo Circulante: {{b2.acTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Realizável a Longo Prazo: {{b2.ancRealizavelLongoPrazo | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo Circulante: {{b2.pcTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo não Circulante: {{b2.pncTotal | number:'1.2-2'}}</i></p>
+                    <h3
+                        [ngClass]="((b2.acTotal + b2.ancRealizavelLongoPrazo) / (b2.pcTotal + b2.pncTotal))  >= 1 ? 'text-green' : 'text-red'">
+                        {{((b2.acTotal + b2.ancRealizavelLongoPrazo) / (b2.pcTotal + b2.pncTotal))  | number:'1.2-2'}}
+                    </h3>
+                    <p *ngIf="((b2.acTotal + b2.ancRealizavelLongoPrazo) / (b2.pcTotal + b2.pncTotal)) > 1"  class="text-green">
+                        Para cada R$ 1,00 de dívidas totais, a empresa possuía R$
+                        {{((b2.acTotal + b2.ancRealizavelLongoPrazo) / (b2.pcTotal + b2.pncTotal))  | number:'1.2-2'}}
+                        nos grupos Ativo Circulante e Realizável a longo prazo, ou seja,
+                        uma folga de R$
+                        {{((b2.acTotal + b2.ancRealizavelLongoPrazo) / (b2.pcTotal + b2.pncTotal)) -1  | number:'1.2-2'}}
+                        para cada R$ 1,00 de dívidas.
+                    </p>
+                    <p *ngIf="((b2.acTotal + b2.ancRealizavelLongoPrazo) / (b2.pcTotal + b2.pncTotal)) < 1" class="text-red">
+                        A empresa não possuía capital disponível suficiente para quitar as obrigações totais.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+   <!-- LIQUIDEZ SECA -->
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <h5 class="box-title">Liquidez Seca (LS)</h5>
+            </div>
+            <div class="box-body">
+                <div class="col-md-12">
+                    <p><b>O Índice de Liquidez Seca indica o quanto a empresa possui no Ativo Circulante, excluindo a
+                            conta de estoques, para R$
+                            1,00 de dívidas de curto prazo (Passivo Circulante).</b></p>
+                    <p><i>Fórmula: LG = AC - Estoques / PC | Quanto maior, melhor</i></p>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{b1.ano}}</h4>
+                    <p><i>Ativo Circulante: {{b1.acTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Estoque: {{b1.acEstoque | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo Circulante: {{b1.pcTotal | number:'1.2-2'}}</i></p>
+                    <h3 [ngClass]="((b1.acTotal - b1.acEstoque) / b1.pcTotal) >= 1 ? 'text-green' : 'text-red'">
+                        {{((b1.acTotal - b1.acEstoque) / b1.pcTotal)  | number:'1.2-2'}}</h3>
+                    <p *ngIf="((b1.acTotal - b1.acEstoque) / b1.pcTotal) > 1"  class="text-green">
+                        A empresa conseguiria pagar
+                        mais de 100% das suas dívidas de curto
+                        prazo sem depender dos seus estoques.
+                    </p>
+                    <p *ngIf="((b1.acTotal - b1.acEstoque) / b1.pcTotal) < 1" class="text-red">
+                        A empresa conseguiria pagar apenas
+                        {{(b1.acTotal - b1.acEstoque) / b1.pcTotal * 100 | number:'1.2-2'}}% das suas dívidas de curto
+                        prazo sem depender dos seus estoques.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{b2.ano}}</h4>
+                    <p><i>Ativo Circulante: {{b2.acTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Estoque: {{b2.acEstoque | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo Circulante: {{b2.pcTotal | number:'1.2-2'}}</i></p>
+                    <h3 [ngClass]="((b2.acTotal - b2.acEstoque) / b2.pcTotal)  >= 1 ? 'text-green' : 'text-red'">
+                        {{((b2.acTotal - b2.acEstoque) / b2.pcTotal) | number:'1.2-2'}}</h3>
+                    <p *ngIf="((b2.acTotal - b2.acEstoque) / b2.pcTotal) > 1"  class="text-green">
+                        A empresa conseguiria pagar
+                        mais de 100% das suas dívidas de curto
+                        prazo sem depender dos seus estoques.
+                    </p>
+                    <p *ngIf="((b2.acTotal - b2.acEstoque) / b2.pcTotal) < 1" class="text-red">
+                        A empresa conseguiria pagar apenas
+                        {{((b2.acTotal - b2.acEstoque) / b2.pcTotal) * 100 | number:'1.2-2'}}% das suas dívidas de curto
+                        prazo sem depender dos seus estoques.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+   <!-- GRAU DE SOLVÊNCIA -->
+
+        <div class="box box-primary">
+            <div class="box-header">
+                <h5 class="box-title">Grau de Solvência (GS)</h5>
+            </div>
+            <div class="box-body">
+                <div class="col-md-12">
+                    <p><b>O Grau de Solvência indica a capacidade da empresa em saldar suas dívidas, de curto e longo
+                            prazos, levando
+                            em conta os seus ativos totais.</b></p>
+                    <p><i>Fórmula: GS = AT / (PC + PNC) x 100 | Quanto maior que 100, melhor</i></p>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{b1.ano}}</h4>
+                    <p><i>Ativo Total: {{b1.aTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo Circulante: {{b1.pcTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo não Circulante: {{b1.pncTotal | number:'1.2-2'}}</i></p>
+                    <h3 [ngClass]="b1.aTotal / (b1.pcTotal  + b1.pncTotal)  * 100 >= 100 ? 'text-green' : 'text-red'">
+                        {{b1.aTotal / (b1.pcTotal  + b1.pncTotal)  * 100 | number:'1.2-2'}}</h3>
+                    <p *ngIf="b1.aTotal / (b1.pcTotal  + b1.pncTotal)  * 100 > 100"  class="text-green">
+                        Para cada R$ 100,00 de dívidas, a empresa possuía R$
+                        {{b1.aTotal / (b1.pcTotal  + b1.pncTotal) * 100 | number:'1.2-2'}} de ativos.
+                    </p>
+                    <p *ngIf="b1.aTotal / (b1.pcTotal  + b1.pncTotal)  * 100 < 100" class="text-red">
+                        Para cada R$ 100,00 de dívidas, a empresa possuía  apenas R$
+                        {{b1.aTotal / (b1.pcTotal  + b1.pncTotal) * 100 | number:'1.2-2'}} de ativos, o que é insufuciente para saldar suas dívidas.
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <h4>{{b2.ano}}</h4>
+                    <p><i>Ativo Total: {{b2.aTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo Circulante: {{b2.pcTotal | number:'1.2-2'}}</i></p>
+                    <p><i>Passivo não Circulante: {{b2.pncTotal | number:'1.2-2'}}</i></p>
+                    <h3 [ngClass]="b2.aTotal / (b2.pcTotal  + b2.pncTotal)  * 100 >= 100 ? 'text-green' : 'text-red'">
+                        {{b2.aTotal / (b2.pcTotal + b2.pncTotal)  * 100 | number:'1.2-2'}}</h3>
+                    <p *ngIf="b2.aTotal / (b2.pcTotal + b2.pncTotal)  * 100 > 100"  class="text-green">
+                        Para cada R$ 100,00 de dívidas, a empresa possuía R$
+                        {{b2.aTotal / (b2.pcTotal  + b2.pncTotal) * 100 | number:'1.2-2'}} de ativos.
+                    </p>
+                    <p *ngIf="b2.aTotal / (b2.pcTotal + b2.pncTotal) * 100 < 100" class="text-red">
+                        Para cada R$ 100,00 de dívidas, a empresa possuía  apenas R$
+                        {{b2.aTotal / (b2.pcTotal  + b2.pncTotal) * 100 | number:'1.2-2'}} de ativos, o que é insufuciente para saldar suas dívidas.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
