@@ -1,7 +1,7 @@
 import { Conta } from './conta.model';
-export class AnaliseVertical{
+export class AnaliseHorizontal{
     public conta1: Conta
     public conta2: Conta
-    public avAno1: number
-    public avAno2: number
+    public ahAno1: number
+    public ahAno2: number
 }

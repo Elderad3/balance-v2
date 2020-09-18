@@ -1,43 +1,121 @@
-import { Injectable } from '@angular/core';
+import { Injectable } from "@angular/core";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class BalancoService {
-
   constructor() { }
 
-  atualizarAno2(ano1: number){
-    return ano1 + 1
+  atualizarAno2(ano1: number) {
+    return ano1 + 1;
   }
 
-  totalAtivoCirculante(caixa: number, contasReceber : number, estoques: number):number{
-    return caixa + contasReceber + estoques
+  calcularTotais(balanco) {
+    this.totalAtivoCirculante(balanco);
+    this.totalAtivoNaoCirculante(balanco);
+    this.totalAtivo(balanco);
+    this.totalPassivoCirculante(balanco);
+    this.totalPassivoNaoCirculante(balanco);
+    this.totalPatrimonioLiquido(balanco);
+    this.totalPassivo(balanco);
   }
 
-  totalAtivoNaoCirculante(rlp: number, investimento: number, imobilizado:number, intangivel):number{
-    return rlp + investimento + intangivel+ imobilizado
+  totalAtivoCirculante(balanco) {
+    let contasfiltradas = balanco.contas.filter(
+      conta => conta.classe === "ac" && conta.tipo === "A"
+    );
+    let total = contasfiltradas.reduce(function (a, b) {
+      return a + b["valor"];
+    }, 0);
+    balanco.contas.forEach(conta =>
+      conta.classe === "ac" && conta.tipo === "S"
+        ? (conta.valor = total)
+        : undefined
+    );
   }
 
-  totalAtivo(totalAtivoCirculante: number, totalAtivoNaoCirculante):number{
-    return totalAtivoCirculante + totalAtivoNaoCirculante
+  totalAtivoNaoCirculante(balanco) {
+    let contasfiltradas = balanco.contas.filter(
+      conta => conta.classe === "anc" && conta.tipo === "A"
+    );
+    let total = contasfiltradas.reduce(function (a, b) {
+      return a + b["valor"];
+    }, 0);
+    balanco.contas.forEach(conta =>
+      conta.classe === "anc" && conta.tipo === "S"
+        ? (conta.valor = total)
+        : undefined
+    );
   }
 
-  totalPassivoCirculante(contasApagar: number, fornecedores : number, emprestimos: number, outrasObrigacoes: number):number{
-    return contasApagar + fornecedores + emprestimos + outrasObrigacoes
+  totalAtivo(balanco) {
+    let contasfiltradas = balanco.contas.filter(
+      conta =>
+        (conta.classe === "ac" && conta.tipo === "A") ||
+        (conta.classe === "anc" && conta.tipo === "A")
+    );
+    let total = contasfiltradas.reduce(function (a, b) {
+      return a + b["valor"];
+    }, 0);
+    balanco.contas.forEach(conta =>
+      conta.classe === "aTotal" ? (conta.valor = total) : undefined
+    );
   }
 
-  totalPassivoNaoCirculante(elp: number, emprestimoLp: number):number{
-    return elp + emprestimoLp
+  totalPassivoCirculante(balanco) {
+    let contasfiltradas = balanco.contas.filter(
+      conta => conta.classe === "pc" && conta.tipo === "A"
+    );
+    let total = contasfiltradas.reduce(function (a, b) {
+      return a + b["valor"];
+    }, 0);
+    balanco.contas.forEach(conta =>
+      conta.classe === "pc" && conta.tipo === "S"
+        ? (conta.valor = total)
+        : undefined
+    );
   }
 
-  totalPatrimonioLiquido(capitalSocial: number, reservas: number):number{
-    return capitalSocial + reservas
+  totalPassivoNaoCirculante(balanco) {
+    let contasfiltradas = balanco.contas.filter(
+      conta => conta.classe === "pnc" && conta.tipo === "A"
+    );
+    let total = contasfiltradas.reduce(function (a, b) {
+      return a + b["valor"];
+    }, 0);
+    balanco.contas.forEach(conta =>
+      conta.classe === "pnc" && conta.tipo === "S"
+        ? (conta.valor = total)
+        : undefined
+    );
   }
 
-  totalPassivo(totalPassivoCirculante: number, totalPassivoNaoCirculante: number, totalPatrimonioLiquido: number):number{
-    return  totalPassivoCirculante + totalPassivoNaoCirculante + totalPatrimonioLiquido
+  totalPatrimonioLiquido(balanco) {
+    let contasfiltradas = balanco.contas.filter(
+      conta => conta.classe === "pl" && conta.tipo === "A"
+    );
+    let total = contasfiltradas.reduce(function (a, b) {
+      return a + b["valor"];
+    }, 0);
+    balanco.contas.forEach(conta =>
+      conta.classe === "pl" && conta.tipo === "S"
+        ? (conta.valor = total)
+        : undefined
+    );
+  }
+
+  totalPassivo(balanco) {
+    let contasfiltradas = balanco.contas.filter(
+      conta =>
+        (conta.classe === "pc" && conta.tipo === "A") ||
+        (conta.classe === "pnc" && conta.tipo === "A") ||
+        (conta.classe === "pl" && conta.tipo === "A")
+    );
+    let total = contasfiltradas.reduce(function (a, b) {
+      return a + b["valor"];
+    }, 0);
+    balanco.contas.forEach(conta =>
+      conta.classe === "pTotal" ? (conta.valor = total) : undefined
+    );
   }
 }
-
-

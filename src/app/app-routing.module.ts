@@ -1,3 +1,4 @@
+import { InicioComponent } from './pages/inicio/inicio.component';
 import { HomeComponent } from './pages/home/home.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
@@ -5,7 +6,11 @@ import { Routes, RouterModule } from '@angular/router';
 
 const ROTAS: Routes = [
 
-  { path: '', redirectTo: '/home', pathMatch: 'full' },
+  { path: '', redirectTo: '/inicio', pathMatch: 'full' },
+  {
+    path: 'inicio',
+    component: InicioComponent
+  },
   {
     path: 'home',
     component: HomeComponent

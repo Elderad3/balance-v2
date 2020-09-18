@@ -6,34 +6,83 @@
       </div>
       <div class="box-body">
         <div class="col-md-12">
-            <p><b>O CCl é a parcela do giro (Ativo Circulante) que não está compromentida com dívidas de curto prazo (passivo Circulante)</b></p>
-            <p><i>Fórmula: CCL = AC - PC | Quanto maior melhor</i></p>
-          </div>
-        <div class="col-md-6">
-          <h4 [ngClass]="b1.acTotal - b1.pcTotal >= 0 ? 'text-green' : 'text-red'">{{b1.ano}}:  R$ {{b1.acTotal - b1.pcTotal | number:'1.2-2'}}</h4>
-          <p *ngIf="b1.acTotal - b1.pcTotal > 0">
-            No exercício de {{b1.ano}} do total do Ativo Circulante de R$ {{b1.acTotal | number:'1.2-2'}},
-              R$ {{b1.pcTotal| number:'1.2-2'}} estão comprometidos com as dívidas de curto prazo e R$ {{b1.acTotal - b1.pcTotal | number:'1.2-2'}} 
-             estão livres, isso significa que a empresa consegue girar sua operação e atividade apenas com dinheiro próprio e está livre de dívidas de curto prazo.</p>
-          <p *ngIf="b1.acTotal - b1.pcTotal < 0">
-              No exercício de {{b1.ano}} o resultado ficou negativo porque as dívidas de curto prazo, Passivo circulante, são
-              maiores que os recursos do ativo circulante, portanto, se a empresa transformasse todas as contas do ativo circulante em dinheiro, faltariam 
-              R$ {{b1.acTotal - b1.pcTotal | number:'1.2-2'}} para cobrir as dívidas de curto Prazo.
-              Demonstra que a empresa não consegue realizar suas atividades mensais
-              apenas com o dinheiro advindo do próprio negócio.</p>
+          <p>
+            <b>O CCl é a parcela do giro (Ativo Circulante) que não está
+              compromentida com dívidas de curto prazo (passivo Circulante)</b>
+          </p>
+          <p><i>Fórmula: CCL = AC - PC | Quanto maior melhor</i></p>
         </div>
         <div class="col-md-6">
-          <h4 [ngClass]="b2.acTotal - b2.pcTotal  >= 0 ? 'text-green' : 'text-red'">{{b2.ano}}: R$ {{b2.acTotal - b2.pcTotal | number:'1.2-2'}}</h4>
-          <p *ngIf="b2.acTotal - b2.pcTotal > 0">No exercício de {{b2.ano}} do total do Ativo Circulante de R$ {{b2.acTotal | number:'1.2-2'}},
-              R$ {{b2.pcTotal| number:'1.2-2'}} estão comprometidos com as dívidas de curto prazo e R$ {{b2.acTotal - b2.pcTotal | number:'1.2-2'}} 
-              estão livres, isso significa que a empresa consegue girar sua operação e atividade apenas com dinheiro próprio e está livre de dívidas de curto prazo.</p>
-          <p *ngIf="b2.acTotal - b2.pcTotal < 0">
-            No exercício de {{b2.ano}} o resultado ficou negativo porque as dívidas de curto prazo, Passivo circulante, são
-            maiores que os recursos do ativo circulante, portanto, se a empresa transformasse todas as contas do ativo circulante em dinheiro, faltariam 
-            R$ {{b2.acTotal - b2.pcTotal | number:'1.2-2'}} para cobrir as dívidas de curto Prazo.
-            Demonstra que a empresa não consegue realizar suas atividades mensais
-            apenas com o dinheiro advindo do próprio negócio, sendo necessário a reorganização da
-            gestão da empresa e a tomada de recursos com terceiros (bancos e/ou sócios).</p>
+          <h4>{{ b1.ano }}</h4>
+
+          <app-grafico [nome1]="'Ativo Circulante'" [nome2]="'Passivo Circulante'" [valor1]="ativoCirculanteB1"
+            [valor2]="passivoCirculanteB1">
+          </app-grafico>
+          <p>
+            <i>Ativo Circulante: {{ ativoCirculanteB1 | number: "1.2-2" }}</i>
+          </p>
+          <p>
+            <i>Passivo Circulante:
+              {{ passivoCirculanteB1 | number: "1.2-2" }}</i>
+          </p>
+          <h3 [ngClass]="cclB1 >= 0 ? 'text-green' : 'text-red'">
+            R$ {{ cclB1 | number: "1.2-2" }}
+          </h3>
+          <p *ngIf="cclB1 > 0" class="text-green">
+            No exercício de {{ b1.ano }} do total do Ativo Circulante de R$
+            {{ ativoCirculanteB1 | number: "1.2-2" }}, R$
+            {{ passivoCirculanteB1 | number: "1.2-2" }} estão comprometidos com
+            as dívidas de curto prazo e R$ {{ cclB1 | number: "1.2-2" }} estão
+            livres, isso significa que a empresa consegue girar sua operação e
+            atividade apenas com dinheiro próprio e está livre de dívidas de
+            curto prazo.
+          </p>
+          <p *ngIf="cclB1 < 0" class="text-red">
+            No exercício de {{ b1.ano }} o resultado ficou negativo porque as
+            dívidas de curto prazo, Passivo circulante, são maiores que os
+            recursos do ativo circulante, portanto, se a empresa transformasse
+            todas as contas do ativo circulante em dinheiro, faltariam R$
+            {{ cclB1 | number: "1.2-2" }} para cobrir as dívidas de curto Prazo.
+            Demonstra que a empresa não consegue realizar suas atividades
+            mensais apenas com o dinheiro advindo do próprio negócio.
+          </p>
+        </div>
+        <div class="col-md-6">
+          <h4>{{ b2.ano }}</h4>
+
+          <app-grafico [nome1]="'Ativo Circulante'" [nome2]="'Passivo Circulante'" [valor1]="ativoCirculanteB2"
+            [valor2]="passivoCirculanteB2">
+          </app-grafico>
+          <p>
+            <i>Ativo Circulante: {{ ativoCirculanteB2 | number: "1.2-2" }}</i>
+          </p>
+          <p>
+            <i>Passivo Circulante:
+              {{ passivoCirculanteB2 | number: "1.2-2" }}</i>
+          </p>
+          <h3 [ngClass]="cclB2 >= 0 ? 'text-green' : 'text-red'">
+            R$ {{ cclB2 | number: "1.2-2" }}
+          </h3>
+          <p *ngIf="cclB2 > 0" class="text-green">
+            No exercício de {{ b2.ano }} do total do Ativo Circulante de R$
+            {{ ativoCirculanteB2 | number: "1.2-2" }}, R$
+            {{ passivoCirculanteB2 | number: "1.2-2" }} estão comprometidos com
+            as dívidas de curto prazo e R$ {{ cclB2 | number: "1.2-2" }} estão
+            livres, isso significa que a empresa consegue girar sua operação e
+            atividade apenas com dinheiro próprio e está livre de dívidas de
+            curto prazo.
+          </p>
+          <p *ngIf="cclB2 < 0" class="text-red">
+            No exercício de {{ b2.ano }} o resultado ficou negativo porque as
+            dívidas de curto prazo, Passivo circulante, são maiores que os
+            recursos do ativo circulante, portanto, se a empresa transformasse
+            todas as contas do ativo circulante em dinheiro, faltariam R$
+            {{ cclB2 | number: "1.2-2" }} para cobrir as dívidas de curto Prazo.
+            Demonstra que a empresa não consegue realizar suas atividades
+            mensais apenas com o dinheiro advindo do próprio negócio, sendo
+            necessário a reorganização da gestão da empresa e a tomada de
+            recursos com terceiros (bancos e/ou sócios).
+          </p>
         </div>
       </div>
     </div>
@@ -42,42 +91,89 @@
         <h3 class="box-title">Capital de Giro Própio (CGP)</h3>
       </div>
       <div class="box-body">
-          <div class="col-md-12">
-              <p><b>O CGP é a parcela do Capital Próprio (Patrimônio Líquido), investida no giro da empresa</b></p>
-              <p><i>Fórmula:CGP = PL - ANC | Quanto maior melhor</i></p>
-            </div>
+        <div class="col-md-12">
+          <p>
+            <b>O CGP é a parcela do Capital Próprio (Patrimônio Líquido),
+              investida no giro da empresa</b>
+          </p>
+          <p><i>Fórmula:CGP = PL - ANC | Quanto maior melhor</i></p>
+        </div>
         <div class="col-md-6">
-          <h4 [ngClass]="b1.plTotal - b1.ancTotal >= 0 ? 'text-green' : 'text-red'">{{b1.ano}} - R$ {{b1.plTotal - b1.ancTotal | number:'1.2-2'}}</h4>
-          <p *ngIf="b1.plTotal - b1.ancTotal > 0">
-            O CGP positivo demonstra que a parcela de R$ {{b1.plTotal - b1.ancTotal | number:'1.2-2'}} do Ativo Circulante não está comprometida 
-            com nenhuma dívida nem de curto e nem de longo prazo, pois sua origem é o patrimônio líquido.
+          <h4>{{ b1.ano }}</h4>
+
+          <app-grafico [nome2]="'Patrimônio Líquido'" [nome1]="'Ativo não Circulante'" [valor2]="patrimonioLiquidoB1"
+            [valor1]="ativoCirculanteB1">
+          </app-grafico>
+          <p>
+            <i>Patrimônio Líquido:
+              {{ patrimonioLiquidoB1 | number: "1.2-2" }}</i>
           </p>
-          <p *ngIf="b1.plTotal - b1.ancTotal > 0">
-            A empresa apresentou CGP positivo de R$ {{b1.plTotal - b1.ancTotal | number:'1.2-2'}}, isso demonstra que o capital próprio (PL) foi mais do que
-            suficiente para cobrir investimentos de longo prazo.
+          <p>
+            <i>Ativo Não Circulante:
+              {{ ativoNaoCirculanteB1 | number: "1.2-2" }}</i>
           </p>
-          <p *ngIf="b1.plTotal - b1.ancTotal < 0">
-            O CGP negativo significa que os recursos do Patrimônio Líquido não foram suficientes para cobrir os investimentos fixos
-            (investimento, imobilizado e intangivel) e os de Longo Prazo (Realizável a Longo prazo). É notável também que o patrimônio
-            Líquido não foi suficiente para cobrir o Ativo Não Circulante, portanto, a empresa está imobilizando com recursos de terceiros
-            (Passivo não Circulante ou Passivo Circulante).
+          <h3 [ngClass]="cgpB1 >= 0 ? 'text-green' : 'text-red'">
+            R$ {{ cgpB1 | number: "1.2-2" }}
+          </h3>
+          <p *ngIf="cgpB1 > 0" class="text-green">
+            O CGP positivo demonstra que a parcela de R$
+            {{ cgpB1 | number: "1.2-2" }} do Ativo Circulante não está
+            comprometida com nenhuma dívida nem de curto e nem de longo prazo,
+            pois sua origem é o patrimônio líquido.
+          </p>
+          <p *ngIf="cgpB1 > 0" class="text-green">
+            A empresa apresentou CGP positivo de R$
+            {{ cgpB1 | number: "1.2-2" }}, isso demonstra que o capital próprio
+            (PL) foi mais do que suficiente para cobrir investimentos de longo
+            prazo.
+          </p>
+          <p *ngIf="cgpB1 < 0" class="text-red">
+            O CGP negativo significa que os recursos do Patrimônio Líquido não
+            foram suficientes para cobrir os investimentos fixos (investimento,
+            imobilizado e intangivel) e os de Longo Prazo (Realizável a Longo
+            prazo). É notável também que o patrimônio Líquido não foi suficiente
+            para cobrir o Ativo Não Circulante, portanto, a empresa está
+            imobilizando com recursos de terceiros (Passivo não Circulante ou
+            Passivo Circulante).
           </p>
         </div>
         <div class="col-md-6">
-          <h4 [ngClass]="b2.plTotal - b2.ancTotal >= 0 ? 'text-green' : 'text-red'">{{b2.ano}} - R$ {{b2.plTotal - b2.ancTotal | number:'1.2-2'}}</h4>
-          <p *ngIf="b2.plTotal - b2.ancTotal > 0">
-              O CGP positivo demonstra que a parcela de R$ {{b1.plTotal - b1.ancTotal | number:'1.2-2'}} do Ativo Circulante não está comprometida 
-              com nenhuma dívida nem de curto e nem de longo prazo, pois sua origem é o patrimônio líquido.
+          <h4>{{ b2.ano }}</h4>
+
+          <app-grafico [nome2]="'Patrimônio Líquido'" [nome1]="'Ativo não Circulante'" [valor2]="patrimonioLiquidoB2"
+            [valor1]="ativoCirculanteB2">
+          </app-grafico>
+          <p>
+            <i>Patrimônio Líquido:
+              {{ patrimonioLiquidoB2 | number: "1.2-2" }}</i>
           </p>
-          <p *ngIf="b2.plTotal - b2.ancTotal > 0">
-            A empresa apresentou CGP positivo de R$ {{b2.plTotal - b2.ancTotal | number:'1.2-2'}}, isso demonstra que o capital próprio (PL) foi mais do que
-            suficiente para cobrir investimentos de longo prazo.
+          <p>
+            <i>Ativo Não Circulante:
+              {{ ativoNaoCirculanteB2 | number: "1.2-2" }}</i>
           </p>
-          <p *ngIf="b2.plTotal - b2.ancTotal < 0">
-              O CGP negativo significa que os recursos do Patrimônio Líquido não foram suficientes para cobrir os investimentos fixos
-              (investimento, imobilizado e intangivel) e os de Longo Prazo (Realizável a Longo prazo). É notável também que o patrimônio
-              Líquido não foi suficiente para cobrir o Ativo Não Circulante, portanto, a empresa está imobilizando com recursos de terceiros
-              (Passivo não Circulante ou Passivo Circulante).
+          <h3 [ngClass]="cgpB2 >= 0 ? 'text-green' : 'text-red'">
+            R$ {{ cgpB2 | number: "1.2-2" }}
+          </h3>
+          <p *ngIf="cgpB2 > 0" class="text-green">
+            O CGP positivo demonstra que a parcela de R$
+            {{ cgpB2 | number: "1.2-2" }} do Ativo Circulante não está
+            comprometida com nenhuma dívida nem de curto e nem de longo prazo,
+            pois sua origem é o patrimônio líquido.
+          </p>
+          <p *ngIf="cgpB2 > 0" class="text-green">
+            A empresa apresentou CGP positivo de R$
+            {{ cgpB2 | number: "1.2-2" }}, isso demonstra que o capital próprio
+            (PL) foi mais do que suficiente para cobrir investimentos de longo
+            prazo.
+          </p>
+          <p *ngIf="cgpB2 < 0" class="text-red">
+            O CGP negativo significa que os recursos do Patrimônio Líquido não
+            foram suficientes para cobrir os investimentos fixos (investimento,
+            imobilizado e intangivel) e os de Longo Prazo (Realizável a Longo
+            prazo). É notável também que o patrimônio Líquido não foi suficiente
+            para cobrir o Ativo Não Circulante, portanto, a empresa está
+            imobilizando com recursos de terceiros (Passivo não Circulante ou
+            Passivo Circulante).
           </p>
         </div>
       </div>

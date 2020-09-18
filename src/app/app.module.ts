@@ -1,3 +1,4 @@
+import { InicioComponent } from './pages/inicio/inicio.component';
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -6,6 +7,8 @@ import { LOCALE_ID } from '@angular/core';
 import localePtBr from '@angular/common/locales/pt';
 
 import { registerLocaleData } from '@angular/common';
+
+import { ChartModule } from 'primeng/chart';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ng2-currency-mask/src/currency-mask.config";
@@ -20,6 +23,7 @@ import { CapitalGiroComponent } from './pages/capital-giro/capital-giro.componen
 import { AnaliseHorizontalComponent } from './pages/analise-horizontal/analise-horizontal.component';
 import { SituacaoFinanceiraComponent } from './pages/situacao-financeira/situacao-financeira.component';
 import { SituacaoEconomicaComponent } from './pages/situacao-economica/situacao-economica.component';
+import { SharedModule } from './shared/shared.module';
 
 
 registerLocaleData(localePtBr);
@@ -36,6 +40,7 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
 @NgModule({
   declarations: [
     AppComponent,
+    InicioComponent,
     HomeComponent,
     BalancoComponent,
     AnaliseVerticalComponent,
@@ -49,9 +54,10 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     FormsModule,
     AppRoutingModule,
     CoreModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    SharedModule
   ],
-  providers: [ { provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },{provide: LOCALE_ID, useValue: 'pt-BR'}],
+  providers: [{ provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig }, { provide: LOCALE_ID, useValue: 'pt-BR' }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
