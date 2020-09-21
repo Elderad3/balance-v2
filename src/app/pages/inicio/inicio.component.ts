@@ -6,12 +6,9 @@ import { Component, OnInit } from "@angular/core";
 })
 export class InicioComponent implements OnInit {
   data: any;
-
   constructor() {
-
   }
 
   ngOnInit() {
-    console.log("O componente SITUAÇÃO ECONÔMICA foi carregado");
   }
 }

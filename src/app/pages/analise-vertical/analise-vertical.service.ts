@@ -30,7 +30,6 @@ export class AnaliseVerticalService {
       })
       analises.push(anv)
     }
-    console.log(analises)
     return analises
   }
 

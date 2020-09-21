@@ -478,59 +478,29 @@ export class HomeComponent implements OnInit {
 
   loadCapitalDeGiro() {
     this.capitalDeGiroLoad = true;
-    console.log(
-      "O componente Capital de giro está: " + this.analiseVerticalLoad
-    );
   }
 
   loadAnaliseVertical() {
     this.analiseVerticalLoad = true;
-    console.log(
-      "O componente Análise vertical está: " + this.analiseVerticalLoad
-    );
   }
 
   loadAnaliseHorizontal() {
     this.analiseHorizontalLoad = true;
-    console.log(
-      "O componente Análise Horizontal está: " + this.analiseHorizontalLoad
-    );
   }
 
   loadSituacaoFinanceira() {
     this.situacaoFinanceiraLoad = true;
-    console.log(
-      "O componente Situação financeira está: " + this.situacaoFinanceiraLoad
-    );
   }
 
   loadSituacaoEconomica() {
     this.situacaoEconomicaLoad = true;
-    console.log(
-      "O componente Situação Econòmica está: " + this.situacaoEconomicaLoad
-    );
   }
 
   destruirComponentes() {
     this.capitalDeGiroLoad = false;
-    console.log(
-      "O componente Capital de giro está: " + this.analiseVerticalLoad
-    );
     this.analiseVerticalLoad = false;
-    console.log(
-      "O componente Análise vertical está: " + this.analiseVerticalLoad
-    );
     this.analiseHorizontalLoad = false;
-    console.log(
-      "O componente Análise Horizontal está: " + this.analiseHorizontalLoad
-    );
     this.situacaoFinanceiraLoad = false;
-    console.log(
-      "O componente Situação financeira está: " + this.situacaoFinanceiraLoad
-    );
     this.situacaoEconomicaLoad = false;
-    console.log(
-      "O componente Situação Econômica está: " + this.situacaoEconomicaLoad
-    );
   }
 }

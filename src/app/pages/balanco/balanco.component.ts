@@ -20,7 +20,6 @@ export class BalancoComponent implements OnInit {
   ngOnInit() {
     this.b1.ano = 2019;
     this.b2.ano = 2020;
-    console.log("Componente BALANÇO foi carregado");
   }
 
   atualizarAno2() {

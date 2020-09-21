@@ -16,8 +16,6 @@ export class AnaliseHorizontalComponent implements OnInit {
   constructor(private analiseHorizontalService: AnaliseHorizontalService) { }
 
   ngOnInit() {
-    console.log("O componente ANÁLISE HORIZONTAL foi carregado");
     this.analises = this.analiseHorizontalService.calcularAnaliseHorizontal(this.b1, this.b2)
-    console.log(this.analises)
   }
 }

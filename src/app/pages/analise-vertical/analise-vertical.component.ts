@@ -19,7 +19,6 @@ export class AnaliseVerticalComponent implements OnInit {
   constructor(private analiseVerticalService: AnaliseVerticalService) { }
 
   ngOnInit() {
-    console.log("Componente ANÁLISE VERTICAL foi carregado")
     this.analises = this.analiseVerticalService.calcularAnaliseVertical(this.b1, this.b2)
   }
 }

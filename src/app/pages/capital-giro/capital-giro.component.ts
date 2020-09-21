@@ -34,8 +34,6 @@ export class CapitalGiroComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log("Componente CAPITAL DE GIRO foi carregado");
-
     this.ativoCirculanteB1 = this.b1.contas.filter(
       conta => conta.chave === "b1acTotal"
     )[0].valor;

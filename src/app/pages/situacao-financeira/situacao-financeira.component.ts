@@ -46,11 +46,9 @@ export class SituacaoFinanceiraComponent implements OnInit {
   partCapTercB1: number = 0;
   partCapTercB2: number = 0;
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    console.log("Componente SITUAÇÃO FINANCEIRA foi carregado");
-
     this.ativoCirculanteB1 = this.b1.contas.filter(
       conta => conta.chave === "b1acTotal"
     )[0].valor;

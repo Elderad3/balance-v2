@@ -5,9 +5,8 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./situacao-economica.component.html"
 })
 export class SituacaoEconomicaComponent implements OnInit {
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    console.log("O componente SITUAÇÃO ECONÔMICA foi carregado");
   }
 }
