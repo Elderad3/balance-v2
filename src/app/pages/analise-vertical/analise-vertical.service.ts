@@ -8,6 +8,8 @@ export class AnaliseVerticalService {
   constructor() { }
 
   calcularAnaliseVertical(b1, b2) {
+    console.log(b1)
+    console.log(b2)
     let analises: AnaliseVertical[] = []
     let contasAnalisadas = [...b1.contas, ...b2.contas]
     let contaAtivoTotalB1 = contasAnalisadas.filter(conta => conta.chave === 'b1aTotal')

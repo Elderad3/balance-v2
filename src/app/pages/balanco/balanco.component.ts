@@ -33,10 +33,29 @@ export class BalancoComponent implements OnInit {
   calcularTotaisB2() {
     this.balancoService.calcularTotais(this.b2);
   }
+
+  gerarId(conta) {
+    let min = conta.id - 10
+    let max = conta.id
+    let contas = this.b1.contas.filter(conta => conta.id > min && conta.id < max)
+    if (contas.length) {
+      let ids = contas.map(conta => conta.id)
+      return this.maiorNumero(ids)
+    } else {
+      return conta.id - 9
+    }
+  }
+  maiorNumero(valores) {
+    let maior = Math.max.apply(Math, valores);
+    console.log(maior + 1)
+    return maior + 1
+  }
+
   inserirContaB1(conta) {
+    let id = this.gerarId(conta)
     let novaConta1 = {
-      id: conta.id - 9,
-      chave: 'b1acNovaConta',
+      id: id,
+      chave: 'b1' + conta.classe + 'NovaConta',
       classe: conta.classe,
       grupo: conta.grupo,
       nome: "Nova Conta",
@@ -45,8 +64,8 @@ export class BalancoComponent implements OnInit {
       sistema: 'N'
     }
     let novaConta2 = {
-      id: conta.id - 9,
-      chave: 'b2acNovaConta',
+      id: id,
+      chave: 'b2' + conta.classe + 'NovaConta',
       classe: conta.classe,
       grupo: conta.grupo,
       nome: novaConta1.nome,
@@ -54,7 +73,6 @@ export class BalancoComponent implements OnInit {
       valor: 0,
       sistema: 'N'
     }
-
     this.b1.contas.push(novaConta1)
     this.b2.contas.push(novaConta2)
     this.b1.contas.sort(function (a, b) {
@@ -63,6 +81,18 @@ export class BalancoComponent implements OnInit {
     this.b2.contas.sort(function (a, b) {
       return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
     });
+  }
+  deletarConta(conta) {
+    this.b1.contas.splice(this.b1.contas.indexOf(conta), 1);
+    let contaFiltradaB2indice = this.b2.contas.findIndex(containdex => containdex.id === conta.id)
+    this.b2.contas.splice(contaFiltradaB2indice, 1);
+  }
+
+  atualizarNomeConta(conta) {
+    console.log(conta)
+    let contaFiltradaB2indice = this.b2.contas.findIndex(containdex => containdex.id === conta.id)
+    this.b2.contas[contaFiltradaB2indice].nome = conta.nome
+    this.b2.contas[contaFiltradaB2indice].chave = 'b2' + conta.classe + conta.nome
   }
 
 
