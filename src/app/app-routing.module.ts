@@ -12,7 +12,7 @@ const ROTAS: Routes = [
     component: InicioComponent
   },
   {
-    path: 'home',
+    path: 'analise-de-balanco',
     component: HomeComponent
   },
 
