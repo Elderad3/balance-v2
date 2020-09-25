@@ -47,7 +47,6 @@ export class BalancoComponent implements OnInit {
   }
   maiorNumero(valores) {
     let maior = Math.max.apply(Math, valores);
-    console.log(maior + 1)
     return maior + 1
   }
 
@@ -89,7 +88,6 @@ export class BalancoComponent implements OnInit {
   }
 
   atualizarNomeConta(conta) {
-    console.log(conta)
     let contaFiltradaB2indice = this.b2.contas.findIndex(containdex => containdex.id === conta.id)
     this.b2.contas[contaFiltradaB2indice].nome = conta.nome
     this.b2.contas[contaFiltradaB2indice].chave = 'b2' + conta.classe + conta.nome

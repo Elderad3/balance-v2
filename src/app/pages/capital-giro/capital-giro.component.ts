@@ -67,6 +67,5 @@ export class CapitalGiroComponent implements OnInit {
 
     this.cgpB1 = this.patrimonioLiquidoB1 - this.ativoNaoCirculanteB1;
     this.cgpB2 = this.patrimonioLiquidoB2 - this.ativoNaoCirculanteB2;
-
   }
 }
