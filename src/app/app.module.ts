@@ -1,3 +1,4 @@
+import { DreComponent } from './pages/dre/dre.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 
 import { BrowserModule } from '@angular/platform-browser';
@@ -7,8 +8,6 @@ import { LOCALE_ID } from '@angular/core';
 import localePtBr from '@angular/common/locales/pt';
 
 import { registerLocaleData } from '@angular/common';
-
-import { ChartModule } from 'primeng/chart';
 
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { CurrencyMaskConfig, CURRENCY_MASK_CONFIG } from "ng2-currency-mask/src/currency-mask.config";
@@ -47,7 +46,8 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     CapitalGiroComponent,
     AnaliseHorizontalComponent,
     SituacaoFinanceiraComponent,
-    SituacaoEconomicaComponent
+    SituacaoEconomicaComponent,
+    DreComponent
   ],
   imports: [
     BrowserModule,

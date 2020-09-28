@@ -1,3 +1,4 @@
+import { Dre } from './../../shared/models/dre.model';
 import { Conta } from "./../../shared/models/conta.model";
 import { Balanco2 } from "./../../shared/models/balanco2.model";
 import { Component, OnInit } from "@angular/core";
@@ -10,6 +11,8 @@ import { Component, OnInit } from "@angular/core";
 export class HomeComponent implements OnInit {
   b1: Balanco2 = new Balanco2();
   b2: Balanco2 = new Balanco2();
+  dre1: Dre = new Dre()
+  dre2: Dre = new Dre()
 
   contasB1: Conta[] = [
     {
@@ -457,6 +460,253 @@ export class HomeComponent implements OnInit {
     }
   ];
 
+  contasDre1: Conta[] = [
+    {
+      id: 10,
+      nome: "(+) Receita Operacional Bruta",
+      grupo: "receita",
+      classe: "rob",
+      valor: 1913500,
+      tipo: "A",
+      chave: "dre1robReceitaOperacionalBruta",
+      sistema: 'S'
+    },
+    {
+      id: 20,
+      nome: "(-) Deduções da receita Bruta",
+      grupo: "deducao",
+      classe: "dedRob",
+      valor: 834944,
+      tipo: "A",
+      chave: "dre1dedRobDeducaoReceitaBruta",
+      sistema: 'S'
+    },
+    {
+      id: 30,
+      nome: "(=) Receita Operacional Líquida",
+      grupo: "receita",
+      classe: "rol",
+      valor: 1078556,
+      tipo: "S",
+      chave: "dre1rolReceitaOperacionalLiquida",
+      sistema: 'S'
+    },
+    {
+      id: 40,
+      nome: "(-) Custo dos Produtos/Serviços vedidos",
+      grupo: "deducao",
+      classe: "cpv",
+      valor: 271466,
+      tipo: "A",
+      chave: "dre1cpvCustoProdutoVendido",
+      sistema: 'S'
+    },
+    {
+      id: 50,
+      nome: "(=) Resultado Bruto",
+      grupo: "resultado",
+      classe: "reb",
+      valor: 807090,
+      tipo: "S",
+      chave: "dre1rbResultadoBruto",
+      sistema: 'S'
+    },
+    {
+      id: 60,
+      nome: "(-) Despesas Operacionais",
+      grupo: "despesas",
+      classe: "dop",
+      valor: 664993,
+      tipo: "A",
+      chave: "dre1dopDespesasOperacionais",
+      sistema: 'S'
+    },
+    {
+      id: 70,
+      nome: "(-) Despesas Financeiras",
+      grupo: "despesas",
+      classe: "def",
+      valor: 4033,
+      tipo: "A",
+      chave: "dre1dfindespesasfinanceiras",
+      sistema: 'S'
+    },
+    {
+      id: 80,
+      nome: "(+) Receitas Financeiras",
+      grupo: "receitas",
+      classe: "ref",
+      valor: 0,
+      tipo: "A",
+      chave: "dre1rfinReceitasfinanceiras",
+      sistema: 'S'
+    },
+    {
+      id: 90,
+      nome: "(=) Resultado Antes do IR CSLL",
+      grupo: "resultado",
+      classe: "rir",
+      valor: 138064,
+      tipo: "S",
+      chave: "dre1rirResultadoAntesIr",
+      sistema: 'S'
+    },
+    {
+      id: 100,
+      nome: "(-) Imposto de renda e Contribuição Social",
+      grupo: "imposto",
+      classe: "ircsll",
+      valor: 48903,
+      tipo: "A",
+      chave: "dre1ircsllImpostoDeRenda",
+      sistema: 'S'
+    },
+    {
+      id: 110,
+      nome: "(-) Participação no Resultado",
+      grupo: "participacao",
+      classe: "par",
+      valor: 412,
+      tipo: "A",
+      chave: "dre1parParticipacaoResultado",
+      sistema: 'S'
+    },
+    {
+      id: 120,
+      nome: "(=) Lucro Líquido do Exercício",
+      grupo: "lucro",
+      classe: "lle",
+      valor: 89573,
+      tipo: "S",
+      chave: "dre1lleLucroLiquidoExercicio",
+      sistema: 'S'
+    },
+  ]
+
+  contasDre2: Conta[] = [
+    {
+      id: 10,
+      nome: "(+) Receita Operacional Bruta",
+      grupo: "receita",
+      classe: "rob",
+      valor: 2157167,
+      tipo: "A",
+      chave: "dre2robReceitaOperacionalBruta",
+      sistema: 'S'
+    },
+    {
+      id: 20,
+      nome: "(-) Deduções da receita Bruta",
+      grupo: "decucao",
+      classe: "dedRob",
+      valor: 961214,
+      tipo: "A",
+      chave: "dre2dedRobDeducaoReceitaBruta",
+      sistema: 'S'
+    },
+    {
+      id: 30,
+      nome: "(=) Receita Operacional Líquida",
+      grupo: "receita",
+      classe: "rol",
+      valor: 1195953,
+      tipo: "S",
+      chave: "dre2rolReceitaOperacionalLiquida",
+      sistema: 'S'
+    },
+    {
+      id: 40,
+      nome: "(-) Custo dos Produtos/Serviços vendidos",
+      grupo: "deducao",
+      classe: "cpv",
+      valor: 284280,
+      tipo: "A",
+      chave: "dre2cpvCustoProdutoVendido",
+      sistema: 'S'
+    },
+    {
+      id: 50,
+      nome: "(=) Resultado Bruto",
+      grupo: "resultado",
+      classe: "reb",
+      valor: 911673,
+      tipo: "S",
+      chave: "dre2rbResultadoBruto",
+      sistema: 'S'
+    },
+    {
+      id: 60,
+      nome: "(-) Despesas Operacionais",
+      grupo: "despesas",
+      classe: "dop",
+      valor: 543695,
+      tipo: "A",
+      chave: "dre2dopDespesasOperacionais",
+      sistema: 'S'
+    },
+    {
+      id: 70,
+      nome: "(-) Despesas Financeiras",
+      grupo: "despesas",
+      classe: "def",
+      valor: 0,
+      tipo: "A",
+      chave: "dre2dfindespesasfinanceiras",
+      sistema: 'S'
+    },
+    {
+      id: 80,
+      nome: "(+) Receitas Financeiras",
+      grupo: "receitas",
+      classe: "ref",
+      valor: 10944,
+      tipo: "A",
+      chave: "dre2rfinReceitasfinanceiras",
+      sistema: 'S'
+    },
+    {
+      id: 90,
+      nome: "(=) Resultado Antes do IR CSLL",
+      grupo: "resultado",
+      classe: "rir",
+      valor: 378922,
+      tipo: "S",
+      chave: "dre2rirResultadoAntesIr",
+      sistema: 'S'
+    },
+    {
+      id: 100,
+      nome: "(-) Imposto de renda e Contribuição Social",
+      grupo: "imposto",
+      classe: "ircsll",
+      valor: 108821,
+      tipo: "A",
+      chave: "dre2ircsllImpostoDeRenda",
+      sistema: 'S'
+    },
+    {
+      id: 110,
+      nome: "(-) Participação no Resultado",
+      grupo: "participacao",
+      classe: "par",
+      valor: 0,
+      tipo: "A",
+      chave: "dre2parParticipacaoResultado",
+      sistema: 'S'
+    },
+    {
+      id: 120,
+      nome: "(=) Lucro Líquido do Exercício",
+      grupo: "lucro",
+      classe: "lle",
+      valor: 270101,
+      tipo: "S",
+      chave: "dre2lleLucroLiquidoExercicio",
+      sistema: 'S'
+    },
+  ]
+
+  dreLoad: boolean = false
   capitalDeGiroLoad: boolean = false;
   analiseVerticalLoad: boolean = false;
   analiseHorizontalLoad: boolean = false;
@@ -468,12 +718,13 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.b1.contas = this.contasB1;
     this.b2.contas = this.contasB2;
-    this.b1.contas.sort(function (a, b) {
-      return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
-    });
-    this.b2.contas.sort(function (a, b) {
-      return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
-    });
+    this.dre1.contas = this.contasDre1
+    this.dre2.contas = this.contasDre2
+    this.ordenarContas()
+  }
+
+  loadDre() {
+    this.dreLoad = true
   }
 
   loadCapitalDeGiro() {
@@ -502,5 +753,20 @@ export class HomeComponent implements OnInit {
     this.analiseHorizontalLoad = false;
     this.situacaoFinanceiraLoad = false;
     this.situacaoEconomicaLoad = false;
+  }
+
+  ordenarContas() {
+    this.b1.contas.sort(function (a, b) {
+      return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+    });
+    this.b2.contas.sort(function (a, b) {
+      return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+    });
+    this.dre1.contas.sort(function (a, b) {
+      return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+    });
+    this.dre2.contas.sort(function (a, b) {
+      return a.id < b.id ? -1 : a.id > b.id ? 1 : 0;
+    });
   }
 }

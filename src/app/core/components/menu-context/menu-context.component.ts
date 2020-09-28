@@ -1,3 +1,5 @@
+
+import { ContextoMenu } from './../../../shared/models/contexto-menu.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +8,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./menu-context.component.css']
 })
 export class MenuContextComponent implements OnInit {
-
-  constructor() { }
-
   ngOnInit() {
   }
 

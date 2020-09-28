@@ -1,7 +1,6 @@
 import { AnaliseHorizontalService } from './analise-horizontal.service';
 import { Balanco2 } from "./../../shared/models/balanco2.model";
 import { AnaliseHorizontal } from "./../../shared/models/analise-horizontal.model";
-import { Balanco } from "./../../shared/models/balanco.model";
 import { Component, OnInit, Input } from "@angular/core";
 
 @Component({
