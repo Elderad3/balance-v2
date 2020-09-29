@@ -1,64 +1,62 @@
 <div class="row">
   <div class="col-md-12">
-    <p>
-      <b>Na análise horizontal, o objetivo é acompanhar o desempenho dos itens
-        da demonstração do Resultado do Exercício de um período para o outro</b>
-    </p>
-    <p>
-      <i>Fórmula: AH (%) = ((valor atual do item / valor do item no período
-        anterior) -1) x 100</i>
-    </p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title">Análise Horizontal - Demonstração do resultado do exercício</h3>
       </div>
-      <div class='table-responsive'>
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-              <th>Conta</th>
-              <th>{{ dre1.ano }}</th>
-              <th>{{ dre2.ano }}</th>
-              <th>AH</th>
-              <th>Variação</th>
-            </tr>
-            <tr *ngFor="let analise of analises">
-              <td>
-                <span *ngIf="analise.conta1.tipo ==='A'">{{analise.conta1.nome }}</span>
-                <span *ngIf="analise.conta1.tipo ==='S'"><b>{{analise.conta1.nome }}</b></span>
-              </td>
-              <td>
-                <span *ngIf="analise.conta1.tipo ==='A'">{{analise.conta1.valor | number: "1.2-2" }}</span>
-                <span *ngIf="analise.conta1.tipo ==='S'"><b>{{analise.conta1.valor | number: "1.2-2" }}</b></span>
-              </td>
-              <td>
-                <span *ngIf="analise.conta2.tipo ==='A'">{{analise.conta2.valor | number: "1.2-2" }}</span>
-                <span *ngIf="analise.conta2.tipo ==='S'"><b>{{analise.conta2.valor | number: "1.2-2" }}</b></span>
-              </td>
-              <td>
-                <span
-                  [ngClass]="
+      <div class="box-body">
+        <p>
+          <b>Na análise horizontal, o objetivo é acompanhar o desempenho dos itens
+            da Demonstração do Resultado do Exercício de um período para o outro</b>
+        </p>
+        <p>
+          <i>Fórmula: AH (%) = ((valor atual do item / valor do item no período
+            anterior) -1) x 100</i>
+        </p>
+        <div class='table-responsive'>
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Conta</th>
+                <th>{{ dre1.ano }}</th>
+                <th>{{ dre2.ano }}</th>
+                <th>AH</th>
+                <th>Variação</th>
+              </tr>
+              <tr *ngFor="let analise of analises">
+                <td>
+                  <span *ngIf="analise.conta1.tipo ==='A'">{{analise.conta1.nome }}</span>
+                  <span *ngIf="analise.conta1.tipo ==='S'"><b>{{analise.conta1.nome }}</b></span>
+                </td>
+                <td>
+                  <span *ngIf="analise.conta1.tipo ==='A'">{{analise.conta1.valor | number: "1.2-2" }}</span>
+                  <span *ngIf="analise.conta1.tipo ==='S'"><b>{{analise.conta1.valor | number: "1.2-2" }}</b></span>
+                </td>
+                <td>
+                  <span *ngIf="analise.conta2.tipo ==='A'">{{analise.conta2.valor | number: "1.2-2" }}</span>
+                  <span *ngIf="analise.conta2.tipo ==='S'"><b>{{analise.conta2.valor | number: "1.2-2" }}</b></span>
+                </td>
+                <td>
+                  <span
+                    [ngClass]="
             analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'badge bg-green' : 'badge bg-red'">{{ analise.ahAno2 | number: "1.2-2" }}%</span>
-              </td>
-              <td>
-                <span
-                  [ngClass]="analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
-                  *ngIf="analise.conta1.valor<analise.conta2.valor">
-                  <i class="fa fa-arrow-up"></i>
-                  {{analise.conta2.valor - analise.conta1.valor | number: "1.2-2"}}</span>
-                <span
-                  [ngClass]="analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
-                  *ngIf="analise.conta1.valor > analise.conta2.valor">
-                  <i class="fa fa-arrow-down"></i>
-                  {{analise.conta1.valor - analise.conta2.valor | number: "1.2-2"}}</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+                </td>
+                <td>
+                  <span
+                    [ngClass]="analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
+                    *ngIf="analise.conta1.valor<analise.conta2.valor">
+                    <i class="fa fa-arrow-up"></i>
+                    {{analise.conta2.valor - analise.conta1.valor | number: "1.2-2"}}</span>
+                  <span
+                    [ngClass]="analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
+                    *ngIf="analise.conta1.valor > analise.conta2.valor">
+                    <i class="fa fa-arrow-down"></i>
+                    {{analise.conta1.valor - analise.conta2.valor | number: "1.2-2"}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

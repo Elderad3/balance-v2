@@ -36,7 +36,7 @@
           <app-balanco [b1]="b1" [b2]="b2"></app-balanco>
         </div>
         <div class="tab-pane" id="tab_1">
-          <app-dre [dre1]="dre1" [dre2]="dre2" *ngIf="dreLoad"></app-dre>
+          <app-dre [dre1]="dre1" [dre2]="dre2" [ano1]="b1.ano" [ano2]="b2.ano" *ngIf="dreLoad"></app-dre>
         </div>
         <div class="tab-pane" id="tab_2">
           <div class="nav-tabs-custom">

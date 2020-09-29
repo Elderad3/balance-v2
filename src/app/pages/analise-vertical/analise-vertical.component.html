@@ -1,63 +1,61 @@
 <div class="row">
   <div class="col-md-12">
-    <p>
-      <b>A Análise vertical tem como propósito determinar a porcentagem de cada
-        conta contábil em relação ao total do ativo ou passivo</b>
-    </p>
-    <p><i>Fórmula: AV = (Ativo circulante Total/Ativo Total)*100</i></p>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
     <div class="box box-primary">
       <div class="box-header with-border">
         <h3 class="box-title">Análise Vertical - Balanço patrimonial</h3>
       </div>
-      <div class='table-responsive'>
-        <table class="table table-striped">
-          <tbody>
-            <tr>
-              <th>Conta</th>
-              <th>{{ b1.ano }}</th>
-              <th>AV</th>
-              <th>{{ b2.ano }}</th>
-              <th>AV</th>
-              <th>Variação</th>
-            </tr>
-            <tr *ngFor="let analise of analises">
-              <td>
-                <span *ngIf="analise.conta1.tipo === 'A'"> {{ analise.conta1.nome }}</span>
-                <span *ngIf="analise.conta1.tipo === 'S'"><b>{{ analise.conta1.nome }}</b></span>
-              </td>
-              <td>
-                <span *ngIf="analise.conta1.tipo === 'A'">{{ analise.conta1.valor | number: "1.2-2" }}</span>
-                <span *ngIf="analise.conta1.tipo === 'S'"><b>{{ analise.conta1.valor | number: "1.2-2" }}</b></span>
-              </td>
-              <td>
-                <span *ngIf="analise.conta1.tipo === 'A'"
-                  class="badge bg-light-blue">{{ analise.avAno1 | number: "1.2-2" }}%</span>
-                <span *ngIf="analise.conta1.tipo === 'S'"
-                  class="badge bg-light-blue"><b>{{ analise.avAno1 | number: "1.2-2" }}%</b></span>
-              </td>
-              <td>
-                <span *ngIf="analise.conta2.tipo === 'A'">{{ analise.conta2.valor | number: "1.2-2" }}</span>
-                <span *ngIf="analise.conta2.tipo === 'S'"><b>{{ analise.conta2.valor | number: "1.2-2" }}</b></span>
-              </td>
-              <td>
-                <span *ngIf="analise.conta2.tipo === 'A'"
-                  class="badge bg-light-blue">{{ analise.avAno2 | number: "1.2-2" }}%</span>
-                <span *ngIf="analise.conta2.tipo === 'S'"
-                  class="badge bg-light-blue"><b>{{ analise.avAno2 | number: "1.2-2" }}%</b></span>
-              </td>
-              <td>
-                <span *ngIf="analise.avAno1 < analise.avAno2"><i class="fa fa-arrow-up" style="color: green;"></i>
-                  {{analise.avAno2 - analise.avAno1 | number: "1.2-2"}}%</span>
-                <span *ngIf="analise.avAno1 > analise.avAno2"> <i class="fa fa-arrow-down" style="color: red;"></i>
-                  {{analise.avAno1 - analise.avAno2| number: "1.2-2"}}%</span>
-              </td>
-            </tr>
-          </tbody>
-        </table>
+      <div class="box-body">
+        <p>
+          <b>A Análise vertical tem como propósito determinar a porcentagem de cada
+            conta contábil em relação ao total do ativo ou passivo</b>
+        </p>
+        <p><i>Fórmula: AV = (Ativo circulante Total/Ativo Total)*100</i></p>
+        <div class='table-responsive'>
+          <table class="table table-striped">
+            <tbody>
+              <tr>
+                <th>Conta</th>
+                <th>{{ b1.ano }}</th>
+                <th>AV</th>
+                <th>{{ b2.ano }}</th>
+                <th>AV</th>
+                <th>Variação</th>
+              </tr>
+              <tr *ngFor="let analise of analises">
+                <td>
+                  <span *ngIf="analise.conta1.tipo === 'A'"> {{ analise.conta1.nome }}</span>
+                  <span *ngIf="analise.conta1.tipo === 'S'"><b>{{ analise.conta1.nome }}</b></span>
+                </td>
+                <td>
+                  <span *ngIf="analise.conta1.tipo === 'A'">{{ analise.conta1.valor | number: "1.2-2" }}</span>
+                  <span *ngIf="analise.conta1.tipo === 'S'"><b>{{ analise.conta1.valor | number: "1.2-2" }}</b></span>
+                </td>
+                <td>
+                  <span *ngIf="analise.conta1.tipo === 'A'"
+                    class="badge bg-light-blue">{{ analise.avAno1 | number: "1.2-2" }}%</span>
+                  <span *ngIf="analise.conta1.tipo === 'S'"
+                    class="badge bg-light-blue"><b>{{ analise.avAno1 | number: "1.2-2" }}%</b></span>
+                </td>
+                <td>
+                  <span *ngIf="analise.conta2.tipo === 'A'">{{ analise.conta2.valor | number: "1.2-2" }}</span>
+                  <span *ngIf="analise.conta2.tipo === 'S'"><b>{{ analise.conta2.valor | number: "1.2-2" }}</b></span>
+                </td>
+                <td>
+                  <span *ngIf="analise.conta2.tipo === 'A'"
+                    class="badge bg-light-blue">{{ analise.avAno2 | number: "1.2-2" }}%</span>
+                  <span *ngIf="analise.conta2.tipo === 'S'"
+                    class="badge bg-light-blue"><b>{{ analise.avAno2 | number: "1.2-2" }}%</b></span>
+                </td>
+                <td>
+                  <span *ngIf="analise.avAno1 < analise.avAno2"><i class="fa fa-arrow-up" style="color: green;"></i>
+                    {{analise.avAno2 - analise.avAno1 | number: "1.2-2"}}%</span>
+                  <span *ngIf="analise.avAno1 > analise.avAno2"> <i class="fa fa-arrow-down" style="color: red;"></i>
+                    {{analise.avAno1 - analise.avAno2| number: "1.2-2"}}%</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </div>
     </div>
   </div>

@@ -1,3 +1,4 @@
+import { Balanco2 } from './../../shared/models/balanco2.model';
 import { Injectable } from "@angular/core";
 
 @Injectable({
@@ -10,7 +11,7 @@ export class BalancoService {
     return ano1 + 1;
   }
 
-  calcularTotais(balanco) {
+  calcularTotais(balanco: Balanco2) {
     this.totalAtivoCirculante(balanco);
     this.totalAtivoNaoCirculante(balanco);
     this.totalAtivo(balanco);
@@ -20,7 +21,7 @@ export class BalancoService {
     this.totalPassivo(balanco);
   }
 
-  totalAtivoCirculante(balanco) {
+  totalAtivoCirculante(balanco: Balanco2) {
     let contasfiltradas = balanco.contas.filter(
       conta => conta.classe === "ac" && conta.tipo === "A"
     );
@@ -34,7 +35,7 @@ export class BalancoService {
     );
   }
 
-  totalAtivoNaoCirculante(balanco) {
+  totalAtivoNaoCirculante(balanco: Balanco2) {
     let contasfiltradas = balanco.contas.filter(
       conta => conta.classe === "anc" && conta.tipo === "A"
     );
@@ -48,7 +49,7 @@ export class BalancoService {
     );
   }
 
-  totalAtivo(balanco) {
+  totalAtivo(balanco: Balanco2) {
     let contasfiltradas = balanco.contas.filter(
       conta =>
         (conta.classe === "ac" && conta.tipo === "A") ||
@@ -62,7 +63,7 @@ export class BalancoService {
     );
   }
 
-  totalPassivoCirculante(balanco) {
+  totalPassivoCirculante(balanco: Balanco2) {
     let contasfiltradas = balanco.contas.filter(
       conta => conta.classe === "pc" && conta.tipo === "A"
     );
@@ -76,7 +77,7 @@ export class BalancoService {
     );
   }
 
-  totalPassivoNaoCirculante(balanco) {
+  totalPassivoNaoCirculante(balanco: Balanco2) {
     let contasfiltradas = balanco.contas.filter(
       conta => conta.classe === "pnc" && conta.tipo === "A"
     );
@@ -90,7 +91,7 @@ export class BalancoService {
     );
   }
 
-  totalPatrimonioLiquido(balanco) {
+  totalPatrimonioLiquido(balanco: Balanco2) {
     let contasfiltradas = balanco.contas.filter(
       conta => conta.classe === "pl" && conta.tipo === "A"
     );
@@ -104,7 +105,7 @@ export class BalancoService {
     );
   }
 
-  totalPassivo(balanco) {
+  totalPassivo(balanco: Balanco2) {
     let contasfiltradas = balanco.contas.filter(
       conta =>
         (conta.classe === "pc" && conta.tipo === "A") ||

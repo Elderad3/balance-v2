@@ -8,8 +8,7 @@
 
           <div class="box-tools pull-right">
             <div class="has-feedback">
-              <input type="number" class="form-control input-sm" placeholder="digite o ano" [name]="dre1.ano"
-                [(ngModel)]="dre1.ano" (blur)="atualizarAno2()" />
+              <input type="number" class="form-control input-sm" [name]="dre1.ano" [(ngModel)]="dre1.ano" disabled />
             </div>
           </div>
         </div>
@@ -53,8 +52,7 @@
           <h3 class="box-title">Ano 2</h3>
           <div class="box-tools pull-right">
             <div class="has-feedback">
-              <input type="number" class="form-control input-sm" placeholder="digite o ano" [name]="dre2.ano"
-                [(ngModel)]="dre2.ano" disabled />
+              <input type="number" class="form-control input-sm" [name]="dre2.ano" [(ngModel)]="dre2.ano" disabled />
             </div>
           </div>
         </div>

@@ -48,14 +48,14 @@ export class GraficoComponent implements OnInit {
     if (this.nome2 === 'Estoque') {
       cores.push('#293a80')
     }
-    if (this.nome2 === 'Passivo não Circulante') {
-      cores.push('#dc2f02')
-    }
     if (this.nome2 === 'Passivo Circulante') {
       cores.push('#ff2800')
     }
     if (this.nome3 === 'Passivo Circulante') {
       cores.push('#ff2800')
+    }
+    if (this.nome2 === 'Passivo não Circulante') {
+      cores.push('#dc2f02')
     }
     if (this.nome3 === 'Passivo não Circulante') {
       cores.push('#dc2f02')

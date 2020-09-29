@@ -759,6 +759,7 @@ export class HomeComponent implements OnInit {
 
   destruirComponentes() {
     this.capitalDeGiroLoad = false;
+    this.dreLoad = false;
     this.analiseVerticalLoad = false;
     this.analiseVerticalDreLoad = false
     this.analiseHorizontalLoad = false;

@@ -1,3 +1,4 @@
+import { Dre } from './../../shared/models/dre.model';
 import { Injectable } from "@angular/core";
 
 @Injectable({
@@ -6,18 +7,14 @@ import { Injectable } from "@angular/core";
 export class DreService {
   constructor() { }
 
-  atualizarAno2(ano1: number) {
-    return ano1 + 1;
-  }
-
-  calcularTotais(dre) {
+  calcularTotais(dre: Dre) {
     this.totalReceitaOperacionalLiquida(dre);
     this.totalResultadoBruto(dre)
     this.totalResultadoAntesDoIr(dre)
     this.totalLucroLiquido(dre)
   }
 
-  totalReceitaOperacionalLiquida(dre) {
+  totalReceitaOperacionalLiquida(dre: Dre) {
     let contasfiltradasReceitaBruta = dre.contas.filter(
       conta => conta.classe === "rob" && conta.tipo === "A"
     );
@@ -37,7 +34,7 @@ export class DreService {
     );
   }
 
-  totalResultadoBruto(dre) {
+  totalResultadoBruto(dre: Dre) {
     let contasfiltradasReceitaLiquida = dre.contas.filter(
       conta => conta.classe === "rol"
     );
@@ -57,7 +54,7 @@ export class DreService {
     );
   }
 
-  totalResultadoAntesDoIr(dre) {
+  totalResultadoAntesDoIr(dre: Dre) {
     let contasfiltradasResultadoBruto = dre.contas.filter(
       conta => conta.classe === "reb"
     );
@@ -90,7 +87,7 @@ export class DreService {
     );
   }
 
-  totalLucroLiquido(dre) {
+  totalLucroLiquido(dre: Dre) {
     let contasfiltradasResultadoAntesDoIr = dre.contas.filter(
       conta => conta.classe === "rir" && conta.tipo === "S"
     );

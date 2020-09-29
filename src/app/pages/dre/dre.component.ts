@@ -11,6 +11,8 @@ import { NgForm } from "@angular/forms";
 export class DreComponent implements OnInit {
   @Input() dre1: Dre;
   @Input() dre2: Dre;
+  @Input() ano1: number
+  @Input() ano2: number
 
   @ViewChild("dreForm", { static: false })
   ativoForm: NgForm;
@@ -18,19 +20,12 @@ export class DreComponent implements OnInit {
   constructor(private dreService: DreService) { }
 
   ngOnInit() {
-    this.dre1.ano = 2019;
-    this.dre2.ano = 2020;
-    console.log(this.dre1)
+    this.dre1.ano = this.ano1;
+    this.dre2.ano = this.ano2;
   }
-
-  atualizarAno2() {
-    this.dre2.ano = this.dreService.atualizarAno2(this.dre1.ano);
-  }
-
   calcularTotaisDre1() {
     this.dreService.calcularTotais(this.dre1);
   }
-
   calcularTotaisDre2() {
     this.dreService.calcularTotais(this.dre2);
   }
