@@ -1,3 +1,5 @@
+import { AnaliseHorizontalDreComponent } from './pages/analise-horizontal-dre/analise-horizontal-dre.component';
+import { AnaliseVerticalDreComponent } from './pages/analise-vertical-dre/analise-vertical-dre.component';
 import { DreComponent } from './pages/dre/dre.component';
 import { InicioComponent } from './pages/inicio/inicio.component';
 
@@ -47,7 +49,9 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
     AnaliseHorizontalComponent,
     SituacaoFinanceiraComponent,
     SituacaoEconomicaComponent,
-    DreComponent
+    DreComponent,
+    AnaliseVerticalDreComponent,
+    AnaliseHorizontalDreComponent
   ],
   imports: [
     BrowserModule,

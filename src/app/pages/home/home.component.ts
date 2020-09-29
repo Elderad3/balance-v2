@@ -464,7 +464,7 @@ export class HomeComponent implements OnInit {
     {
       id: 10,
       nome: "(+) Receita Operacional Bruta",
-      grupo: "receita",
+      grupo: "soma",
       classe: "rob",
       valor: 1913500,
       tipo: "A",
@@ -474,7 +474,7 @@ export class HomeComponent implements OnInit {
     {
       id: 20,
       nome: "(-) Deduções da receita Bruta",
-      grupo: "deducao",
+      grupo: "subtrai",
       classe: "dedRob",
       valor: 834944,
       tipo: "A",
@@ -484,7 +484,7 @@ export class HomeComponent implements OnInit {
     {
       id: 30,
       nome: "(=) Receita Operacional Líquida",
-      grupo: "receita",
+      grupo: "soma",
       classe: "rol",
       valor: 1078556,
       tipo: "S",
@@ -493,8 +493,8 @@ export class HomeComponent implements OnInit {
     },
     {
       id: 40,
-      nome: "(-) Custo dos Produtos/Serviços vedidos",
-      grupo: "deducao",
+      nome: "(-) Custo dos Produtos/Serviços vendidos",
+      grupo: "subtrai",
       classe: "cpv",
       valor: 271466,
       tipo: "A",
@@ -504,7 +504,7 @@ export class HomeComponent implements OnInit {
     {
       id: 50,
       nome: "(=) Resultado Bruto",
-      grupo: "resultado",
+      grupo: "subtrai",
       classe: "reb",
       valor: 807090,
       tipo: "S",
@@ -514,7 +514,7 @@ export class HomeComponent implements OnInit {
     {
       id: 60,
       nome: "(-) Despesas Operacionais",
-      grupo: "despesas",
+      grupo: "subtrai",
       classe: "dop",
       valor: 664993,
       tipo: "A",
@@ -524,7 +524,7 @@ export class HomeComponent implements OnInit {
     {
       id: 70,
       nome: "(-) Despesas Financeiras",
-      grupo: "despesas",
+      grupo: "subtrai",
       classe: "def",
       valor: 4033,
       tipo: "A",
@@ -534,7 +534,7 @@ export class HomeComponent implements OnInit {
     {
       id: 80,
       nome: "(+) Receitas Financeiras",
-      grupo: "receitas",
+      grupo: "soma",
       classe: "ref",
       valor: 0,
       tipo: "A",
@@ -544,7 +544,7 @@ export class HomeComponent implements OnInit {
     {
       id: 90,
       nome: "(=) Resultado Antes do IR CSLL",
-      grupo: "resultado",
+      grupo: "soma",
       classe: "rir",
       valor: 138064,
       tipo: "S",
@@ -554,7 +554,7 @@ export class HomeComponent implements OnInit {
     {
       id: 100,
       nome: "(-) Imposto de renda e Contribuição Social",
-      grupo: "imposto",
+      grupo: "subtrai",
       classe: "ircsll",
       valor: 48903,
       tipo: "A",
@@ -564,7 +564,7 @@ export class HomeComponent implements OnInit {
     {
       id: 110,
       nome: "(-) Participação no Resultado",
-      grupo: "participacao",
+      grupo: "subtrai",
       classe: "par",
       valor: 412,
       tipo: "A",
@@ -574,7 +574,7 @@ export class HomeComponent implements OnInit {
     {
       id: 120,
       nome: "(=) Lucro Líquido do Exercício",
-      grupo: "lucro",
+      grupo: "soma",
       classe: "lle",
       valor: 89573,
       tipo: "S",
@@ -587,7 +587,7 @@ export class HomeComponent implements OnInit {
     {
       id: 10,
       nome: "(+) Receita Operacional Bruta",
-      grupo: "receita",
+      grupo: "soma",
       classe: "rob",
       valor: 2157167,
       tipo: "A",
@@ -597,7 +597,7 @@ export class HomeComponent implements OnInit {
     {
       id: 20,
       nome: "(-) Deduções da receita Bruta",
-      grupo: "decucao",
+      grupo: "subtrai",
       classe: "dedRob",
       valor: 961214,
       tipo: "A",
@@ -607,7 +607,7 @@ export class HomeComponent implements OnInit {
     {
       id: 30,
       nome: "(=) Receita Operacional Líquida",
-      grupo: "receita",
+      grupo: "soma",
       classe: "rol",
       valor: 1195953,
       tipo: "S",
@@ -617,7 +617,7 @@ export class HomeComponent implements OnInit {
     {
       id: 40,
       nome: "(-) Custo dos Produtos/Serviços vendidos",
-      grupo: "deducao",
+      grupo: "subtrai",
       classe: "cpv",
       valor: 284280,
       tipo: "A",
@@ -627,7 +627,7 @@ export class HomeComponent implements OnInit {
     {
       id: 50,
       nome: "(=) Resultado Bruto",
-      grupo: "resultado",
+      grupo: "soma",
       classe: "reb",
       valor: 911673,
       tipo: "S",
@@ -637,7 +637,7 @@ export class HomeComponent implements OnInit {
     {
       id: 60,
       nome: "(-) Despesas Operacionais",
-      grupo: "despesas",
+      grupo: "subtrai",
       classe: "dop",
       valor: 543695,
       tipo: "A",
@@ -647,7 +647,7 @@ export class HomeComponent implements OnInit {
     {
       id: 70,
       nome: "(-) Despesas Financeiras",
-      grupo: "despesas",
+      grupo: "subtrai",
       classe: "def",
       valor: 0,
       tipo: "A",
@@ -657,7 +657,7 @@ export class HomeComponent implements OnInit {
     {
       id: 80,
       nome: "(+) Receitas Financeiras",
-      grupo: "receitas",
+      grupo: "soma",
       classe: "ref",
       valor: 10944,
       tipo: "A",
@@ -667,7 +667,7 @@ export class HomeComponent implements OnInit {
     {
       id: 90,
       nome: "(=) Resultado Antes do IR CSLL",
-      grupo: "resultado",
+      grupo: "soma",
       classe: "rir",
       valor: 378922,
       tipo: "S",
@@ -677,7 +677,7 @@ export class HomeComponent implements OnInit {
     {
       id: 100,
       nome: "(-) Imposto de renda e Contribuição Social",
-      grupo: "imposto",
+      grupo: "subtrai",
       classe: "ircsll",
       valor: 108821,
       tipo: "A",
@@ -687,7 +687,7 @@ export class HomeComponent implements OnInit {
     {
       id: 110,
       nome: "(-) Participação no Resultado",
-      grupo: "participacao",
+      grupo: "subtrai",
       classe: "par",
       valor: 0,
       tipo: "A",
@@ -697,7 +697,7 @@ export class HomeComponent implements OnInit {
     {
       id: 120,
       nome: "(=) Lucro Líquido do Exercício",
-      grupo: "lucro",
+      grupo: "soma",
       classe: "lle",
       valor: 270101,
       tipo: "S",
@@ -709,9 +709,12 @@ export class HomeComponent implements OnInit {
   dreLoad: boolean = false
   capitalDeGiroLoad: boolean = false;
   analiseVerticalLoad: boolean = false;
+  analiseVerticalDreLoad: boolean = false
   analiseHorizontalLoad: boolean = false;
+  analiseHorizontalDreLoad: boolean = false
   situacaoFinanceiraLoad: boolean = false;
   situacaoEconomicaLoad: boolean = false;
+
 
   constructor() { }
 
@@ -734,9 +737,15 @@ export class HomeComponent implements OnInit {
   loadAnaliseVertical() {
     this.analiseVerticalLoad = true;
   }
+  loadAnaliseVerticalDre() {
+    this.analiseVerticalDreLoad = true;
+  }
 
   loadAnaliseHorizontal() {
     this.analiseHorizontalLoad = true;
+  }
+  loadAnaliseHorizontalDre() {
+    this.analiseHorizontalDreLoad = true;
   }
 
   loadSituacaoFinanceira() {
@@ -747,10 +756,13 @@ export class HomeComponent implements OnInit {
     this.situacaoEconomicaLoad = true;
   }
 
+
   destruirComponentes() {
     this.capitalDeGiroLoad = false;
     this.analiseVerticalLoad = false;
+    this.analiseVerticalDreLoad = false
     this.analiseHorizontalLoad = false;
+    this.analiseHorizontalDreLoad = false
     this.situacaoFinanceiraLoad = false;
     this.situacaoEconomicaLoad = false;
   }

@@ -2,7 +2,7 @@
   <div class="col-md-12">
     <p>
       <b>Na análise horizontal, o objetivo é acompanhar o desempenho dos itens
-        do balanço patrimonial de um período para o outro</b>
+        da demonstração do Resultado do Exercício de um período para o outro</b>
     </p>
     <p>
       <i>Fórmula: AH (%) = ((valor atual do item / valor do item no período
@@ -14,15 +14,15 @@
   <div class="col-md-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">Análise Horizontal - Balanço patrimonial</h3>
+        <h3 class="box-title">Análise Horizontal - Demonstração do resultado do exercício</h3>
       </div>
       <div class='table-responsive'>
         <table class="table table-striped">
           <tbody>
             <tr>
               <th>Conta</th>
-              <th>{{ b1.ano }}</th>
-              <th>{{ b2.ano }}</th>
+              <th>{{ dre1.ano }}</th>
+              <th>{{ dre2.ano }}</th>
               <th>AH</th>
               <th>Variação</th>
             </tr>
@@ -42,16 +42,16 @@
               <td>
                 <span
                   [ngClass]="
-            analise.conta2.grupo === 'ativo' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'passivo' && analise.ahAno2 <= 0 ? 'badge bg-green' : 'badge bg-red'">{{ analise.ahAno2 | number: "1.2-2" }}%</span>
+            analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'badge bg-green' : 'badge bg-red'">{{ analise.ahAno2 | number: "1.2-2" }}%</span>
               </td>
               <td>
                 <span
-                  [ngClass]="analise.conta2.grupo === 'ativo' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'passivo' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
+                  [ngClass]="analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
                   *ngIf="analise.conta1.valor<analise.conta2.valor">
                   <i class="fa fa-arrow-up"></i>
                   {{analise.conta2.valor - analise.conta1.valor | number: "1.2-2"}}</span>
                 <span
-                  [ngClass]="analise.conta2.grupo === 'ativo' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'passivo' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
+                  [ngClass]="analise.conta2.grupo === 'soma' && analise.ahAno2 >= 0 ||  analise.conta2.grupo === 'subtrai' && analise.ahAno2 <= 0 ? 'verde' : 'vermelho'"
                   *ngIf="analise.conta1.valor > analise.conta2.valor">
                   <i class="fa fa-arrow-down"></i>
                   {{analise.conta1.valor - analise.conta2.valor | number: "1.2-2"}}</span>
@@ -61,18 +61,5 @@
         </table>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <p>
-      Se caixa e bancos cresceu de um ano para o outro deve ser avaliado o
-      motivo da manutenção desse recurso em caixa, já que com este recurso
-      aplicado poderia obter uma receita financeira.
-    </p>
-    <p>
-      Se o ativo cresce horizontalmente acima da inflação calculada no ano
-      significa que a empresa está tendo um desempenho favorável.
-    </p>
   </div>
 </div>

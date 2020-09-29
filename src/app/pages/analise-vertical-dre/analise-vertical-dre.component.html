@@ -2,25 +2,25 @@
   <div class="col-md-12">
     <p>
       <b>A Análise vertical tem como propósito determinar a porcentagem de cada
-        conta contábil em relação ao total do ativo ou passivo</b>
+        conta contábil em relação ao total da Receita Operacional Líquida</b>
     </p>
-    <p><i>Fórmula: AV = (Ativo circulante Total/Ativo Total)*100</i></p>
+    <p><i>Fórmula: AV = (Conta qualquer/Receita Operacional Líquida)*100</i></p>
   </div>
 </div>
 <div class="row">
   <div class="col-md-12">
     <div class="box box-primary">
       <div class="box-header with-border">
-        <h3 class="box-title">Análise Vertical - Balanço patrimonial</h3>
+        <h3 class="box-title">Análise Vertical - Demonstração do resultado do Exercício</h3>
       </div>
       <div class='table-responsive'>
         <table class="table table-striped">
           <tbody>
             <tr>
               <th>Conta</th>
-              <th>{{ b1.ano }}</th>
+              <th>{{ dre1.ano }}</th>
               <th>AV</th>
-              <th>{{ b2.ano }}</th>
+              <th>{{ dre2.ano }}</th>
               <th>AV</th>
               <th>Variação</th>
             </tr>
@@ -50,26 +50,19 @@
                   class="badge bg-light-blue"><b>{{ analise.avAno2 | number: "1.2-2" }}%</b></span>
               </td>
               <td>
-                <span *ngIf="analise.avAno1 < analise.avAno2"><i class="fa fa-arrow-up" style="color: green;"></i>
-                  {{analise.avAno2 - analise.avAno1 | number: "1.2-2"}}%</span>
-                <span *ngIf="analise.avAno1 > analise.avAno2"> <i class="fa fa-arrow-down" style="color: red;"></i>
-                  {{analise.avAno1 - analise.avAno2| number: "1.2-2"}}%</span>
+                <span [ngClass]="analise.conta2.grupo === 'soma' ? 'verde' : 'vermelho'"
+                  *ngIf="analise.conta1.valor < analise.conta2.valor">
+                  <i class="fa fa-arrow-up"></i>
+                  {{analise.conta2.valor - analise.conta1.valor | number: "1.2-2"}}</span>
+                <span [ngClass]="analise.conta2.grupo === 'subtrai' ? 'verde' : 'vermelho'"
+                  *ngIf="analise.conta1.valor > analise.conta2.valor">
+                  <i class="fa fa-arrow-down"></i>
+                  {{analise.conta1.valor - analise.conta2.valor | number: "1.2-2"}}</span>
               </td>
             </tr>
           </tbody>
         </table>
       </div>
     </div>
-  </div>
-</div>
-<div class="row">
-  <div class="col-md-12">
-    <p>
-      Quando o estoque está fora dos padrões normais, por exemplo, muito
-      elevado, teremos que descobrir as causas pois a empresa pode ter excesso
-      de estoque por vários motivos, tais como: Não estar vendendo por problemas
-      de qualidade, preço, concorrência, entre outros, ou estar com o estoque
-      obsoleto ou fora de moda.
-    </p>
   </div>
 </div>
