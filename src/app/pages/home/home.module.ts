@@ -1,3 +1,6 @@
+import { EstruturaComponent } from './../situacao-financeira/estrutura/estrutura.component';
+import { SolvenciaComponent } from './../situacao-financeira/solvencia/solvencia.component';
+import { LiquidezComponent } from './../situacao-financeira/liquidez/liquidez.component';
 import { HomeRoutingModule } from './home.routing.module';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { CURRENCY_MASK_CONFIG } from 'ng2-currency-mask/src/currency-mask.config';
@@ -33,13 +36,13 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   declarations: [
     HomeComponent, BalancoComponent, DreComponent, CapitalGiroComponent,
     AnaliseHorizontalComponent, AnaliseHorizontalDreComponent,
-    AnaliseVerticalComponent, AnaliseVerticalDreComponent,
+    AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent,
     SituacaoFinanceiraComponent, SituacaoEconomicaComponent],
   imports: [CommonModule, CoreModule, SharedModule, FormsModule, CurrencyMaskModule, RouterModule, HomeRoutingModule],
   exports: [
     HomeComponent, BalancoComponent, DreComponent, CapitalGiroComponent,
     AnaliseHorizontalComponent, AnaliseHorizontalDreComponent,
-    AnaliseVerticalComponent, AnaliseVerticalDreComponent,
+    AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent,
     SituacaoFinanceiraComponent, SituacaoEconomicaComponent],
   providers: [{ provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },]
 })

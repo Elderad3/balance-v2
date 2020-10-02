@@ -1,0 +1,81 @@
+<!-- GRAU DE SOLVÊNCIA -->
+
+<h2>Solvência</h2>
+<div class="box box-primary">
+  <div class="box-header">
+    <h5 class="box-title">Grau de Solvência (GS)</h5>
+  </div>
+  <div class="box-body">
+    <div class="col-md-12">
+      <p>
+        <b>O Grau de Solvência indica a capacidade da empresa em saldar suas
+          dívidas, de curto e longo prazos, levando em conta os seus ativos
+          totais.</b>
+      </p>
+      <p>
+        <i>Fórmula: GS = AT / (PC + PNC) x 100 | Quanto maior que 100,
+          melhor</i>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h4>{{ b1.ano }}</h4>
+
+      <app-grafico [nome1]="'Ativo Total'" [nome2]="'Passivo Circulante'" [nome3]="'Passivo não Circulante'"
+        [valor1]="ativoTotalB1" [valor2]="passivoCirculanteTotalB1" [valor3]="passivoNaoCirculanteTotalB2">
+      </app-grafico>
+      <p>
+        <i>Ativo Total: {{ ativoTotalB1 | number: "1.2-2" }}</i>
+      </p>
+      <p>
+        <i>Passivo Circulante:
+          {{ passivoCirculanteTotalB1 | number: "1.2-2" }}</i>
+      </p>
+      <p>
+        <i>Passivo não Circulante:
+          {{ passivoNaoCirculanteTotalB1 | number: "1.2-2" }}</i>
+      </p>
+      <h3 [ngClass]="grauSolvenciaB1 >= 100 ? 'text-green' : 'text-red'">
+        {{ grauSolvenciaB1 | number: "1.2-2" }}
+      </h3>
+      <p *ngIf="grauSolvenciaB1 > 100" class="text-green">
+        Para cada R$ 100,00 de dívidas, a empresa possui R$
+        {{ grauSolvenciaB1 | number: "1.2-2" }} de ativos.
+      </p>
+      <p *ngIf="grauSolvenciaB1 < 100" class="text-red">
+        Para cada R$ 100,00 de dívidas, a empresa possui apenas R$
+        {{ grauSolvenciaB1 | number: "1.2-2" }} de ativos, o que é
+        insufuciente para saldar suas dívidas.
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h4>{{ b2.ano }}</h4>
+
+      <app-grafico [nome1]="'Ativo Total'" [nome2]="'Passivo Circulante'" [nome3]="'Passivo não Circulante'"
+        [valor1]="ativoTotalB2" [valor2]="passivoCirculanteTotalB2" [valor3]="passivoNaoCirculanteTotalB2">
+      </app-grafico>
+      <p>
+        <i>Ativo Total: {{ ativoTotalB2 | number: "1.2-2" }}</i>
+      </p>
+      <p>
+        <i>Passivo Circulante:
+          {{ passivoCirculanteTotalB2 | number: "1.2-2" }}</i>
+      </p>
+      <p>
+        <i>Passivo não Circulante:
+          {{ passivoNaoCirculanteTotalB2 | number: "1.2-2" }}</i>
+      </p>
+      <h3 [ngClass]="grauSolvenciaB2 >= 100 ? 'text-green' : 'text-red'">
+        {{ grauSolvenciaB2 | number: "1.2-2" }}
+      </h3>
+      <p *ngIf="grauSolvenciaB2 > 100" class="text-green">
+        Para cada R$ 100,00 de dívidas, a empresa possui R$
+        {{ grauSolvenciaB2 | number: "1.2-2" }} de ativos.
+      </p>
+      <p *ngIf="grauSolvenciaB2 < 100" class="text-red">
+        Para cada R$ 100,00 de dívidas, a empresa possui apenas R$
+        {{ grauSolvenciaB2 | number: "1.2-2" }} de ativos, o que é
+        insufuciente para saldar suas dívidas.
+      </p>
+    </div>
+  </div>
+</div>

@@ -19,16 +19,19 @@ export class GraficoComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    let labels = [this.nome1, this.nome2, this.nome3, this.nome4].filter(label => label !== undefined)
-    this.data = {
-      labels: labels,
-      datasets: [
-        {
-          data: [this.valor1, this.valor2, this.valor3, this.valor4],
-          backgroundColor: this.adicionarCores(),
-          hoverBackgroundColor: this.adicionarCores()
-        }]
-    }
+    setTimeout(() => {
+      let labels = [this.nome1, this.nome2, this.nome3, this.nome4].filter(label => label !== undefined)
+      this.data = {
+        labels: labels,
+        datasets: [
+          {
+            data: [this.valor1, this.valor2, this.valor3, this.valor4],
+            backgroundColor: this.adicionarCores(),
+            hoverBackgroundColor: this.adicionarCores()
+          }]
+      }
+    }, 500);
+
   }
 
   adicionarCores() {
