@@ -37,6 +37,7 @@ export class CapitalGiroComponent implements OnInit {
     this.ativoCirculanteB1 = this.b1.contas.filter(
       conta => conta.chave === "b1acTotal"
     )[0].valor;
+
     this.ativoCirculanteB2 = this.b2.contas.filter(
       conta => conta.chave === "b2acTotal"
     )[0].valor;
@@ -67,5 +68,9 @@ export class CapitalGiroComponent implements OnInit {
 
     this.cgpB1 = this.patrimonioLiquidoB1 - this.ativoNaoCirculanteB1;
     this.cgpB2 = this.patrimonioLiquidoB2 - this.ativoNaoCirculanteB2;
+  }
+
+  imprimir() {
+    window.print();
   }
 }

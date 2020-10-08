@@ -36,45 +36,27 @@ export class GraficoComponent implements OnInit {
 
   adicionarCores() {
     let cores: string[] = []
-    if (this.nome1 === 'Ativo Total') {
-      cores.push('#1d2d50')
-    }
-    if (this.nome1 === 'Ativo Circulante') {
-      cores.push('#3c8dbc')
-    }
-    if (this.nome1 === 'Ativo não Circulante') {
-      cores.push('#1E88E5')
-    }
-    if (this.nome2 === 'Realizável a Longo Prazo') {
-      cores.push('#4d80e4')
-    }
-    if (this.nome2 === 'Estoque') {
-      cores.push('#293a80')
-    }
-    if (this.nome2 === 'Passivo Circulante') {
-      cores.push('#ff2800')
-    }
-    if (this.nome3 === 'Passivo Circulante') {
-      cores.push('#ff2800')
-    }
-    if (this.nome2 === 'Passivo não Circulante') {
-      cores.push('#dc2f02')
-    }
-    if (this.nome3 === 'Passivo não Circulante') {
-      cores.push('#dc2f02')
-    }
-    if (this.nome2 === 'Passivo não Circulante') {
-      cores.push('#dc2f02')
-    }
-    if (this.nome4 === 'Passivo não Circulante') {
-      cores.push('#dc2f02')
-    }
-    if (this.nome2 === 'Patrimônio Líquido') {
-      cores.push('#fca311')
-    }
-    if (this.nome3 === 'Patrimônio Líquido') {
-      cores.push('#fca311')
-    }
+    this.nome1 === "Ativo Total" ? cores.push('#1d2d50') : undefined
+    this.nome1 === 'Ativo Circulante' ? cores.push('#3c8dbc') : undefined
+    this.nome1 === 'Ativo não Circulante' ? cores.push('#1E88E5') : undefined
+    this.nome2 === 'Realizável a Longo Prazo' ? cores.push('#4d80e4') : undefined
+    this.nome2 === 'Estoque' ? cores.push('#293a80') : undefined
+    this.nome1 === 'Investimento' ? cores.push('#0077b6') : undefined
+    this.nome2 === 'Imobilizado' ? cores.push('#2a9d8f') : undefined
+    this.nome3 === 'Intangível' ? cores.push('#48cae4') : undefined
+    this.nome1 === 'Passivo Circulante' ? cores.push('#ff2800') : undefined
+    this.nome2 === 'Passivo Circulante' ? cores.push('#ff2800') : undefined
+    this.nome3 === 'Passivo Circulante' ? cores.push('#ff2800') : undefined
+    this.nome4 === 'Passivo Circulante' ? cores.push('#ff2800') : undefined
+    this.nome1 === 'Passivo não Circulante' ? cores.push('#9d0208') : undefined
+    this.nome2 === 'Passivo não Circulante' ? cores.push('#9d0208') : undefined
+    this.nome3 === 'Passivo não Circulante' ? cores.push('#9d0208') : undefined
+    this.nome4 === 'Passivo não Circulante' ? cores.push('#9d0208') : undefined
+    this.nome1 === 'Empréstimos' ? cores.push('#370617') : undefined
+    this.nome1 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
+    this.nome2 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
+    this.nome3 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
+    this.nome4 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
 
     return cores
   }
