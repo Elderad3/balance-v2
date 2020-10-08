@@ -1,3 +1,7 @@
+import { RetornoSobreVendasComponent } from './../situacao-economica/retorno-sobre-vendas/retorno-sobre-vendas.component';
+import { RetornoSobrePlComponent } from './../situacao-economica/retorno-sobre-pl/retorno-sobre-pl.component';
+import { RetornoSobreAtivoComponent } from './../situacao-economica/retorno-sobre-ativo/retorno-sobre-ativo.component';
+import { GiroAtivoComponent } from './../situacao-economica/giro-ativo/giro-ativo.component';
 import { EstruturaComponent } from './../situacao-financeira/estrutura/estrutura.component';
 import { SolvenciaComponent } from './../situacao-financeira/solvencia/solvencia.component';
 import { LiquidezComponent } from './../situacao-financeira/liquidez/liquidez.component';
@@ -35,13 +39,13 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
 @NgModule({
   declarations: [
     HomeComponent, BalancoComponent, DreComponent, CapitalGiroComponent,
-    AnaliseHorizontalComponent, AnaliseHorizontalDreComponent,
+    AnaliseHorizontalComponent, AnaliseHorizontalDreComponent, GiroAtivoComponent, RetornoSobreAtivoComponent, RetornoSobrePlComponent, RetornoSobreVendasComponent,
     AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent,
     SituacaoFinanceiraComponent, SituacaoEconomicaComponent],
   imports: [CommonModule, CoreModule, SharedModule, FormsModule, CurrencyMaskModule, RouterModule, HomeRoutingModule],
   exports: [
     HomeComponent, BalancoComponent, DreComponent, CapitalGiroComponent,
-    AnaliseHorizontalComponent, AnaliseHorizontalDreComponent,
+    AnaliseHorizontalComponent, AnaliseHorizontalDreComponent, GiroAtivoComponent, RetornoSobreAtivoComponent, RetornoSobrePlComponent, RetornoSobreVendasComponent,
     AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent,
     SituacaoFinanceiraComponent, SituacaoEconomicaComponent],
   providers: [{ provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },]

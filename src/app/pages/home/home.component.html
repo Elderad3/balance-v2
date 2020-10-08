@@ -11,7 +11,8 @@
           <a href="#tab_1" (click)="loadDre()" data-toggle="tab"><b>DRE</b></a>
         </li>
         <li>
-          <a href="#tab_2" (click)="loadSituacaoFinanceira()" data-toggle="tab"><b>Índices</b></a>
+          <a href="#tab_2" (click)="loadSituacaoFinanceira()" (click)="loadSituacaoEconomica()"
+            data-toggle="tab"><b>Índices</b></a>
         </li>
         <li>
           <a href="#tab_3" (click)="loadCapitalDeGiro()" data-toggle="tab"><b>Capital de Giro</b></a>
@@ -58,7 +59,8 @@
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_11">
-                <app-situacao-economica *ngIf="situacaoEconomicaLoad"></app-situacao-economica>
+                <app-situacao-economica *ngIf="situacaoEconomicaLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
+                </app-situacao-economica>
               </div>
               <!-- /.tab-pane -->
               <div class="tab-pane" id="tab_12">

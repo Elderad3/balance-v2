@@ -1,12 +1,18 @@
 <div class="row">
   <div class="col-md-4">
-    <button type="button" class="btn btn-block btn-primary btn-sm" (click)="loadIndicesLiquidez()">Liquidez</button>
+    <button type="button"
+      [ngClass]="indicesLiquidezLoad ? 'btn btn-block btn-primary btn-sm' : 'btn btn-block btn-secondary btn-sm'"
+      (click)="loadIndicesLiquidez()">Liquidez</button>
   </div>
   <div class="col-md-4">
-    <button type="button" class="btn btn-block btn-primary btn-sm" (click)="loadGrauDeSolvencia()">Solvência</button>
+    <button type="button"
+      [ngClass]="grauDeSolvenciaLoad ? 'btn btn-block btn-primary btn-sm' : 'btn btn-block btn-secondary btn-sm'"
+      (click)="loadGrauDeSolvencia()">Solvência</button>
   </div>
   <div class="col-md-4">
-    <button type="button" class="btn btn-block btn-primary btn-sm" (click)="loadIndicesestrutura()">Estrutura</button>
+    <button type="button"
+      [ngClass]="indicesEstruturaLoad ? 'btn btn-block btn-primary btn-sm' : 'btn btn-block btn-secondary btn-sm'"
+      (click)="loadIndicesestrutura()">Estrutura</button>
   </div>
   <div class="col-md-12">
     <app-liquidez *ngIf="indicesLiquidezLoad" [b1]="b1" [b2]="b2"></app-liquidez>

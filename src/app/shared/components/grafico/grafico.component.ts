@@ -33,10 +33,11 @@ export class GraficoComponent implements OnInit {
     }, 500);
 
   }
-
   adicionarCores() {
     let cores: string[] = []
+    this.nome1 === "Lucro Líquido" ? cores.push('#2a9d8f') : undefined
     this.nome1 === "Ativo Total" ? cores.push('#1d2d50') : undefined
+    this.nome2 === "Ativo Total" ? cores.push('#1d2d50') : undefined
     this.nome1 === 'Ativo Circulante' ? cores.push('#3c8dbc') : undefined
     this.nome1 === 'Ativo não Circulante' ? cores.push('#1E88E5') : undefined
     this.nome2 === 'Realizável a Longo Prazo' ? cores.push('#4d80e4') : undefined
@@ -57,7 +58,9 @@ export class GraficoComponent implements OnInit {
     this.nome2 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
     this.nome3 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
     this.nome4 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
+    this.nome1 === 'Vendas Líquidas' ? cores.push('#00a65a') : undefined
 
     return cores
   }
+
 }

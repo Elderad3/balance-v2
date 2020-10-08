@@ -1,0 +1,64 @@
+<!-- Giro do ativo -->
+<div class="box box-primary">
+  <div class="box-header">
+    <h5 class="box-title">Giro do Ativo (GA)</h5>
+  </div>
+  <div class="box-body">
+    <div class="col-md-12">
+      <p>
+        <b>Este índice indica o quanto a empresa vendeu para cada R$ 1,00 de investimento total</b>
+      </p>
+      <p><i>Fórmula: GA = Vendas Líquidas(receita Operacional Líquida) / Ativo total | Quanto maior do que 1, melhor</i>
+      </p>
+    </div>
+    <div class="col-md-6">
+      <h4>{{ b1.ano }}</h4>
+
+      <app-grafico [nome1]="'Vendas Líquidas'" [nome2]="'Ativo Total'" [valor1]="vendasLiquidasDre1"
+        [valor2]="ativoTotalB1"></app-grafico>
+      <p>
+        <i>Vendas Líquidas: {{ vendasLiquidasDre1 | number: "1.2-2" }}</i>
+      </p>
+      <p>
+        <i>Ativo Total:
+          {{ ativoTotalB1 | number: "1.2-2" }}</i>
+      </p>
+      <h3 [ngClass]="giroAtivo1 >= 1 ? 'text-green' : 'text-red'">
+        {{ giroAtivo1 | number: "1.2-2" }}
+      </h3>
+
+      <p *ngIf="giroAtivo1 > 1" class="text-green">
+        Para cada R$ 1,00 de investimento total, foi gerado um volume de vendas de
+        {{ giroAtivo1 | number: "1.2-2" }}.
+      </p>
+      <p *ngIf="giroAtivo1 < 1" class="text-red">
+        Para cada R$ 1,00 de investimento total, foi gerado um volume de vendas de
+        {{ giroAtivo1 | number: "1.2-2" }}. A empresa está vendendo pouco em relação ao que está sendo investido.
+      </p>
+    </div>
+
+    <div class="col-md-6">
+      <h4>{{ b2.ano }}</h4>
+      <app-grafico [nome1]="'Vendas Líquidas'" [nome2]="'Ativo Total'" [valor1]="vendasLiquidasDre2"
+        [valor2]="ativoTotalB2"></app-grafico>
+      <p>
+        <i>Vendas Líquidas: {{ vendasLiquidasDre2 | number: "1.2-2" }}</i>
+      </p>
+      <p>
+        <i>Ativo Total:
+          {{ ativoTotalB2 | number: "1.2-2" }}</i>
+      </p>
+      <h3 [ngClass]="giroAtivo2 >= 1 ? 'text-green' : 'text-red'">
+        {{ giroAtivo2 | number: "1.2-2" }}
+      </h3>
+
+      <p *ngIf="giroAtivo2 > 1" class="text-green">
+        Para cada R$ 1,00 de investimento total, foi gerado um volume de vendas de
+        {{ giroAtivo2 | number: "1.2-2" }}.
+      </p>
+
+      <p *ngIf="giroAtivo2 < 1" class="text-red">
+        Para cada R$ 1,00 de investimento total, foi gerado um volume de vendas de
+        {{ giroAtivo1 | number: "1.2-2" }}. A empresa está vendendo pouco em relação ao que está sendo investido.
+      </p>
+    </div>
