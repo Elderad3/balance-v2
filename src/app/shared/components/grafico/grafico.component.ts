@@ -59,6 +59,7 @@ export class GraficoComponent implements OnInit {
     this.nome3 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
     this.nome4 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
     this.nome1 === 'Vendas Líquidas' ? cores.push('#00a65a') : undefined
+    this.nome2 === 'Vendas Líquidas' ? cores.push('#00a65a') : undefined
 
     return cores
   }

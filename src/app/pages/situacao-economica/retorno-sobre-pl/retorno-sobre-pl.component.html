@@ -1,4 +1,4 @@
-<!-- Giro do ativo -->
+<!-- RETORNO SOBRE O PL -->
 <div class="box box-primary">
   <div class="box-header">
     <h5 class="box-title">Retorno sobre o Patrimônio Líquido (RSPL)</h5>
@@ -27,7 +27,7 @@
           {{ patrimonioLiquidoB1 | number: "1.2-2" }}</i>
       </p>
       <h3 [ngClass]="retornoSobrePl1 >= 1 ? 'text-green' : 'text-red'">
-        {{ retornoSobrePl1 | number: "1.2-2" }}
+        {{ retornoSobrePl1 | number: "1.2-2" }}%
       </h3>
 
       <p *ngIf="retornoSobrePl1 > 1" class="text-green">
@@ -54,7 +54,7 @@
           {{ patrimonioLiquidoB2 | number: "1.2-2" }}</i>
       </p>
       <h3 [ngClass]="retornoSobrePl2 >= 1 ? 'text-green' : 'text-red'">
-        {{ retornoSobrePl2 | number: "1.2-2" }}
+        {{ retornoSobrePl2 | number: "1.2-2" }}%
       </h3>
 
       <p *ngIf="retornoSobrePl2 > 1" class="text-green">
