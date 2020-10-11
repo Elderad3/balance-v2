@@ -25,6 +25,7 @@ export class GraficoComponent implements OnInit {
         labels: labels,
         datasets: [
           {
+            label: '',
             data: [this.valor1, this.valor2, this.valor3, this.valor4],
             backgroundColor: this.adicionarCores(),
             hoverBackgroundColor: this.adicionarCores()

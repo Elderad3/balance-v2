@@ -714,6 +714,8 @@ export class HomeComponent implements OnInit {
   analiseHorizontalDreLoad: boolean = false
   situacaoFinanceiraLoad: boolean = false;
   situacaoEconomicaLoad: boolean = false;
+  prazosMediosLoad: boolean = false
+  ciclosLoad: boolean = false
 
 
   constructor() { }
@@ -755,8 +757,12 @@ export class HomeComponent implements OnInit {
   loadSituacaoEconomica() {
     this.situacaoEconomicaLoad = true;
   }
-
-
+  loadPrazosMedios() {
+    this.prazosMediosLoad = true
+  }
+  loadCiclos() {
+    this.ciclosLoad = true
+  }
   destruirComponentes() {
     this.capitalDeGiroLoad = false;
     this.dreLoad = false;
@@ -766,6 +772,8 @@ export class HomeComponent implements OnInit {
     this.analiseHorizontalDreLoad = false
     this.situacaoFinanceiraLoad = false;
     this.situacaoEconomicaLoad = false;
+    this.prazosMediosLoad = false
+    this.ciclosLoad = false
   }
 
   ordenarContas() {

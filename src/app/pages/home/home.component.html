@@ -18,16 +18,22 @@
           <a href="#tab_3" (click)="loadCapitalDeGiro()" data-toggle="tab"><b>Capital de Giro</b></a>
         </li>
         <li>
-          <a href="#tab_4" (click)="loadAnaliseVertical()" data-toggle="tab"><b>Análise Vertical Balanço</b></a>
+          <a href="#tab_4" (click)="loadPrazosMedios()" data-toggle="tab"><b>Prazos Médios</b></a>
         </li>
         <li>
-          <a href="#tab_5" (click)="loadAnaliseVerticalDre()" data-toggle="tab"><b>Análise Vertical DRE</b></a>
+          <a href="#tab_5" (click)="loadCiclos()" data-toggle="tab"><b>Ciclos</b></a>
         </li>
         <li>
-          <a href="#tab_6" (click)="loadAnaliseHorizontal()" data-toggle="tab"><b>Análise Horizontal Balanço</b></a>
+          <a href="#tab_6" (click)="loadAnaliseVertical()" data-toggle="tab"><b>AV Balanço</b></a>
         </li>
         <li>
-          <a href="#tab_7" (click)="loadAnaliseHorizontalDre()" data-toggle="tab"><b>Análise Horizontal DRE</b></a>
+          <a href="#tab_7" (click)="loadAnaliseVerticalDre()" data-toggle="tab"><b>AV DRE</b></a>
+        </li>
+        <li>
+          <a href="#tab_8" (click)="loadAnaliseHorizontal()" data-toggle="tab"><b>AH Balanço</b></a>
+        </li>
+        <li>
+          <a href="#tab_9" (click)="loadAnaliseHorizontalDre()" data-toggle="tab"><b>AH DRE</b></a>
         </li>
         <li class="pull-right">
         </li>
@@ -48,10 +54,6 @@
               <li>
                 <a href="#tab_11" (click)="loadSituacaoEconomica()" data-toggle="tab">Situação Econômica</a>
               </li>
-              <li>
-                <a href="#tab_12" data-toggle="tab">Ciclo Operacional e Financeiro</a>
-              </li>
-              <li><a href="#tab_13" data-toggle="tab">Ebitda e Ebit</a></li>
             </ul>
             <div class="tab-content">
               <div class="tab-pane active" id="tab_10">
@@ -61,18 +63,6 @@
               <div class="tab-pane" id="tab_11">
                 <app-situacao-economica *ngIf="situacaoEconomicaLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
                 </app-situacao-economica>
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_12">
-                <p>
-                  Em breve...
-                </p>
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_13">
-                <p>
-                  Em breve...
-                </p>
               </div>
               <!-- /.tab-pane -->
             </div>
@@ -86,17 +76,23 @@
         </div>
         <!-- /.tab-pane -->
         <div class="tab-pane" id="tab_4">
-          <app-analise-vertical *ngIf="analiseVerticalLoad" [b1]="b1" [b2]="b2"></app-analise-vertical>
+          <p>Em breve</p>
         </div>
         <div class="tab-pane" id="tab_5">
+          <p>Em breve</p>
+        </div>
+        <div class="tab-pane" id="tab_6">
+          <app-analise-vertical *ngIf="analiseVerticalLoad" [b1]="b1" [b2]="b2"></app-analise-vertical>
+        </div>
+        <div class="tab-pane" id="tab_7">
           <app-analise-vertical-dre *ngIf="analiseVerticalDreLoad" [dre1]="dre1" [dre2]="dre2">
           </app-analise-vertical-dre>
         </div>
         <!-- /.tab-pane -->
-        <div class="tab-pane" id="tab_6">
+        <div class="tab-pane" id="tab_8">
           <app-analise-horizontal *ngIf="analiseHorizontalLoad" [b1]="b1" [b2]="b2"></app-analise-horizontal>
         </div>
-        <div class="tab-pane" id="tab_7">
+        <div class="tab-pane" id="tab_9">
           <app-analise-horizontal-dre *ngIf="analiseHorizontalDreLoad" [dre1]="dre1" [dre2]="dre2">
           </app-analise-horizontal-dre>
         </div>

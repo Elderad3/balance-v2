@@ -34,7 +34,7 @@
       </h3>
 
       <p *ngIf="liquidezCorrenteB1 > 1" class="text-green">
-        Para cada R$ 1,00 do Passivo Circulante, a empresa detinha R$
+        Para cada R$ 1,00 do Passivo Circulante, a empresa possui R$
         {{ liquidezCorrenteB1 | number: "1.2-2" }} no Ativo Circulante, ou
         seja, uma folga de R$
         {{ liquidezCorrenteB1 - 1 | number: "1.2-2" }} para cada R$ 1,00 de
@@ -44,8 +44,8 @@
       </p>
 
       <p *ngIf="liquidezCorrenteB1 < 1" class="text-red">
-        A empresa não detinha capital disponível suficiente para quitar as
-        obrigações a curto prazo, caso fosse preciso.
+        A empresa não possui capital disponível suficiente para quitar as
+        obrigações a curto prazo.
       </p>
     </div>
 
@@ -65,15 +65,17 @@
         {{ liquidezCorrenteB2 | number: "1.2-2" }}
       </h3>
       <p *ngIf="liquidezCorrenteB2 > 1" class="text-green">
-        Para cada R$ 1,00 do Passivo Circulante, a empresa detinha R$
+        Para cada R$ 1,00 do Passivo Circulante, a empresa possui R$
         {{ liquidezCorrenteB2 | number: "1.2-2" }} no Ativo Circulante, ou
         seja, uma folga de R$
         {{ liquidezCorrenteB2 - 1 | number: "1.2-2" }} para cada R$ 1,00 de
         dívidas de curto prazo.
+        O Resultado demonstra folga no disponível para uma possível
+        liquidação das obrigações.
       </p>
       <p *ngIf="liquidezCorrenteB2 < 1" class="text-red">
-        A empresa não possuía capital disponível suficiente para quitar as
-        obrigações a curto prazo, caso for preciso.
+        A empresa não possui capital disponível suficiente para quitar as
+        obrigações a curto prazo.
       </p>
     </div>
   </div>
@@ -122,7 +124,7 @@
         {{ liquidezGeralB1 | number: "1.2-2" }}
       </h3>
       <p *ngIf="liquidezGeralB1 > 1" class="text-green">
-        Para cada R$ 1,00 de dívidas totais, a empresa possuía R$
+        Para cada R$ 1,00 de dívidas totais, a empresa possui R$
         {{ liquidezGeralB1 | number: "1.2-2" }}
         nos grupos Ativo Circulante e Realizável a longo prazo, ou seja, uma
         folga de R$
@@ -162,7 +164,7 @@
         {{ liquidezGeralB2 | number: "1.2-2" }}
       </h3>
       <p *ngIf="liquidezGeralB2 > 1" class="text-green">
-        Para cada R$ 1,00 de dívidas totais, a empresa possuía R$
+        Para cada R$ 1,00 de dívidas totais, a empresa possui R$
         {{ liquidezGeralB2 | number: "1.2-2" }}
         nos grupos Ativo Circulante e Realizável a longo prazo, ou seja, uma
         folga de R$

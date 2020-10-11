@@ -1,6 +1,14 @@
 <div class="row">
   <form class="form-horizontal" autocomplete="off" #ativoForm="ngForm" id="contaForm"
     [ngFormOptions]="{ updateOn: 'blur' }">
+    <div class="col-md-12">
+      <div class="alert alert-success alert-dismissible">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+        <h4><i class="icon fa fa-check"></i> Olá!</h4>
+        Preencha os dados do balanço patrimonial e demonstração do resultado do exercício e navegue nas demais abas para
+        visualizar o resultado da análise.
+      </div>
+    </div>
     <div class="col-md-6">
       <div class="box box-primary">
         <div class="box-header with-border">
