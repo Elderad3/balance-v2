@@ -61,7 +61,12 @@ export class GraficoComponent implements OnInit {
     this.nome4 === 'Patrimônio Líquido' ? cores.push('#fca311') : undefined
     this.nome1 === 'Vendas Líquidas' ? cores.push('#00a65a') : undefined
     this.nome2 === 'Vendas Líquidas' ? cores.push('#00a65a') : undefined
-
+    this.nome1 === 'Estoque Médio' ? cores.push('#3fc1c0') : undefined
+    this.nome2 === 'Custo dos Produtos Vendidos' ? cores.push('#bc4b51') : undefined
+    this.nome1 === 'Contas a Receber Média' ? cores.push('#17c3b2') : undefined
+    this.nome2 === 'Receita Operacional Líquida' ? cores.push('#89fc00') : undefined
+    this.nome1 === 'Fornecedores Média' ? cores.push('#c32f27') : undefined
+    this.nome2 === 'Compras' ? cores.push('#ff6d00') : undefined
     return cores
   }
 

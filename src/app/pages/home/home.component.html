@@ -76,9 +76,10 @@
         </div>
         <!-- /.tab-pane -->
         <div class="tab-pane" id="tab_4">
-          <p>Em breve</p>
+          <app-prazos-medios *ngIf="prazosMediosLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
+          </app-prazos-medios>
         </div>
-        <div class="tab-pane" id="tab_5">
+        <div class=" tab-pane" id="tab_5">
           <p>Em breve</p>
         </div>
         <div class="tab-pane" id="tab_6">

@@ -1,3 +1,4 @@
+import { PrazosMediosComponent } from './../prazos-medios/prazos-medios.component';
 import { RetornoSobreVendasComponent } from './../situacao-economica/retorno-sobre-vendas/retorno-sobre-vendas.component';
 import { RetornoSobrePlComponent } from './../situacao-economica/retorno-sobre-pl/retorno-sobre-pl.component';
 import { RetornoSobreAtivoComponent } from './../situacao-economica/retorno-sobre-ativo/retorno-sobre-ativo.component';
@@ -40,13 +41,13 @@ export const CustomCurrencyMaskConfig: CurrencyMaskConfig = {
   declarations: [
     HomeComponent, BalancoComponent, DreComponent, CapitalGiroComponent,
     AnaliseHorizontalComponent, AnaliseHorizontalDreComponent, GiroAtivoComponent, RetornoSobreAtivoComponent, RetornoSobrePlComponent, RetornoSobreVendasComponent,
-    AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent,
+    AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent, PrazosMediosComponent,
     SituacaoFinanceiraComponent, SituacaoEconomicaComponent],
   imports: [CommonModule, CoreModule, SharedModule, FormsModule, CurrencyMaskModule, RouterModule, HomeRoutingModule],
   exports: [
     HomeComponent, BalancoComponent, DreComponent, CapitalGiroComponent,
     AnaliseHorizontalComponent, AnaliseHorizontalDreComponent, GiroAtivoComponent, RetornoSobreAtivoComponent, RetornoSobrePlComponent, RetornoSobreVendasComponent,
-    AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent,
+    AnaliseVerticalComponent, AnaliseVerticalDreComponent, LiquidezComponent, SolvenciaComponent, EstruturaComponent, PrazosMediosComponent,
     SituacaoFinanceiraComponent, SituacaoEconomicaComponent],
   providers: [{ provide: CURRENCY_MASK_CONFIG, useValue: CustomCurrencyMaskConfig },]
 })
