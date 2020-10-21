@@ -18,10 +18,7 @@
           <a href="#tab_3" (click)="loadCapitalDeGiro()" data-toggle="tab"><b>Capital de Giro</b></a>
         </li>
         <li>
-          <a href="#tab_4" (click)="loadPrazosMedios()" data-toggle="tab"><b>Prazos Médios</b></a>
-        </li>
-        <li>
-          <a href="#tab_5" (click)="loadCiclos()" data-toggle="tab"><b>Ciclos</b></a>
+          <a href="#tab_4" (click)="loadPrazosMedios()" data-toggle="tab"><b>Prazos Médios e Ciclos</b></a>
         </li>
         <li>
           <a href="#tab_6" (click)="loadAnaliseVertical()" data-toggle="tab"><b>AV Balanço</b></a>
@@ -76,11 +73,8 @@
         </div>
         <!-- /.tab-pane -->
         <div class="tab-pane" id="tab_4">
-          <app-prazos-medios *ngIf="prazosMediosLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
-          </app-prazos-medios>
-        </div>
-        <div class=" tab-pane" id="tab_5">
-          <p>Em breve</p>
+          <app-prazos-ciclos *ngIf="prazosMediosLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
+          </app-prazos-ciclos>
         </div>
         <div class="tab-pane" id="tab_6">
           <app-analise-vertical *ngIf="analiseVerticalLoad" [b1]="b1" [b2]="b2"></app-analise-vertical>

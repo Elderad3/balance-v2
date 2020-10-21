@@ -19,7 +19,7 @@
                 <th>AV</th>
                 <th>{{ dre2.ano }}</th>
                 <th>AV</th>
-                <th>Variação</th>
+                <!-- <th>Variação</th> -->
               </tr>
               <tr *ngFor="let analise of analises">
                 <td>
@@ -46,8 +46,8 @@
                   <span *ngIf="analise.conta2.tipo === 'S'"
                     class="badge bg-light-blue"><b>{{ analise.avAno2 | number: "1.2-2" }}%</b></span>
                 </td>
-                <td>
-                  <span [ngClass]="analise.conta2.grupo === 'soma' ? 'verde' : 'vermelho'"
+                <!-- <td>
+                  <span [ngClass]="analise.conta2.grupo === 'soma' ? 'verde' : 'vermelho'" 
                     *ngIf="analise.conta1.valor < analise.conta2.valor">
                     <i class="fa fa-arrow-up"></i>
                     {{analise.conta2.valor - analise.conta1.valor | number: "1.2-2"}}</span>
@@ -55,7 +55,7 @@
                     *ngIf="analise.conta1.valor > analise.conta2.valor">
                     <i class="fa fa-arrow-down"></i>
                     {{analise.conta1.valor - analise.conta2.valor | number: "1.2-2"}}</span>
-                </td>
+                </td> -->
               </tr>
             </tbody>
           </table>

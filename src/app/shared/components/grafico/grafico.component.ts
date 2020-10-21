@@ -67,6 +67,10 @@ export class GraficoComponent implements OnInit {
     this.nome2 === 'Receita Operacional Líquida' ? cores.push('#89fc00') : undefined
     this.nome1 === 'Fornecedores Média' ? cores.push('#c32f27') : undefined
     this.nome2 === 'Compras' ? cores.push('#ff6d00') : undefined
+    this.nome1 === 'Prazo Médio de Renovação de Estoque' ? cores.push('#8338ec') : undefined
+    this.nome2 === 'Prazo Médio de Recebimento de Vendas' ? cores.push('#52796f') : undefined
+    this.nome1 === 'Ciclo Operacional' ? cores.push('#6d597a') : undefined
+    this.nome2 === 'Prazo Médio de Pagamento de Compras' ? cores.push('#8f2d56') : undefined
     return cores
   }
 

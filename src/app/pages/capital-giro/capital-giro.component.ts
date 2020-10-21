@@ -29,7 +29,6 @@ export class CapitalGiroComponent implements OnInit {
 
   cgpB1: number = 0;
   cgpB2: number = 0;
-  data: any
   constructor() {
   }
 
@@ -68,9 +67,5 @@ export class CapitalGiroComponent implements OnInit {
 
     this.cgpB1 = this.patrimonioLiquidoB1 - this.ativoNaoCirculanteB1;
     this.cgpB2 = this.patrimonioLiquidoB2 - this.ativoNaoCirculanteB2;
-  }
-
-  imprimir() {
-    window.print();
   }
 }
