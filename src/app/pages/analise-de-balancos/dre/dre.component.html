@@ -1,0 +1,83 @@
+<div class="row">
+  <form class="form-horizontal" autocomplete="off" #ativoForm="ngForm" id="contaForm"
+    [ngFormOptions]="{ updateOn: 'blur' }">
+    <div class="col-md-6">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Ano 1</h3>
+
+          <div class="box-tools pull-right">
+            <div class="has-feedback">
+              <input type="number" class="form-control input-sm" [name]="dre1.ano" [(ngModel)]="dre1.ano" disabled />
+            </div>
+          </div>
+        </div>
+
+        <div class="form-horizontal">
+          <div class="box-body">
+            <div class="form-group" *ngFor="let conta of dre1.contas">
+              <p *ngIf="conta.tipo === 'S' && conta.sistema !== 'N'" class="col-sm-6">
+                <b>{{ conta.nome }}</b>
+              </p>
+              <p *ngIf="conta.tipo === 'A' && conta.sistema !== 'N'" class="col-sm-6">
+                {{ conta.nome }}
+              </p>
+              <div *ngIf="conta.sistema === 'N'" class="col-sm-6">
+                <input type="text" [name]="conta.id" [(ngModel)]="conta.nome" class="form-control input-sm"
+                  (blur)="atualizarNomeConta(conta)" required />
+              </div>
+              <div class="col-sm-4">
+                <input currencyMask [name]="conta.chave" [(ngModel)]="conta.valor" (blur)="calcularTotaisDre1()"
+                  class="form-control input-sm" [disabled]="conta.tipo === 'S'" />
+              </div>
+              <!-- <div class="col-sm-2">
+                <a href="javascript:" *ngIf="conta.tipo === 'S' && conta.classe != 'aTotal' && conta.classe != 'pTotal'"
+                  (click)="inserirContaDre1(conta)">
+                  <i class="fa fa-plus-square"></i>
+                </a>
+                <a href="javascript:" *ngIf="conta.sistema === 'N'" (click)="deletarConta(conta)">
+                  <i class="fa fa-minus-square vermelho"></i>
+                </a>
+              </div> -->
+            </div>
+          </div>
+          <div class="box-footer">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="box box-primary">
+        <div class="box-header with-border">
+          <h3 class="box-title">Ano 2</h3>
+          <div class="box-tools pull-right">
+            <div class="has-feedback">
+              <input type="number" class="form-control input-sm" [name]="dre2.ano" [(ngModel)]="dre2.ano" disabled />
+            </div>
+          </div>
+        </div>
+        <div class="form-horizontal">
+          <div class="box-body">
+            <div class="form-group" *ngFor="let conta2 of dre2.contas">
+              <p *ngIf="conta2.tipo === 'S'" class="col-sm-6">
+                <b>{{ conta2.nome }}</b>
+              </p>
+              <p *ngIf="conta2.tipo === 'A'" class="col-sm-6">
+                {{ conta2.nome }}
+              </p>
+              <div class="col-sm-4">
+                <input currencyMask [name]="conta2.chave" [(ngModel)]="conta2.valor" (blur)="calcularTotaisDre2()"
+                  class="form-control input-sm" [disabled]="conta2.tipo === 'S'" />
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-12">
+    </div>
+  </form>
+</div>

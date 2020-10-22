@@ -8,7 +8,7 @@ const ROTAS: Routes = [
 
   { path: '', redirectTo: '/inicio', pathMatch: 'full' },
   { path: 'inicio', component: InicioComponent },
-  { path: 'analise-de-balanco', loadChildren: () => import('./pages/home/home.module').then(m => m.HomeMainModule), },
+  { path: 'analise-de-balanco', loadChildren: () => import('./pages/analise-de-balancos/home/home.module').then(m => m.HomeMainModule), },
   { path: '**', component: PageNotFoundComponent }
 ];
 
