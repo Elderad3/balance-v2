@@ -12,6 +12,12 @@
 .jumbotron {
     background-color:#ffff !important;
 }
-
+.hr-class {
+    border-top: 1px dashed #3c8dbc;
+    border-bottom: 1px solid #3c8dbc;
+    color: #fff;
+    background-color: #fff;
+    height: 4px;
+  }
 
 

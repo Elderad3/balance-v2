@@ -17,6 +17,7 @@
 
       <app-grafico [nome1]="'Lucro Líquido'" [nome2]="'Vendas Líquidas'" [valor1]="lucroLiquidoDre1"
         [valor2]="vendasLiquidasDre1"></app-grafico>
+      <hr class="hr-class">
       <p>
         <i>Lucro Líquido: {{ lucroLiquidoDre1 | number: "1.2-2" }}</i>
       </p>
@@ -40,6 +41,7 @@
       <h4>{{ dre2.ano }}</h4>
       <app-grafico [nome1]="'Lucro Líquido'" [nome2]="'Vendas Líquidas'" [valor1]="lucroLiquidoDre2"
         [valor2]="vendasLiquidasDre2"></app-grafico>
+      <hr class="hr-class">
       <p>
         <i>Lucro Líquido: {{ lucroLiquidoDre2 | number: "1.2-2" }}</i>
       </p>

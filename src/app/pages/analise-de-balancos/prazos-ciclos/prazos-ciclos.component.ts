@@ -41,19 +41,19 @@ export class PrazosCilcosComponent implements OnInit {
   ngOnInit() {
     this.estoqueAno1 = this.b1.contas.find(conta => conta.chave === 'b1acEstoque').valor
     this.estoqueAno2 = this.b2.contas.find(conta => conta.chave === 'b2acEstoque').valor
-    this.estoqueMedio = this.estoqueAno1 + this.estoqueAno2 / 2
+    this.estoqueMedio = (this.estoqueAno1 + this.estoqueAno2) / 2
     this.custoProdutosVendidosB2 = this.dre2.contas.find(conta => conta.chave === 'dre2cpvCustoProdutoVendido').valor
     this.pmreB2 = (this.estoqueMedio / this.custoProdutosVendidosB2) * 360
 
     this.contasReceberAno1 = this.b1.contas.find(conta => conta.chave === 'b1acContasAReceber').valor
     this.contasReceberAno2 = this.b2.contas.find(conta => conta.chave === 'b2acContasAReceber').valor
-    this.contasReceberMedia = this.contasReceberAno1 + this.contasReceberAno2 / 2
+    this.contasReceberMedia = (this.contasReceberAno1 + this.contasReceberAno2) / 2
     this.receitaOperacionalLiquidaB2 = this.dre2.contas.find(conta => conta.chave === 'dre2rolReceitaOperacionalLiquida').valor
     this.pmrvB2 = (this.contasReceberMedia / this.receitaOperacionalLiquidaB2) * 360
 
     this.fornecedoresAno1 = this.b1.contas.find(conta => conta.chave === 'b1pcFornecedores').valor
     this.fornecedoresAno2 = this.b2.contas.find(conta => conta.chave === 'b2pcFornecedores').valor
-    this.fornecedoresMedia = this.fornecedoresAno1 + this.fornecedoresAno2 / 2
+    this.fornecedoresMedia = (this.fornecedoresAno1 + this.fornecedoresAno2) / 2
     this.comprasB2 = this.custoProdutosVendidosB2 + this.estoqueAno2 - this.estoqueAno1
     this.pmpcB2 = (this.fornecedoresMedia / this.comprasB2) * 360
 

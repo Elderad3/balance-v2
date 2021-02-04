@@ -74,4 +74,35 @@ export class GraficoComponent implements OnInit {
     return cores
   }
 
+
+
+  options: any = {
+    legend: {
+      display: false
+    },
+    tooltips: {
+      callbacks: {
+        label: function (label) { return label.yLabel.toLocaleString('pt-BR') },
+      }
+    },
+    scales: {
+      xAxes: [{
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          callback: function (label) { return label.toLocaleString('pt-BR') }
+        }
+      }],
+      yAxes: [{
+        gridLines: {
+          display: false
+        },
+        ticks: {
+          callback: function (label) { return label.toLocaleString('pt-BR') }
+        }
+      }]
+    }
+  }
+
 }
