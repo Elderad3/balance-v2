@@ -1,10 +1,6 @@
 import { ChartModule } from 'primeng/chart';
-import { DialogMensageComponent } from './components/dialog-mensage/dialog-mensage.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-
-
-import { FormMensagensComponent } from './components/form-mensagens/form-mensagens.component';
 import { GraficoComponent } from './components/grafico/grafico.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
