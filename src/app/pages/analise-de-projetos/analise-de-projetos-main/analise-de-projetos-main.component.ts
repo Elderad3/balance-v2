@@ -1,3 +1,4 @@
+import { Title, Meta } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
@@ -19,7 +20,7 @@ export class ValorPresenteLiquido {
 })
 
 export class AnaliseDeProjetosMainComponent implements OnInit {
-
+  titulo: string = 'Viabilidade Financeira de Projeto'
   taxa: number = 10
   valorPresenteLiquido: number = 0
   taxaRetorno: number = 0
@@ -37,8 +38,14 @@ export class AnaliseDeProjetosMainComponent implements OnInit {
   @ViewChild("projetoForm", { static: false })
   projetoForm: NgForm;
 
-  constructor() { }
+  constructor(
+    private titleService: Title,
+    private metaTagService: Meta) { }
   ngOnInit() {
+    this.titleService.setTitle(this.titulo);
+    this.metaTagService.updateTag(
+      { name: 'description', content: 'Calcule online a viabilidade financeira de um projeto.' }
+    );
     this.realizarCalculos()
   }
 

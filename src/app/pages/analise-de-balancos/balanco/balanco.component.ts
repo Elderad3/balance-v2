@@ -1,3 +1,4 @@
+import { Title, Meta } from '@angular/platform-browser';
 
 import { Balanco2 } from "./../../../shared/models/balanco2.model";
 import { BalancoService } from "./balanco.service"
@@ -9,15 +10,20 @@ import { NgForm } from "@angular/forms";
   templateUrl: "./balanco.component.html"
 })
 export class BalancoComponent implements OnInit {
+  titulo: string = 'Análise de Balanços'
   @Input() b1: Balanco2;
   @Input() b2: Balanco2;
 
   @ViewChild("ativoForm", { static: false })
   ativoForm: NgForm;
 
-  constructor(private balancoService: BalancoService) { }
+  constructor(private balancoService: BalancoService, private titleService: Title, private metaTagService: Meta) { }
 
   ngOnInit() {
+    this.titleService.setTitle(this.titulo);
+    this.metaTagService.updateTag(
+      { name: 'description', content: 'Ferramenta online de análise de balanços.' }
+    );
     this.b1.ano = 2019;
     this.b2.ano = 2020;
   }

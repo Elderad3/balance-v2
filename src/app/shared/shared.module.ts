@@ -2,7 +2,6 @@ import { ChartModule } from 'primeng/chart';
 import { DialogMensageComponent } from './components/dialog-mensage/dialog-mensage.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ReactiveFormsModule } from '@angular/forms';
 
 
 import { FormMensagensComponent } from './components/form-mensagens/form-mensagens.component';
@@ -12,22 +11,16 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 
 @NgModule({
   declarations: [
-    FormMensagensComponent,
-    DialogMensageComponent, GraficoComponent, PageNotFoundComponent
+    GraficoComponent, PageNotFoundComponent
   ],
   imports: [
     CommonModule,
-    ReactiveFormsModule,
     ChartModule
 
   ],
   exports: [
     CommonModule,
-    ReactiveFormsModule,
     GraficoComponent,
-
-    FormMensagensComponent,
-    DialogMensageComponent
   ],
   providers: [],
 })

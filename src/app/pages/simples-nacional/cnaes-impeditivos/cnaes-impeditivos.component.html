@@ -1,0 +1,80 @@
+<div class="row">
+  <div class="col-md-12">
+    <div class="box box-primary">
+      <div class="box-header with-border">
+        <h3 class="box-title">Consulta CNAE</h3>
+      </div>
+
+      <div class="form-horizontal">
+        <div class="box-body">
+          <div class="col-md-12">
+            <p>
+              <b>Esta ferramenta verifica se determinado CNAE é permitido, ambíguo ou impeditivo ao simples
+                Nacional.</b>
+            </p>
+          </div>
+
+          <form class="form-horizontal" autocomplete="off" #cnaesForm="ngForm" id="form"
+            [ngFormOptions]="{ updateOn: 'change' }">
+            <div
+              [ngClass]="codigo.invalid && (codigo.dirty || codigo.touched) ? 'form-group has-error' : 'form-group has-success'">
+              <label class="col-md-2 control-label" for="input"><i
+                  [ngClass]="codigo.invalid && (codigo.dirty || codigo.touched) ? 'fa fa-times-circle-o' : 'fa fa-check'"></i>
+                Cnae:
+              </label>
+              <div class=" col-md-4">
+                <input type="text" class="form-control input-sm" id="input" placeholder="Digite o CNAE ..."
+                  [(ngModel)]="codigoCnae" name="codigoCnae" #codigo="ngModel" required minlength="7" maxlength="7"
+                  pattern="[0-9]+$">
+                <span *ngIf="codigo.errors?.required || codigo.errors?.minlength || codigo.errors?.pattern"
+                  class="text-red">O Cnae é composto por 7 números</span>
+              </div>
+              <div class="col-md-2">
+                <button type="button" [disabled]="codigo.invalid" (click)="buscarCnaesPorSubclasse()"
+                  class="btn btn-block btn-primary btn-sm">Buscar</button>
+              </div>
+            </div>
+          </form>
+
+          <div class="col-md-12">
+            <div *ngIf="!cnae">
+              <p>Realize uma busca...</p>
+            </div>
+            <div *ngIf="cnae">
+              <h3 class="widget-user-username">{{cnae.codigo}} - {{cnae.descricao}}</h3>
+              <hr class="hr-class">
+              <div *ngIf="!cnae.impeditivo && !cnae.ambiguo">
+                <h4 class="text-green">Atividade Permitida</h4>
+                <p class="text-green"><i>Este Cnae NÃO está previsto no anexo VI da resolução CGSN Nº 140, de 2018.
+                    (Art. 8º, § 1º)
+                    como CNAE impeditivo ao Simples Nacional.</i></p>
+              </div>
+              <div *ngIf="cnae.impeditivo">
+                <h4 class="text-red">Atividade Não Permitida</h4>
+                <p class="text-red"><i>Este Cnae está previsto no anexo VI da resolução CGSN Nº 140, de 2018. (Art. 8º,
+                    § 1º)
+                    como CNAE impeditivo ao Simples Nacional.</i></p>
+              </div>
+              <div *ngIf="cnae.ambiguo">
+                <h4 class="text-yellow">Atividade Ambígua</h4>
+                <p class="text-yellow"><i>Este Cnae está previsto no anexo VII da resolução CGSN Nº 140, de 2018. (Art.
+                    8º,
+                    § 2º) como código previsto na CNAE que abrangem concomitantemente atividade impeditiva e permitida
+                    ao Simples Nacional.</i></p>
+              </div>
+              <hr class="hr-class">
+              <p><b>Atividades deste CNAE:</b></p>
+              <ul class="nav nav-pills nav-stacked" *ngFor="let atividade of cnae.atividades">
+                <li><a><i class="fa fa-circle-o text-light-blue"></i>
+                    {{atividade}}
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div *ngIf="cnae === null">Não foi encontrado CNAE com este código, por favor refaça a busca.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
