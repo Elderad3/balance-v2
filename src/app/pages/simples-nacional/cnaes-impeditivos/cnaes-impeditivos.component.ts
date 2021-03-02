@@ -44,7 +44,6 @@ export class CnaesImpeditivosComponent implements OnInit {
   }
 
   tratarDados(cnaes) {
-    console.log(cnaes)
     if (cnaes.length === 0) {
       return null
     }
@@ -87,7 +86,6 @@ export class CnaesImpeditivosComponent implements OnInit {
         break;
       } else { impeditivo = false }
     }
-    console.log(impeditivo)
     return impeditivo
   }
   verificarCnaeAmbiguo(cnae: string): boolean {
@@ -98,7 +96,6 @@ export class CnaesImpeditivosComponent implements OnInit {
         break;
       } else { ambiguo = false }
     }
-    console.log(ambiguo)
     return ambiguo
   }
 }
