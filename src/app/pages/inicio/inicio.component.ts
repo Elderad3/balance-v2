@@ -1,4 +1,4 @@
-import { Meta } from '@angular/platform-browser';
+import { Meta, Title } from '@angular/platform-browser';
 import { Component, OnInit } from "@angular/core";
 
 @Component({
@@ -6,15 +6,15 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./inicio.component.html"
 })
 export class InicioComponent implements OnInit {
+  titulo: string = 'Página Inicial'
   data: any;
-  constructor(private metaTagService: Meta) {
+  constructor(private metaTagService: Meta, private titleService: Title) {
   }
 
   ngOnInit() {
-    this.metaTagService.addTags([
-      { name: 'description', content: 'Ferramentas Gratuitas para Contadores e Gestores.' },
-      { name: 'robots', content: 'index, follow' },
-      { name: 'author', content: 'Elder Damascena' }
-    ]);
+    this.titleService.setTitle(this.titulo);
+    this.metaTagService.updateTag(
+      { name: 'description', content: 'Ferramentas Gratuitas para Contadores e Gestores.' }
+    )
   }
 }
