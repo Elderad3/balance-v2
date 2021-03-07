@@ -15,7 +15,13 @@ const ROTAS: Routes = [
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(ROTAS)],
+  imports: [RouterModule.forRoot(ROTAS,
+    //   {
+    //   scrollPositionRestoration: 'enabled',
+    //   anchorScrolling: 'enabled',
+    //   scrollOffset: [0, 64]
+    // }
+  )],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

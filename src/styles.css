@@ -19,5 +19,11 @@
     background-color: #fff;
     height: 4px;
   }
+.hr-class-two{
+    background-color: #eee;
+    border: 0 none;
+    color: #eee;
+    height: 2px;
+}
 
 

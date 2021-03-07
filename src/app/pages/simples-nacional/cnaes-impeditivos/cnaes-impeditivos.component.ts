@@ -28,7 +28,7 @@ export class CnaesImpeditivosComponent implements OnInit {
     this.titleService.setTitle(this.titulo);
     this.metaTagService.updateTag(
       { name: 'description', content: 'Ferramenta online que verifica se determinado CNAE é permitido, ambíguo ou impeditivo ao simples Nacional.' }
-    );
+    )
   }
 
   buscarCnaesPorSubclasse() {
