@@ -1,5 +1,4 @@
-import { Meta, Title } from '@angular/platform-browser';
-import { LiquidezComponent } from './../../analise-de-balancos/situacao-financeira/liquidez/liquidez.component';
+import { Title } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import { ErrorService } from './../../../shared/services/error.service';
 import { CnaesImpeditivosService } from './cnaes-impeditivos.service';
@@ -21,14 +20,10 @@ export class CnaesImpeditivosComponent implements OnInit {
 
   constructor(private cnaesImpeditivosService: CnaesImpeditivosService,
     private errorService: ErrorService,
-    private titleService: Title,
-    private metaTagService: Meta) { }
+    private titleService: Title) { }
 
   ngOnInit() {
     this.titleService.setTitle(this.titulo);
-    this.metaTagService.updateTag(
-      { name: 'description', content: 'Ferramenta online que verifica se determinado CNAE é permitido, ambíguo ou impeditivo ao simples Nacional.' }
-    )
   }
 
   buscarCnaesPorSubclasse() {

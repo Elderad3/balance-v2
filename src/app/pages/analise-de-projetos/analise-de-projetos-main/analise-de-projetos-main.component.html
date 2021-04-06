@@ -1,233 +1,247 @@
-<form class="form-horizontal" autocomplete="off" #projetoForm="ngForm" id="contaForm"
-  [ngFormOptions]="{ updateOn: 'blur' }">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="alert alert-success alert-dismissible">
-        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-        <!-- <h4><i class="icon fa fa-check"></i> Olá!</h4> -->
-        Adicione ou exclua fluxos de caixa através dos botões <i class="fa fa-plus-square azul"> ou <i class="fa
+<section class="content-header">
+  <h1>
+    Viabilidade Financeira de Projeto
+    <small>Calcule Online a Viabilidade Financeira de um Projeto</small>
+  </h1>
+</section>
+<section class="content">
+  <form class="form-horizontal" autocomplete="off" #projetoForm="ngForm" id="contaForm"
+    [ngFormOptions]="{ updateOn: 'blur' }">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="alert alert-success alert-dismissible">
+          <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+          <!-- <h4><i class="icon fa fa-check"></i> Olá!</h4> -->
+          Adicione ou exclua fluxos de caixa através dos botões <i class="fa fa-plus-square azul"> ou <i class="fa
         fa-minus-square"></i></i> .
+        </div>
+      </div>
+      <div class="col-md-12">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Análise Financeira de Projeto</h3>
+          </div>
+
+          <div class="form-horizontal">
+            <div class="box-body">
+              <div class="form-group">
+                <label class="col-sm-3">
+                  Taxa Mínima de Atratividade (%):
+                </label>
+                <div class="col-sm-1">
+                  <input currencyMask name="taxa" [(ngModel)]="taxa" [ngModelOptions]="{standalone: true}"
+                    (blur)="alterarTaxa()" class="form-control input-sm" [options]="{allowNegative: false }" />
+                </div>
+              </div>
+              <div class="form-group" *ngFor="let vpl of vpls">
+                <p class="col-sm-3">
+                  {{vpl.nome}}:
+                </p>
+                <div class="col-sm-3">
+                  <input currencyMask [name]="vpl.fluxoDeCaixa" [(ngModel)]="vpl.fluxoDeCaixa"
+                    [ngModelOptions]="{standalone: true}" class="form-control input-sm" (blur)="realizarCalculos()"
+                    [options]="{allowNegative: false }" />
+                </div>
+                <div class="col-sm-1">
+                  <a href="javascript:" *ngIf="vpl.id === vpls.length || vpls.length === 1">
+                    <i class="fa fa-plus-square" (click)="adicionarVpl(vpl)" (click)="realizarCalculos()"></i>
+                  </a>
+                  <a href="javascript:" *ngIf="vpl.id === vpls.length && vpl.sistema === 'N'" style="margin-left: 5px;">
+                    <i class="fa fa-minus-square vermelho" (click)="deletarVpl(vpl)" (click)="realizarCalculos()"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="box-body no-padding">
+                <div class='table-responsive'>
+                  <table class="table table-striped">
+                    <tbody>
+                      <tr>
+                        <th>Período (n)</th>
+                        <th>Fluxo de caixa</th>
+                        <th>Taxa (i)</th>
+                        <th>Valor Presente (vp)</th>
+                        <th>VPL Acumulado</th>
+                      </tr>
+                      <tr *ngFor="let vpl of vpls">
+                        <td>{{vpl.periodo}}</td>
+                        <td>R$ {{vpl.fluxoDeCaixa | number: "1.2-2"}}</td>
+                        <td>{{vpl.taxa | number: "1.2-2"}}%</td>
+                        <td>R$ {{vpl.valorPresente | number: "1.2-2"}}</td>
+                        <td><span [ngClass]="vpl.vplAcumulado < 0 ? 'badge bg-red' : 'badge bg-green'"
+                            ngclass="">{{vpl.vplAcumulado | number: "1.2-2"}}</span></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+            <div class="box-footer">
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-12">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Análise Financeira de Projeto</h3>
-        </div>
-
-        <div class="form-horizontal">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Valor Presente Líquido (VPL)</h3>
+          </div>
           <div class="box-body">
-            <div class="form-group">
-              <label class="col-sm-3">
-                Taxa Mínima de Atratividade (%):
-              </label>
-              <div class="col-sm-1">
-                <input currencyMask name="taxa" [(ngModel)]="taxa" [ngModelOptions]="{standalone: true}"
-                  (blur)="alterarTaxa()" class="form-control input-sm" [options]="{allowNegative: false }" />
-              </div>
-            </div>
-            <div class="form-group" *ngFor="let vpl of vpls">
-              <p class="col-sm-3">
-                {{vpl.nome}}:
-              </p>
-              <div class="col-sm-3">
-                <input currencyMask [name]="vpl.fluxoDeCaixa" [(ngModel)]="vpl.fluxoDeCaixa"
-                  [ngModelOptions]="{standalone: true}" class="form-control input-sm" (blur)="realizarCalculos()"
-                  [options]="{allowNegative: false }" />
-              </div>
-              <div class="col-sm-1">
-                <a href="javascript:" *ngIf="vpl.id === vpls.length || vpls.length === 1">
-                  <i class="fa fa-plus-square" (click)="adicionarVpl(vpl)" (click)="realizarCalculos()"></i>
-                </a>
-                <a href="javascript:" *ngIf="vpl.id === vpls.length && vpl.sistema === 'N'" style="margin-left: 5px;">
-                  <i class="fa fa-minus-square vermelho" (click)="deletarVpl(vpl)" (click)="realizarCalculos()"></i>
-                </a>
-              </div>
-            </div>
-            <div class="box-body no-padding">
-              <div class='table-responsive'>
-                <table class="table table-striped">
-                  <tbody>
-                    <tr>
-                      <th>Período (n)</th>
-                      <th>Fluxo de caixa</th>
-                      <th>Taxa (i)</th>
-                      <th>Valor Presente (vp)</th>
-                      <th>VPL Acumulado</th>
-                    </tr>
-                    <tr *ngFor="let vpl of vpls">
-                      <td>{{vpl.periodo}}</td>
-                      <td>R$ {{vpl.fluxoDeCaixa | number: "1.2-2"}}</td>
-                      <td>{{vpl.taxa | number: "1.2-2"}}%</td>
-                      <td>R$ {{vpl.valorPresente | number: "1.2-2"}}</td>
-                      <td><span [ngClass]="vpl.vplAcumulado < 0 ? 'badge bg-red' : 'badge bg-green'"
-                          ngclass="">{{vpl.vplAcumulado | number: "1.2-2"}}</span></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
+            <h3 [ngClass]="valorPresenteLiquido > 0 ? 'text-green' : 'text-red'">
+              R$ {{valorPresenteLiquido | number: "1.2-2"}}</h3>
+            <p *ngIf="valorPresenteLiquido > 0" class="text-green">
+              O projeto da forma em que se encontra é financeiramente viável pois os fluxos de caixa gerados trazidos a
+              valor presente
+              ultrapassam o valor do investimento inicial do projeto.
+            </p>
+            <p *ngIf="valorPresenteLiquido <= 0" class="text-red">
+              O projeto da forma em que se encontra NÃO é financeiramente viável pois os fluxos de caixa gerados
+              trazidos
+              a valor presente
+              não ultrapassam o valor do investimento inicial do projeto.
+            </p>
           </div>
-          <div class="box-footer">
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Taxa Interna de Retorno (TIR)</h3>
+          </div>
+          <div class="box-body">
+            <h3 [ngClass]="taxaRetorno > 0 ? 'text-green' : 'text-red'" *ngIf="taxaRetorno != undefined">
+              {{taxaRetorno | number: "1.2-2"}}%
+            </h3>
+            <p *ngIf="taxaRetorno === undefined">Não foi possível encontrar a taxa de retorno para os valores informados
+            </p>
+            <p *ngIf="taxaRetorno > 0" class="text-green">Esta seria a taxa de retorno necessária para se ter um valor
+              presente líquido igual a zero, ou seja, taxa necessária para recuperar o investimento inicial na sua
+              totalidade
+              com os períodos informados.
+            </p>
+            <p *ngIf="taxaRetorno < 0" class="text-red">Taxa interna de retorno negativa significa que o seu projeto não
+              alcançou a viabilidade financeira necessária.</p>
           </div>
         </div>
       </div>
     </div>
-  </div>
+    <div class="row">
+      <div class="col-md-6">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Índice de Lucratividade (IL)</h3>
+          </div>
+          <div class="box-body">
+            <h3 [ngClass]="indiceDeLucratividade > 1 ? 'text-green' : 'text-red'">
+              {{indiceDeLucratividade | number: "1.2-2"}}</h3>
+            <p *ngIf="indiceDeLucratividade > 1" class="text-green">
+              Para cada R$ 1,00 investido, R$ {{indiceDeLucratividade | number: "1.2-2"}} são retornados até o
+              final do projeto.
+            </p>
+            <p *ngIf="indiceDeLucratividade < 1" class="text-red">
+              Para cada R$ 1,00 investido, apenas R$ {{indiceDeLucratividade | number: "1.2-2"}} são retornados até
+              o final do projeto.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="box box-primary">
+          <div class="box-header with-border">
+            <h3 class="box-title">Payback (Tempo de Retorno do Investimento)</h3>
+          </div>
+          <div class="box-body">
+            <h3 *ngIf="tempoDePayback != undefined">{{tempoDePaybackString}}</h3>
+            <p *ngIf="tempoDePayback === undefined">{{tempoDePaybackString}}</p>
+            <p *ngIf="tempoDePayback != undefined">Este é o tempo necessário para recuperar o valor do investimento
+              inicial levando em conta
+              os fluxos de caixa gerados e trazidos a valor presente.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
   <div class="row">
-    <div class="col-md-6">
-      <div class="box box-primary">
+    <div class="col-md-12">
+      <div class="box box-solid">
         <div class="box-header with-border">
-          <h3 class="box-title">Valor Presente Líquido (VPL)</h3>
-        </div>
-        <div class="box-body">
-          <h3 [ngClass]="valorPresenteLiquido > 0 ? 'text-green' : 'text-red'">
-            R$ {{valorPresenteLiquido | number: "1.2-2"}}</h3>
-          <p *ngIf="valorPresenteLiquido > 0" class="text-green">
-            O projeto da forma em que se encontra é financeiramente viável pois os fluxos de caixa gerados trazidos a
-            valor presente
-            ultrapassam o valor do investimento inicial do projeto.
-          </p>
-          <p *ngIf="valorPresenteLiquido <= 0" class="text-red">
-            O projeto da forma em que se encontra NÃO é financeiramente viável pois os fluxos de caixa gerados trazidos
-            a valor presente
-            não ultrapassam o valor do investimento inicial do projeto.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Taxa Interna de Retorno (TIR)</h3>
-        </div>
-        <div class="box-body">
-          <h3 [ngClass]="taxaRetorno > 0 ? 'text-green' : 'text-red'" *ngIf="taxaRetorno != undefined">
-            {{taxaRetorno | number: "1.2-2"}}%
-          </h3>
-          <p *ngIf="taxaRetorno === undefined">Não foi possível encontrar a taxa de retorno para os valores informados
-          </p>
-          <p *ngIf="taxaRetorno > 0" class="text-green">Esta seria a taxa de retorno necessária para se ter um valor
-            presente líquido igual a zero, ou seja, taxa necessária para recuperar o investimento inicial na sua
-            totalidade
-            com os períodos informados.
-          </p>
-          <p *ngIf="taxaRetorno < 0" class="text-red">Taxa interna de retorno negativa significa que o seu projeto não
-            alcançou a viabilidade financeira necessária.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-md-6">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Índice de Lucratividade (IL)</h3>
-        </div>
-        <div class="box-body">
-          <h3 [ngClass]="indiceDeLucratividade > 1 ? 'text-green' : 'text-red'">
-            {{indiceDeLucratividade | number: "1.2-2"}}</h3>
-          <p *ngIf="indiceDeLucratividade > 1" class="text-green">
-            Para cada R$ 1,00 investido, R$ {{indiceDeLucratividade | number: "1.2-2"}} são retornados até o
-            final do projeto.
-          </p>
-          <p *ngIf="indiceDeLucratividade < 1" class="text-red">
-            Para cada R$ 1,00 investido, apenas R$ {{indiceDeLucratividade | number: "1.2-2"}} são retornados até
-            o final do projeto.
-          </p>
-        </div>
-      </div>
-    </div>
-    <div class="col-md-6">
-      <div class="box box-primary">
-        <div class="box-header with-border">
-          <h3 class="box-title">Payback (Tempo de Retorno do Investimento)</h3>
-        </div>
-        <div class="box-body">
-          <h3 *ngIf="tempoDePayback != undefined">{{tempoDePaybackString}}</h3>
-          <p *ngIf="tempoDePayback === undefined">{{tempoDePaybackString}}</p>
-          <p *ngIf="tempoDePayback != undefined">Este é o tempo necessário para recuperar o valor do investimento
-            inicial levando em conta
-            os fluxos de caixa gerados e trazidos a valor presente.
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-</form>
-<div class="row">
-  <div class="col-md-12">
-    <div class="box box-solid">
-      <div class="box-header with-border">
-        <h3 class="box-title">Conceitos</h3>
+          <h3 class="box-title">Conceitos</h3>
 
-        <div class="box-tools">
-          <button type="button" class="btn btn-box-tool">
-          </button>
+          <div class="box-tools">
+            <button type="button" class="btn btn-box-tool">
+            </button>
+          </div>
         </div>
+        <div class="box-body no-padding">
+          <ul class="nav nav-pills nav-stacked">
+            <li><a><i class="fa fa-circle-o text-light-blue"></i>
+                A análise financeira de um projeto tem o objetivo de
+                identificar a viabilidade da aplicação ou não de recursos em um determinado projeto.
+                <p>Para isso é necessário uma estimativa da geração de fluxos de caixa que este projeto irá gerar no
+                  futuro.
+                  Estes fluxos de caixa futuros são trazidos a valor presente levando em conta a taxa mínima de
+                  atratividade
+                  e o período, desta forma são considerados os custos do dinheiro no tempo.</p>
+                <p>Outro aspécto fundamental é a taxa mínima de atratividade que será considerada no projeto,
+                  ou seja, com este dinheiro investido hoje, quantos por cento ele está rendendo ao ano? Esta seria a
+                  taxa
+                  mínima que o projeto teria que retornar para você.</p>
+                <p>Para descobrir se o projeto é viável ou não é levado em conta o valor do dinheiro no tempo, ou seja,
+                  todos
+                  os
+                  fluxos de caixa futuros que o projeto irá gerar são trazidos a valor presente.</p>
+              </a></li>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Taxa Mínima de Atratividade (TMA): </b>A Taxa Mínima
+                de
+                Atratividade (TMA)
+                é uma taxa de juros que representa o mínimo que um investidor se propõe a ganhar quando faz um
+                investimento,
+                ou o máximo que uma pessoa se propõe a pagar quando faz um financiamento.</a></li>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Investimento Inicial: </b>Custo inicial necessário
+                para
+                colocar o projeto em andamento</a></li>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Fluxo de Caixa: </b>Estimativa de caixa a ser gerado
+                quando o projeto estiver em andamento.</a></li>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Valor Presente: </b>O valor presente é o fluxo de
+                caixa
+                gerado em um determinado período descontado a taxa de juros.</a>
+            </li>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Valor Presente Líquido: </b>O valor presente líquido
+                (VPL)
+                é a fórmula econômico-financeira capaz de determinar o valor presente de pagamentos futuros descontados
+                a
+                uma
+                taxa de juros apropriada, menos o custo do investimento inicial.</a>
+            </li>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Taxa Interna de Retorno: </b>A taxa interna de
+                retorno
+                ou
+                taxa interna
+                de rentabilidade, de sigla TIR, em inglês IRR (internal rate of return), é uma taxa de desconto
+                hipotética
+                que,
+                quando aplicada a um fluxo de caixa, faz com que os valores das despesas,
+                trazidos ao valor presente, seja igual aos valores dos retornos dos investimentos, também trazidos ao
+                valor
+                presente.</a>
+            </li>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Payback: </b>Tempo necessário para recuperar o total
+                do
+                investimento.</a>
+            <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Índice de lucratividade: </b>É um indicador
+                financeiro
+                que
+                mede a razão entre o valor presente de todos os fluxos de caixa futuros
+                e o investimento inicial. Se o índice de lucratividade é maior que 1 significa que a soma dos valores
+                presentes dos fluxos de caixa futuros ultrapassam em mais de 1 vez o investimento inicial,
+                tornando o projeto viável.</a>
+            </li>
+          </ul>
+        </div>
+        <!-- /.box-body -->
       </div>
-      <div class="box-body no-padding">
-        <ul class="nav nav-pills nav-stacked">
-          <li><a><i class="fa fa-circle-o text-light-blue"></i>
-              A análise financeira de um projeto tem o objetivo de
-              identificar a viabilidade da aplicação ou não de recursos em um determinado projeto.
-              <p>Para isso é necessário uma estimativa da geração de fluxos de caixa que este projeto irá gerar no
-                futuro.
-                Estes fluxos de caixa futuros são trazidos a valor presente levando em conta a taxa mínima de
-                atratividade
-                e o período, desta forma são considerados os custos do dinheiro no tempo.</p>
-              <p>Outro aspécto fundamental é a taxa mínima de atratividade que será considerada no projeto,
-                ou seja, com este dinheiro investido hoje, quantos por cento ele está rendendo ao ano? Esta seria a taxa
-                mínima que o projeto teria que retornar para você.</p>
-              <p>Para descobrir se o projeto é viável ou não é levado em conta o valor do dinheiro no tempo, ou seja,
-                todos
-                os
-                fluxos de caixa futuros que o projeto irá gerar são trazidos a valor presente.</p>
-            </a></li>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Taxa Mínima de Atratividade (TMA): </b>A Taxa Mínima
-              de
-              Atratividade (TMA)
-              é uma taxa de juros que representa o mínimo que um investidor se propõe a ganhar quando faz um
-              investimento,
-              ou o máximo que uma pessoa se propõe a pagar quando faz um financiamento.</a></li>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Investimento Inicial: </b>Custo inicial necessário
-              para
-              colocar o projeto em andamento</a></li>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Fluxo de Caixa: </b>Estimativa de caixa a ser gerado
-              quando o projeto estiver em andamento.</a></li>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Valor Presente: </b>O valor presente é o fluxo de
-              caixa
-              gerado em um determinado período descontado a taxa de juros.</a>
-          </li>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Valor Presente Líquido: </b>O valor presente líquido
-              (VPL)
-              é a fórmula econômico-financeira capaz de determinar o valor presente de pagamentos futuros descontados a
-              uma
-              taxa de juros apropriada, menos o custo do investimento inicial.</a>
-          </li>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Taxa Interna de Retorno: </b>A taxa interna de retorno
-              ou
-              taxa interna
-              de rentabilidade, de sigla TIR, em inglês IRR (internal rate of return), é uma taxa de desconto hipotética
-              que,
-              quando aplicada a um fluxo de caixa, faz com que os valores das despesas,
-              trazidos ao valor presente, seja igual aos valores dos retornos dos investimentos, também trazidos ao
-              valor
-              presente.</a>
-          </li>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Payback: </b>Tempo necessário para recuperar o total
-              do
-              investimento.</a>
-          <li><a><i class="fa fa-circle-o text-light-blue"></i><b>Índice de lucratividade: </b>É um indicador financeiro
-              que
-              mede a razão entre o valor presente de todos os fluxos de caixa futuros
-              e o investimento inicial. Se o índice de lucratividade é maior que 1 significa que a soma dos valores
-              presentes dos fluxos de caixa futuros ultrapassam em mais de 1 vez o investimento inicial,
-              tornando o projeto viável.</a>
-          </li>
-        </ul>
-      </div>
-      <!-- /.box-body -->
     </div>
   </div>
-</div>
+</section>

@@ -1,101 +1,109 @@
-<div class="row">
-  <div class="col-md-12">
-    <!-- Custom Tabs -->
+<section class="content-header">
+  <h1>
+    Análise de Balanços
+    <small>Ferramenta Online de Análise de Balanços</small>
+  </h1>
+</section>
+<section class="content">
+  <div class="row">
+    <div class="col-md-12">
+      <!-- Custom Tabs -->
 
-    <div class="nav-tabs-custom">
-      <ul class="nav nav-tabs">
-        <li class="active">
-          <a href="#tab_0" (click)="destruirComponentes()" data-toggle="tab"><b>Balanço</b></a>
-        </li>
-        <li>
-          <a href="#tab_1" (click)="loadDre()" data-toggle="tab"><b>DRE</b></a>
-        </li>
-        <li>
-          <a href="#tab_2" (click)="loadSituacaoFinanceira()" (click)="loadSituacaoEconomica()"
-            data-toggle="tab"><b>Índices</b></a>
-        </li>
-        <li>
-          <a href="#tab_3" (click)="loadCapitalDeGiro()" data-toggle="tab"><b>Capital de Giro</b></a>
-        </li>
-        <li>
-          <a href="#tab_4" (click)="loadPrazosMedios()" data-toggle="tab"><b>Prazos Médios e Ciclos</b></a>
-        </li>
-        <li>
-          <a href="#tab_6" (click)="loadAnaliseVertical()" data-toggle="tab"><b>AV Balanço</b></a>
-        </li>
-        <li>
-          <a href="#tab_7" (click)="loadAnaliseVerticalDre()" data-toggle="tab"><b>AV DRE</b></a>
-        </li>
-        <li>
-          <a href="#tab_8" (click)="loadAnaliseHorizontal()" data-toggle="tab"><b>AH Balanço</b></a>
-        </li>
-        <li>
-          <a href="#tab_9" (click)="loadAnaliseHorizontalDre()" data-toggle="tab"><b>AH DRE</b></a>
-        </li>
-        <li class="pull-right">
-        </li>
-      </ul>
-      <div class="tab-content">
-        <div class="tab-pane active" id="tab_0">
-          <app-balanco [b1]="b1" [b2]="b2"></app-balanco>
-        </div>
-        <div class="tab-pane" id="tab_1">
-          <app-dre [dre1]="dre1" [dre2]="dre2" [ano1]="b1.ano" [ano2]="b2.ano" *ngIf="dreLoad"></app-dre>
-        </div>
-        <div class="tab-pane" id="tab_2">
-          <div class="nav-tabs-custom">
-            <ul class="nav nav-tabs">
-              <li class="active">
-                <a href="#tab_10" (click)="loadSituacaoFinanceira()" data-toggle="tab">Situação Financeira</a>
-              </li>
-              <li>
-                <a href="#tab_11" (click)="loadSituacaoEconomica()" data-toggle="tab">Situação Econômica</a>
-              </li>
-            </ul>
-            <div class="tab-content">
-              <div class="tab-pane active" id="tab_10">
-                <app-situacao-financeira *ngIf="situacaoFinanceiraLoad" [b1]="b1" [b2]="b2"></app-situacao-financeira>
-              </div>
-              <!-- /.tab-pane -->
-              <div class="tab-pane" id="tab_11">
-                <app-situacao-economica *ngIf="situacaoEconomicaLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
-                </app-situacao-economica>
-              </div>
-              <!-- /.tab-pane -->
-            </div>
-            <!-- /.tab-content -->
+      <div class="nav-tabs-custom">
+        <ul class="nav nav-tabs">
+          <li class="active">
+            <a href="#tab_0" (click)="destruirComponentes()" data-toggle="tab"><b>Balanço</b></a>
+          </li>
+          <li>
+            <a href="#tab_1" (click)="loadDre()" data-toggle="tab"><b>DRE</b></a>
+          </li>
+          <li>
+            <a href="#tab_2" (click)="loadSituacaoFinanceira()" (click)="loadSituacaoEconomica()"
+              data-toggle="tab"><b>Índices</b></a>
+          </li>
+          <li>
+            <a href="#tab_3" (click)="loadCapitalDeGiro()" data-toggle="tab"><b>Capital de Giro</b></a>
+          </li>
+          <li>
+            <a href="#tab_4" (click)="loadPrazosMedios()" data-toggle="tab"><b>Prazos Médios e Ciclos</b></a>
+          </li>
+          <li>
+            <a href="#tab_6" (click)="loadAnaliseVertical()" data-toggle="tab"><b>AV Balanço</b></a>
+          </li>
+          <li>
+            <a href="#tab_7" (click)="loadAnaliseVerticalDre()" data-toggle="tab"><b>AV DRE</b></a>
+          </li>
+          <li>
+            <a href="#tab_8" (click)="loadAnaliseHorizontal()" data-toggle="tab"><b>AH Balanço</b></a>
+          </li>
+          <li>
+            <a href="#tab_9" (click)="loadAnaliseHorizontalDre()" data-toggle="tab"><b>AH DRE</b></a>
+          </li>
+          <li class="pull-right">
+          </li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="tab_0">
+            <app-balanco [b1]="b1" [b2]="b2"></app-balanco>
           </div>
-          <!-- nav-tabs-custom -->
+          <div class="tab-pane" id="tab_1">
+            <app-dre [dre1]="dre1" [dre2]="dre2" [ano1]="b1.ano" [ano2]="b2.ano" *ngIf="dreLoad"></app-dre>
+          </div>
+          <div class="tab-pane" id="tab_2">
+            <div class="nav-tabs-custom">
+              <ul class="nav nav-tabs">
+                <li class="active">
+                  <a href="#tab_10" (click)="loadSituacaoFinanceira()" data-toggle="tab">Situação Financeira</a>
+                </li>
+                <li>
+                  <a href="#tab_11" (click)="loadSituacaoEconomica()" data-toggle="tab">Situação Econômica</a>
+                </li>
+              </ul>
+              <div class="tab-content">
+                <div class="tab-pane active" id="tab_10">
+                  <app-situacao-financeira *ngIf="situacaoFinanceiraLoad" [b1]="b1" [b2]="b2"></app-situacao-financeira>
+                </div>
+                <!-- /.tab-pane -->
+                <div class="tab-pane" id="tab_11">
+                  <app-situacao-economica *ngIf="situacaoEconomicaLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
+                  </app-situacao-economica>
+                </div>
+                <!-- /.tab-pane -->
+              </div>
+              <!-- /.tab-content -->
+            </div>
+            <!-- nav-tabs-custom -->
+          </div>
+          <!-- /.tab-pane -->
+          <div class="tab-pane" id="tab_3">
+            <app-capital-giro [b1]="b1" [b2]="b2" *ngIf="capitalDeGiroLoad"></app-capital-giro>
+          </div>
+          <!-- /.tab-pane -->
+          <div class="tab-pane" id="tab_4">
+            <app-prazos-ciclos *ngIf="prazosMediosLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
+            </app-prazos-ciclos>
+          </div>
+          <div class="tab-pane" id="tab_6">
+            <app-analise-vertical *ngIf="analiseVerticalLoad" [b1]="b1" [b2]="b2"></app-analise-vertical>
+          </div>
+          <div class="tab-pane" id="tab_7">
+            <app-analise-vertical-dre *ngIf="analiseVerticalDreLoad" [dre1]="dre1" [dre2]="dre2">
+            </app-analise-vertical-dre>
+          </div>
+          <!-- /.tab-pane -->
+          <div class="tab-pane" id="tab_8">
+            <app-analise-horizontal *ngIf="analiseHorizontalLoad" [b1]="b1" [b2]="b2"></app-analise-horizontal>
+          </div>
+          <div class="tab-pane" id="tab_9">
+            <app-analise-horizontal-dre *ngIf="analiseHorizontalDreLoad" [dre1]="dre1" [dre2]="dre2">
+            </app-analise-horizontal-dre>
+          </div>
+          <!-- /.tab-pane -->
         </div>
-        <!-- /.tab-pane -->
-        <div class="tab-pane" id="tab_3">
-          <app-capital-giro [b1]="b1" [b2]="b2" *ngIf="capitalDeGiroLoad"></app-capital-giro>
-        </div>
-        <!-- /.tab-pane -->
-        <div class="tab-pane" id="tab_4">
-          <app-prazos-ciclos *ngIf="prazosMediosLoad" [b1]="b1" [b2]="b2" [dre1]="dre1" [dre2]="dre2">
-          </app-prazos-ciclos>
-        </div>
-        <div class="tab-pane" id="tab_6">
-          <app-analise-vertical *ngIf="analiseVerticalLoad" [b1]="b1" [b2]="b2"></app-analise-vertical>
-        </div>
-        <div class="tab-pane" id="tab_7">
-          <app-analise-vertical-dre *ngIf="analiseVerticalDreLoad" [dre1]="dre1" [dre2]="dre2">
-          </app-analise-vertical-dre>
-        </div>
-        <!-- /.tab-pane -->
-        <div class="tab-pane" id="tab_8">
-          <app-analise-horizontal *ngIf="analiseHorizontalLoad" [b1]="b1" [b2]="b2"></app-analise-horizontal>
-        </div>
-        <div class="tab-pane" id="tab_9">
-          <app-analise-horizontal-dre *ngIf="analiseHorizontalDreLoad" [dre1]="dre1" [dre2]="dre2">
-          </app-analise-horizontal-dre>
-        </div>
-        <!-- /.tab-pane -->
+        <!-- /.tab-content -->
       </div>
-      <!-- /.tab-content -->
+      <!-- nav-tabs-custom -->
     </div>
-    <!-- nav-tabs-custom -->
+    <!-- /.col -->
   </div>
-  <!-- /.col -->
-</div>
+</section>
