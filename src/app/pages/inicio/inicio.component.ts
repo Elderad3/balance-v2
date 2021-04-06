@@ -8,13 +8,10 @@ import { Component, OnInit } from "@angular/core";
 export class InicioComponent implements OnInit {
   titulo: string = 'Página Inicial'
   data: any;
-  constructor(private metaTagService: Meta, private titleService: Title) {
+  constructor(private titleService: Title) {
   }
 
   ngOnInit() {
     this.titleService.setTitle(this.titulo);
-    this.metaTagService.updateTag(
-      { name: 'description', content: 'Ferramentas Gratuitas para Contadores e Gestores.' }
-    )
   }
 }
