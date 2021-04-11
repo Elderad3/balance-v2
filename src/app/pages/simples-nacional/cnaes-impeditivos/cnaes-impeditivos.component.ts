@@ -7,11 +7,10 @@ import { take } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cnaes-impeditivos',
-  templateUrl: './cnaes-impeditivos.component.html',
-  styleUrls: ['./cnaes-impeditivos.component.css']
+  templateUrl: './cnaes-impeditivos.component.html'
 })
 export class CnaesImpeditivosComponent implements OnInit {
-  titulo: string = 'Cnaes impeditivos ao Simples Nacional'
+  titulo: string = 'Cnaes Impeditivos ao Simples Nacional'
 
   codigoCnae: string = ''
   cnae: any
@@ -43,10 +42,13 @@ export class CnaesImpeditivosComponent implements OnInit {
       return null
     }
     if (cnaes.length !== undefined) {
+      console.log(cnaes)
       let atividadesArrays = cnaes.map(cnae => cnae.atividades)
       let atividadesArray = [].concat(atividadesArrays.map(array => array[0]))
       let atividadesMinusculas = atividadesArray.map(atividade => atividade[0].toUpperCase() + atividade.slice(1).toLowerCase())
       let descricao = cnaes[0].descricao[0].toUpperCase() + cnaes[0].descricao.slice(1).toLowerCase()
+      // let observacoes = cnaes.observacoes.map(observacao => observacao)
+      // console.log(observacoes)
       let impeditivo = this.verificarCnaeImpeditivo(cnaes[0].id)
       let ambiguo = this.verificarCnaeAmbiguo(cnaes[0].id)
       let cnae: Cnae = {
@@ -54,21 +56,26 @@ export class CnaesImpeditivosComponent implements OnInit {
         descricao: descricao,
         impeditivo: impeditivo,
         ambiguo: ambiguo,
-        atividades: atividadesMinusculas
+        atividades: atividadesMinusculas,
+        // observacoes: observacoes
       }
       return cnae
     }
     if (cnaes.length === undefined) {
+      console.log(cnaes)
       let descricao = cnaes.descricao[0].toUpperCase() + cnaes.descricao.slice(1).toLowerCase()
       let atividades = cnaes.atividades.map(atividade => atividade[0].toUpperCase() + atividade.slice(1).toLowerCase())
       let impeditivo = this.verificarCnaeImpeditivo(cnaes.id)
       let ambiguo = this.verificarCnaeAmbiguo(cnaes.id)
+      // let observacoes = cnaes.observacoes.map(observacao => observacao)
+      // console.log(observacoes)
       let cnae: Cnae = {
         codigo: cnaes.id,
         descricao: descricao,
         impeditivo: impeditivo,
         ambiguo: ambiguo,
-        atividades: atividades
+        atividades: atividades,
+        // observacoes: observacoes
       }
       return cnae
     }
@@ -100,4 +107,5 @@ export class Cnae {
   impeditivo: boolean
   ambiguo: boolean
   atividades: any[]
+  // observacoes: any[]
 }
