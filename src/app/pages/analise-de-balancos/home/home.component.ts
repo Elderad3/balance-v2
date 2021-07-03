@@ -722,6 +722,7 @@ export class HomeComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
     this.b1.contas = this.contasB1;
     this.b2.contas = this.contasB2;
     this.dre1.contas = this.contasDre1

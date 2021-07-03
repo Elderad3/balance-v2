@@ -1,4 +1,4 @@
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import { ErrorService } from './../../../shared/services/error.service';
 import { CnaesImpeditivosService } from './cnaes-impeditivos.service';
@@ -19,10 +19,14 @@ export class CnaesImpeditivosComponent implements OnInit {
 
   constructor(private cnaesImpeditivosService: CnaesImpeditivosService,
     private errorService: ErrorService,
-    private titleService: Title) { }
+    private titleService: Title,
+    private metaService: Meta) { }
 
   ngOnInit() {
     this.titleService.setTitle(this.titulo);
+    this.metaService.updateTag(
+      { name: 'description', content: 'Ferramenta online que verifica se determinado CNAE é permitido, ambíguo ou impeditivo ao simples Nacional.' }
+    );
   }
 
   buscarCnaesPorSubclasse() {

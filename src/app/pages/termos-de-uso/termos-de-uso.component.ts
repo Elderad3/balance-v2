@@ -1,3 +1,4 @@
+import { Title, Meta } from '@angular/platform-browser';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,9 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermosDeUsoComponent implements OnInit {
 
-  constructor() { }
+  constructor(private titleService: Title, private metaService: Meta) { }
 
   ngOnInit() {
+    this.titleService.setTitle("Termos de Uso");
+    this.metaService.updateTag(
+      { name: 'description', content: 'Termos de uso do site' }
+    );
   }
 
 }

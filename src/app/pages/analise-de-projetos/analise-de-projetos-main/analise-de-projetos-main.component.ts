@@ -1,4 +1,4 @@
-import { Title } from '@angular/platform-browser';
+import { Title, Meta } from '@angular/platform-browser';
 import { NgForm } from '@angular/forms';
 import { ViewChild } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
@@ -39,9 +39,12 @@ export class AnaliseDeProjetosMainComponent implements OnInit {
   projetoForm: NgForm;
 
   constructor(
-    private titleService: Title) { }
+    private titleService: Title, private metaService: Meta) { }
   ngOnInit() {
     this.titleService.setTitle(this.titulo);
+    this.metaService.updateTag(
+      { name: 'description', content: 'Calcule Online a Viabilidade Financeira de um Projeto' }
+    );
     this.realizarCalculos()
   }
 

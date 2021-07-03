@@ -6,12 +6,17 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./inicio.component.html"
 })
 export class InicioComponent implements OnInit {
-  titulo: string = 'Página Inicial'
+  titulo: string = 'Giro Líquido'
   data: any;
-  constructor(private titleService: Title) {
+  constructor(private titleService: Title, private metaService: Meta) {
   }
 
   ngOnInit() {
     this.titleService.setTitle(this.titulo);
+    this.metaService.addTags([
+      { name: 'description', content: 'Ferramentas Online e Gratuitas para Contadores e Gestores' },
+      { name: 'robots', content: 'index, follow' }
+    ]);
+
   }
 }
